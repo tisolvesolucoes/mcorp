@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Med COrp</title>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/teste.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container" style="border: 1px solid #000;">
+        <h1>MedCorp</h1>
+        <p>Comparativo.</p>
+        <div class="row" style=" font-size:small; font-weight: 800;">
+            <form action="/action_page.php">
+
+                <div class="row arrumaTextoCentro">
+
+                    <div class="col-md-12" style="background-color:lavender;">
+                        PACIENTES EM USO DE CATÉTER:
+                    </div>
+
+                    <div class="col-md-5"></div>
+
+                    <div class="form-group col-md-2">
+                        <input type="text" class="form-control" placeholder="PACIENTES" id="numeroPacientes">
+                    </div>
+
+                </div>
+
+                <div class="row" style="font-weight: 800;"></div>
+
+                <div class="col-md-4" style="background-color:cornflowerblue;">
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                        </div>
+
+                        <div class="col-md-3">
+                            CONECTOR/
+                            <br> TAMPA
+                            <br> UNITÁRIO
+                        </div>
+
+                        <div class="col-md-3">
+                            HEPARINA - FRASCO
+                        </div>
+
+                        <div class="col-md-3">
+                            LUVA - PAR
+                        </div>
+
+                    </div>
+
+
+                    <div class="row arrumaInput">
+
+                        <div class="col-md-3"></div>
+
+                        <div class="form-group col-md-3">
+                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                                class="form-control" placeholder="R$:" id="conectorTampa">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                                class="form-control" placeholder="R$:" id="heparina">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                                class="form-control" placeholder="R$:" id="luva">
+                        </div>
+
+                    </div>
+
+
+                    <div class="row ">
+                        <div class="col-md-auto arrumaTextoCentro" style="background-color:hotpink;">
+                            Custo por paciente
+                        </div>
+
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3 arrumaAlinhamento">
+                            Custo Diário
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            Custo Semanal
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            Custo Mensal
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            CONECTOR
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellConectorTampa">
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento"  id="cellConectorTampaSemanal">
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellConectorTampaMensal">
+                            R$ 0,00
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            HEPARINA
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellHeparina">
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaSemanal">
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaMensal">
+                            R$ 0,00
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            LUVA
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellLuva">
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellLuvaSemanal">
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellLuvaMensal">
+                            R$ 0,00
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                        </div>
+
+                        <div class="col-md-3">
+                            TOTAL
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            R$ 231,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            R$ 43,00
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-1"></div>
+
+                        <div class="col-md-11">
+                            CUSTO POR PACIENTE COM CATÉTER
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-3"></div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            TOTAL
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            R$ 1,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            R$ 4,00
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-4" style="background-color:greenyellow;">
+
+
+
+                    <div class="row">
+
+                        <div class="col-md-3"></div>
+
+                        <div class="col-md-3">
+                            TEGO - UNIDADE
+                            <br><br>
+                        </div>
+
+                        <div class="col-md-3">
+                            HEPARINA
+                        </div>
+
+                        <div class="col-md-3">
+                            LUVA - PAR
+                        </div>
+
+                    </div>
+
+                    <div class="row arrumaInput">
+
+                        <div class="col-md-3"></div>
+
+                        <div class="form-group col-md-3">
+                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                                class="form-control" placeholder="R$:" id="tegoUnidade">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <input type="text" 
+                                class="form-control" readonly placeholder="ZERO" value="0" id="heparinaMedCorp">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                                class="form-control" placeholder="R$:" id="luvaMedCorp">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-auto arrumaTextoCentro">
+                            Custo por paciente
+                        </div>
+
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3 arrumaAlinhamento">
+                            Custo Diário
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            Custo Semanal
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            Custo Mensal
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            TEGO
+                        </div>
+                        <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidade">
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidadeSemanal"> 
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidadeMensal">
+                            R$ 0,00
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            HEPARINA
+                        </div>
+                        <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaMedCorp">
+                           ZERO
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaMedCorpSemanal">
+                            ZERO
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento"id="cellHeparinaMedCorpMensal">
+                            ZERO
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            LUVA
+                        </div>
+                        <div class="col-md-3 arrumaAlinhamento" id="cellLuvaMedCorp">
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellLuvaMedCorpSemanal">
+                            R$ 0,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento" id="cellLuvaMedCorpMensal">
+                            R$ 0,00
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-3"></div>
+
+                        <div class="col-md-3">
+                            TOTAL
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            R$ 231,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            R$ 43,00
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-1"></div>
+
+                        <div class="col-md-11">
+                            CUSTO POR PACIENTE COM CATÉTER
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-3"></div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            TOTAL
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            R$ 1,00
+                        </div>
+
+                        <div class="col-md-3 arrumaAlinhamento">
+                            R$ 4,00
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-4" style="background-color:mediumaquamarine;">
+                    div 3
+                </div>
+
+
+        </div>
+
+        <button type="submit" id="botao" class="btn btn-primary">Submit</button>
+
+        </form>
+
+    </div>
+    <div class="col-6" style="background-color:lavenderblush;">
+        <canvas id="primeiroGrafico"></canvas>
+    </div>
+
+    </div>
+
+
+    <button id="myBtn">Try it</button>
+
+    <script>
+
+
+        $(document).ready(function () {
+
+            let numeroPacientes = $("#numeroPacientes");
+            let custoPacienteTotalMensal;
+
+            let conectorTampa = $("#conectorTampa");
+            let heparina = $("#heparina");
+            let luva = $("#luva");
+            let tegoUnidade = $("#tegoUnidade");
+            let heparinaMedCorp = 0;
+            let luvaMedCorp = $("#luvaMedCorp");
+
+                function calculaTotalMensal(){
+                    let valorConectorTampa = conectorTampa.val();
+                    let valorHeparina = heparina.val();
+                    let valorLuva = luva.val();
+                    let valorTegoUnidade = tegoUnidade.val();
+                    let valorLuvaMedCorp = luvaMedCorp.val();
+       
+
+                    if(valorConectorTampa != "" && valorHeparina != "" && valorLuva != ""){
+
+                        let resultado                               = valorConectorTampa * 2;
+                        let resultadoSemanalValorConectorTampa      = resultadovalorConectorTampa * 3; 
+                        let resultadoMensalConectorTampa            = resultadoSemanalValorConectorTampa * 4; 
+
+                        let resultadoValorHeparina           = valorHeparina * 2;
+                        let resultadoSemanalValorHeparina    = resultadoValorHeparina * 3; 
+                        let resultadoMensalValorHeparina      = resultadoSemanalValorHeparina * 4; 
+
+                        let resultadoLuva           = valorLuva * 2;
+                        let resultadoSemanalLuva    = resultadoLuva * 3; 
+                        let resultadoMensalLuva     = resultadoSemanaLuva * 4; 
+                                    
+                        let somaTotalSemanal = resultadoSemanalValorConectorTampa + resultadoSemanalValorHeparina + resultadoSemanalValorHeparina;
+                        let somaTotalMensal = resultadoMensalConectorTampa + resultadoMensalValorHeparina + resultadoMensalLuva; 
+                        
+                        document.getElementById("cellTotalSemanal").innerHTML = rSemanal;
+                        document.getElementById("cellTotalMensal").innerHTML = rMensal;
+
+                    }
+                    
+                    if(valorConectorTampa != "" && valorHeparina != "" && valorLuva != ""){
+
+                        let resultadoTegoUnidade           = valorTegoUnidade * 2;
+                        let resultadoSemanalTegoUnidade    = resultadoTegoUnidade * 3; 
+                        let resultadoMensalTegoUnidade     = resultadoSemanalTegoUnidade * 4;               
+ 
+                        let resultadoLuvaMedCorp            = valorLuvaMedCorp * 2;
+                        let resultadoSemanalLuvaMedCorp     = resultadoLuvaMedCorp * 3; 
+                        let resultadoMensalLuvaMedCorp      = resultadoSemanalLuvaMedCorp * 4; 
+            
+                                    
+                        let somaTotalSemanal = resultadoSemanalTegoUnidade + resultadoSemanalLuvaMedCorp;
+                        let somaTotalMensal = resultadoMensalTegoUnidade + resultadoMensalLuvaMedCorp; 
+
+                        alert("fsdfsdg"+valorConectorTampa);
+
+                    }
+
+                }
+
+
+            conectorTampa.focusout(function () {
+
+                let valorConectorTampa = conectorTampa.val();
+                valorConectorTampa = valorConectorTampa.replace(',', '');
+                valorConectorTampa = valorConectorTampa.replace('.', '');
+
+                let resultado           = valorConectorTampa * 2;
+                let resultadoSemanal    = resultado * 3; 
+                let resultadoMensal     = resultadoSemanal * 4; 
+                             
+                var r           = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rSemanal    = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rMensal     = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                
+
+                document.getElementById("cellConectorTampa").innerHTML = r;
+                document.getElementById("cellConectorTampaSemanal").innerHTML = rSemanal;
+                document.getElementById("cellConectorTampaMensal").innerHTML = rMensal;
+
+
+            });
+
+            heparina.focusout(function () {
+                let valorHeparina = heparina.val();
+                let resultado = valorHeparina * 1;
+                let resultadoSemanal    = resultado * 3; 
+                let resultadoMensal     = resultadoSemanal * 4; 
+                             
+                var r           = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rSemanal    = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rMensal     = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                
+
+                document.getElementById("cellHeparina").innerHTML = r;
+                document.getElementById("cellHeparinaSemanal").innerHTML = rSemanal;
+                document.getElementById("cellHeparinaMensal").innerHTML = rMensal;
+
+            });
+
+        
+
+            luva.focusout(function () {
+                let valorLuva = luva.val();
+                valorLuva = valorLuva.replace(',', '');
+                valorLuva = valorLuva.replace('.', '');
+                calculaTotalMensal();
+                let resultado           = valorLuva * 2;
+                let resultadoSemanal    = resultado * 3; 
+                let resultadoMensal     = resultadoSemanal * 4; 
+                             
+                var r           = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rSemanal    = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rMensal     = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                
+
+                document.getElementById("cellLuva").innerHTML = r;
+                document.getElementById("cellLuvaSemanal").innerHTML = rSemanal;
+                document.getElementById("cellLuvaMensal").innerHTML = rMensal;
+
+
+            });
+
+            tegoUnidade.focusout(function () {
+                let valorTegoUnidade = tegoUnidade.val();
+                valorTegoUnidade = valorTegoUnidade.replace(',', '');
+                valorTegoUnidade = valorTegoUnidade.replace('.', '');
+
+                let resultado = valorTegoUnidade * 2;
+                let resultadoSemanal    = resultado * 3; 
+                let resultadoMensal     = resultadoSemanal * 4; 
+                             
+                var r           = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rSemanal    = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rMensal     = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                
+                document.getElementById("cellTegoUnidade").innerHTML = r;
+                document.getElementById("cellTegoUnidadeSemanal").innerHTML = rSemanal;
+                document.getElementById("cellTegoUnidadeMensal").innerHTML = rMensal;
+
+
+            });
+
+
+            luvaMedCorp.focusout(function () {
+                let valorLuvaMedCorp = luvaMedCorp.val();
+                valorLuvaMedCorp = valorLuvaMedCorp.replace(',', '');
+                valorLuvaMedCorp = valorLuvaMedCorp.replace('.', '');
+
+                let resultado = valorLuvaMedCorp * 2;
+                let resultadoSemanal    = resultado * 3; 
+                let resultadoMensal     = resultadoSemanal * 4; 
+                             
+                var r           = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rSemanal    = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rMensal     = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                
+                document.getElementById("cellLuvaMedCorp").innerHTML = r;
+                document.getElementById("cellLuvaMedCorpSemanal").innerHTML = rSemanal;
+                document.getElementById("cellLuvaMedCorpMensal").innerHTML = rMensal;
+                
+
+            });
+               
+        });
+
+    </script>
+</body>
+
+</html>

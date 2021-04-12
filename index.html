@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-    <title>Med COrp</title>
+    <title>Med Corp</title>
 
     <meta charset="utf-8">
 
@@ -37,9 +37,9 @@
 
                 </div>
 
-                <div class="row" style="font-weight: 800;"></div>
+                <div class="row" style="font-weight: 600;"></div>
 
-                <div class="col-md-4" style="background-color:cornflowerblue;">
+                <div class="col-md-4">
 
                     <div class="row">
 
@@ -86,7 +86,7 @@
 
 
                     <div class="row ">
-                        <div class="col-md-auto arrumaTextoCentro" style="background-color:hotpink;">
+                        <div class="col-md-auto arrumaTextoCentro" style="background-color: black; color: #fff;">
                             Custo por paciente
                         </div>
 
@@ -179,16 +179,16 @@
                         <div class="col-md-3">
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-3" style="background-color: black; color: #fff;">
                             TOTAL
                         </div>
 
-                        <div class="col-md-3 arrumaAlinhamento">
-                            R$ 231,00
+                        <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanal">
+                            R$ 0,00
                         </div>
 
-                        <div class="col-md-3 arrumaAlinhamento">
-                            R$ 43,00
+                        <div class="col-md-3 arrumaAlinhamento" id="cellTotalMensal">
+                            R$ 0,00
                         </div>
 
                     </div>
@@ -198,7 +198,7 @@
 
                         <div class="col-md-1"></div>
 
-                        <div class="col-md-11">
+                        <div class="col-md-11" style="background-color: black; color: #fff; font-weight: 800;">
                             CUSTO POR PACIENTE COM CATÉTER
                         </div>
 
@@ -209,7 +209,7 @@
 
                         <div class="col-md-3"></div>
 
-                        <div class="col-md-3 arrumaAlinhamento">
+                        <div class="col-md-3 arrumaAlinhamento" style="background-color: black; color: #fff;">
                             TOTAL
                         </div>
 
@@ -226,7 +226,7 @@
 
                 </div>
 
-                <div class="col-md-4" style="background-color:greenyellow;">
+                <div class="col-md-4">
 
 
 
@@ -272,7 +272,7 @@
 
                     <div class="row">
 
-                        <div class="col-md-auto arrumaTextoCentro">
+                        <div class="col-md-auto arrumaTextoCentro" style="background-color: black; color: #fff;">
                             Custo por paciente
                         </div>
 
@@ -362,12 +362,12 @@
                             TOTAL
                         </div>
 
-                        <div class="col-md-3 arrumaAlinhamento">
-                            R$ 231,00
+                        <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanalMedCorp">
+                            R$ 0,00
                         </div>
 
-                        <div class="col-md-3 arrumaAlinhamento">
-                            R$ 43,00
+                        <div class="col-md-3 arrumaAlinhamento" id="cellTotalMensalMedCorp">
+                            R$ 0,00
                         </div>
 
                     </div>
@@ -377,7 +377,7 @@
 
                         <div class="col-md-1"></div>
 
-                        <div class="col-md-11">
+                        <div class="col-md-11" style="background-color: black; color: #fff; font-weight: 800;"> 
                             CUSTO POR PACIENTE COM CATÉTER
                         </div>
 
@@ -433,6 +433,7 @@
         $(document).ready(function () {
 
             let numeroPacientes = $("#numeroPacientes");
+            numeroPacientes.focus();
             let custoPacienteTotalMensal;
 
             let conectorTampa = $("#conectorTampa");
@@ -442,53 +443,71 @@
             let heparinaMedCorp = 0;
             let luvaMedCorp = $("#luvaMedCorp");
 
-                function calculaTotalMensal(){
+                function calculaTotalMensal(c){
                     let valorConectorTampa = conectorTampa.val();
                     let valorHeparina = heparina.val();
                     let valorLuva = luva.val();
                     let valorTegoUnidade = tegoUnidade.val();
                     let valorLuvaMedCorp = luvaMedCorp.val();
        
+                        if(c == 1   
+                        &&(valorConectorTampa != "" 
+                        && valorHeparina != "" 
+                        && valorLuva != "")){
 
-                    if(valorConectorTampa != "" && valorHeparina != "" && valorLuva != ""){
+                            valorConectorTampa = valorConectorTampa.replace(',', '');
+                            valorConectorTampa = valorConectorTampa.replace('.', '');
 
-                        let resultado                               = valorConectorTampa * 2;
-                        let resultadoSemanalValorConectorTampa      = resultadovalorConectorTampa * 3; 
-                        let resultadoMensalConectorTampa            = resultadoSemanalValorConectorTampa * 4; 
+                            let resultadovalorConectorTampa             = valorConectorTampa * 2;
+                            let resultadoSemanalValorConectorTampa      = resultadovalorConectorTampa * 3; 
+                            let resultadoMensalConectorTampa            = resultadoSemanalValorConectorTampa * 4; 
 
-                        let resultadoValorHeparina           = valorHeparina * 2;
-                        let resultadoSemanalValorHeparina    = resultadoValorHeparina * 3; 
-                        let resultadoMensalValorHeparina      = resultadoSemanalValorHeparina * 4; 
+                            valorHeparina = valorHeparina.replace(',', '');
+                            valorHeparina = valorHeparina.replace('.', '');
 
-                        let resultadoLuva           = valorLuva * 2;
-                        let resultadoSemanalLuva    = resultadoLuva * 3; 
-                        let resultadoMensalLuva     = resultadoSemanaLuva * 4; 
-                                    
-                        let somaTotalSemanal = resultadoSemanalValorConectorTampa + resultadoSemanalValorHeparina + resultadoSemanalValorHeparina;
-                        let somaTotalMensal = resultadoMensalConectorTampa + resultadoMensalValorHeparina + resultadoMensalLuva; 
-                        
-                        document.getElementById("cellTotalSemanal").innerHTML = rSemanal;
-                        document.getElementById("cellTotalMensal").innerHTML = rMensal;
+                            let resultadoValorHeparina           = valorHeparina * 2;
+                            let resultadoSemanalValorHeparina    = resultadoValorHeparina * 3; 
+                            let resultadoMensalValorHeparina      = resultadoSemanalValorHeparina * 4; 
+                            
+                            valorLuva = valorLuva.replace(',', '');
+                            valorLuva = valorLuva.replace('.', '');
+                            let resultadoLuva           = valorLuva * 2;
+                            let resultadoSemanalLuva    = resultadoLuva * 3; 
+                            let resultadoMensalLuva     = resultadoSemanalLuva * 4; 
+                                        
+                            let somaTotalSemanal = resultadoSemanalValorConectorTampa + resultadoSemanalValorHeparina + resultadoSemanalLuva;
+                            let somaTotalMensal = resultadoMensalConectorTampa + resultadoMensalValorHeparina + resultadoMensalLuva; 
 
-                    }
-                    
-                    if(valorConectorTampa != "" && valorHeparina != "" && valorLuva != ""){
+                            let rsomaTotalSemanal = somaTotalSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                            let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                            
+                            document.getElementById("cellTotalSemanal").innerHTML = rsomaTotalSemanal;
+                            document.getElementById("cellTotalMensal").innerHTML = rsomaTotalMensal;
 
-                        let resultadoTegoUnidade           = valorTegoUnidade * 2;
-                        let resultadoSemanalTegoUnidade    = resultadoTegoUnidade * 3; 
-                        let resultadoMensalTegoUnidade     = resultadoSemanalTegoUnidade * 4;               
- 
-                        let resultadoLuvaMedCorp            = valorLuvaMedCorp * 2;
-                        let resultadoSemanalLuvaMedCorp     = resultadoLuvaMedCorp * 3; 
-                        let resultadoMensalLuvaMedCorp      = resultadoSemanalLuvaMedCorp * 4; 
-            
-                                    
-                        let somaTotalSemanal = resultadoSemanalTegoUnidade + resultadoSemanalLuvaMedCorp;
-                        let somaTotalMensal = resultadoMensalTegoUnidade + resultadoMensalLuvaMedCorp; 
+                        }
+                        else if(c == 2 
+                        && (valorTegoUnidade != "" 
+                        && valorLuvaMedCorp != "")){
 
-                        alert("fsdfsdg"+valorConectorTampa);
+                            let resultadoTegoUnidade           = valorTegoUnidade * 2;
+                            let resultadoSemanalTegoUnidade    = resultadoTegoUnidade * 3; 
+                            let resultadoMensalTegoUnidade     = resultadoSemanalTegoUnidade * 4;               
+    
+                            let resultadoLuvaMedCorp            = valorLuvaMedCorp * 2;
+                            let resultadoSemanalLuvaMedCorp     = resultadoLuvaMedCorp * 3; 
+                            let resultadoMensalLuvaMedCorp      = resultadoSemanalLuvaMedCorp * 4; 
+                
+                            let somaTotalSemanal = resultadoSemanalTegoUnidade + resultadoSemanalLuvaMedCorp;
+                            let somaTotalMensal = resultadoMensalTegoUnidade + resultadoMensalLuvaMedCorp; 
 
-                    }
+
+                            let rsomaTotalSemanal = somaTotalSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                            let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                            
+                            document.getElementById("cellTotalSemanalMedCorp").innerHTML = rsomaTotalSemanal;
+                            document.getElementById("cellTotalMensalMedCorp").innerHTML = rsomaTotalMensal;
+
+                        }
 
                 }
 
@@ -511,12 +530,15 @@
                 document.getElementById("cellConectorTampa").innerHTML = r;
                 document.getElementById("cellConectorTampaSemanal").innerHTML = rSemanal;
                 document.getElementById("cellConectorTampaMensal").innerHTML = rMensal;
-
+                heparina.focus();
 
             });
 
             heparina.focusout(function () {
                 let valorHeparina = heparina.val();
+                valorHeparina = valorHeparina.replace(',', '');
+                valorHeparina = valorHeparina.replace('.', '');
+
                 let resultado = valorHeparina * 1;
                 let resultadoSemanal    = resultado * 3; 
                 let resultadoMensal     = resultadoSemanal * 4; 
@@ -529,7 +551,7 @@
                 document.getElementById("cellHeparina").innerHTML = r;
                 document.getElementById("cellHeparinaSemanal").innerHTML = rSemanal;
                 document.getElementById("cellHeparinaMensal").innerHTML = rMensal;
-
+                luva.focus();
             });
 
         
@@ -538,7 +560,7 @@
                 let valorLuva = luva.val();
                 valorLuva = valorLuva.replace(',', '');
                 valorLuva = valorLuva.replace('.', '');
-                calculaTotalMensal();
+    
                 let resultado           = valorLuva * 2;
                 let resultadoSemanal    = resultado * 3; 
                 let resultadoMensal     = resultadoSemanal * 4; 
@@ -552,6 +574,7 @@
                 document.getElementById("cellLuvaSemanal").innerHTML = rSemanal;
                 document.getElementById("cellLuvaMensal").innerHTML = rMensal;
 
+                calculaTotalMensal(1);
 
             });
 
@@ -571,7 +594,7 @@
                 document.getElementById("cellTegoUnidade").innerHTML = r;
                 document.getElementById("cellTegoUnidadeSemanal").innerHTML = rSemanal;
                 document.getElementById("cellTegoUnidadeMensal").innerHTML = rMensal;
-
+                luvaMedCorp.focus();
 
             });
 
@@ -593,6 +616,7 @@
                 document.getElementById("cellLuvaMedCorpSemanal").innerHTML = rSemanal;
                 document.getElementById("cellLuvaMedCorpMensal").innerHTML = rMensal;
                 
+                calculaTotalMensal(2);         
 
             });
                

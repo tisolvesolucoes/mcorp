@@ -1,0 +1,16 @@
+
+
+.arrumaTextoCentro{
+    text-align: center;
+}
+
+.arrumaAlinhamento{
+    white-space: nowrap;
+    font-size: small;
+    text-align: center;
+    font-weight: 300!important;
+}
+
+ .arrumaInput input{
+    font-size: small;
+}

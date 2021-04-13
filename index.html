@@ -18,7 +18,7 @@
 <body>
 
 
-    <div class="container" style="border: 1px solid #000;">
+    <div class="container" >
         <h1>MedCorp</h1>
         <p>Comparativo.</p>
         <div class="row" style=" font-size:small; font-weight: 800;">
@@ -33,7 +33,7 @@
                     <div class="col-md-5"></div>
 
                     <div class="form-group col-md-2">
-                        <input type="text" maxlength="5" class="form-control" placeholder="PACIENTES"
+                        <input tabindex="1" type="text" maxlength="5" class="form-control" placeholder="PACIENTES"
                             id="numeroPacientes">
                     </div>
 
@@ -72,17 +72,17 @@
                         <div class="col-md-3"></div>
 
                         <div class="form-group col-md-3">
-                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                            <input tabindex="2" type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
                                 class="form-control" placeholder="R$:" id="conectorTampa">
                         </div>
 
                         <div class="form-group col-md-3">
-                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                            <input tabindex="3" type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
                                 class="form-control" placeholder="R$:" id="heparina">
                         </div>
 
                         <div class="form-group col-md-3">
-                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                            <input tabindex="4" type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
                                 class="form-control" placeholder="R$:" id="luva">
                         </div>
 
@@ -267,17 +267,16 @@
                         <div class="col-md-3"></div>
 
                         <div class="form-group col-md-3">
-                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                            <input tabindex="5" type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
                                 class="form-control" placeholder="R$:" id="tegoUnidade">
                         </div>
 
                         <div class="form-group col-md-3">
-                            <input type="text" class="form-control" readonly placeholder="ZERO" value="0,00"
-                                id="heparinaMedCorp">
+                            <input type="text" class="form-control" readonly value="ZERO" id="heparinaMedCorp">
                         </div>
 
                         <div class="form-group col-md-3">
-                            <input type="text" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
+                            <input type="text" tabindex="6" onkeypress="$(this).mask('#.##0,00', {reverse: true});"
                                 class="form-control" placeholder="R$:" id="luvaMedCorp">
                         </div>
 
@@ -438,41 +437,41 @@
         </div>
 
 
-        <div class="row">
+        <div class="row jumbotron">
 
-            <div class="col-md-auto">
+            <div class="col-md-auto" style="color: green; font-weight: 600;">
                 DIFERENCA DE CUSTO POR MÊS
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="text-align: center; font-weight: 600;">
                 CONECTOR/TAMPA
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="text-align: center; font-weight: 600;">
                 MEDCORP
             </div>
 
-            <div class="col-md-6" id="CellDiferencaCustoConector">
+            <div class="col-md-6" id="CellDiferencaCustoConector" style="text-align: center; color: green; font-weight: 600;">
                 R$0,00
             </div>
 
-            <div class="col-md-6" id="CellDiferencaCustoMedCorp">
+            <div class="col-md-6" id="CellDiferencaCustoMedCorp" style="text-align: center; color: green; font-weight: 600;">
                 R$0,00
             </div>
-                            
-            <div class="col-md-12" style="text-align: center;">
-                ECONOMIA POR MÊS			
+
+            <div class="col-md-12" style="text-align: center; background-color: black; color: #fff;">
+                ECONOMIA POR MÊS
             </div>
 
-            <div class="col-md-12" id="CellEconomiaMensal" style="text-align: center;">
+            <div class="col-md-12" id="CellEconomiaMensal" style="text-align: center; color: green; font-weight: 600;">
                 R$0,00
             </div>
-               
-            <div class="col-md-12" style="text-align: center;">
-                ECONOMIA ANUAL			
+
+            <div class="col-md-12" style="text-align: center; background-color: black; color: #fff;">
+                ECONOMIA ANUAL
             </div>
 
-            <div class="col-md-12" id="CellEconomiaAnual" style="text-align: center;">
+            <div class="col-md-12" id="CellEconomiaAnual" style="text-align: center; color: green; font-weight: 600;">
                 R$0,00
             </div>
         </div>
@@ -489,7 +488,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-
     <script>
 
         $(document).ready(function () {
@@ -505,12 +503,10 @@
             let heparinaMedCorp = 0;
             let luvaMedCorp = $("#luvaMedCorp");
 
-            numeroPacientes.keyup(function () {
-                $(this).val(this.value.replace(/\D/g, ''));
-            });
 
 
             function calculaTotalMensal(c) {
+
                 let valorConectorTampa = conectorTampa.val();
                 let valorHeparina = heparina.val();
                 let valorLuva = luva.val();
@@ -522,22 +518,23 @@
                         && valorHeparina != ""
                         && valorLuva != "")) {
 
-                    valorConectorTampa = valorConectorTampa.replace(',', '');
                     valorConectorTampa = valorConectorTampa.replace('.', '');
+                    valorConectorTampa = valorConectorTampa.replace(',', '.');
 
                     let resultadovalorConectorTampa = valorConectorTampa * 2;
                     let resultadoSemanalValorConectorTampa = resultadovalorConectorTampa * 3;
                     let resultadoMensalConectorTampa = resultadoSemanalValorConectorTampa * 4;
 
-                    valorHeparina = valorHeparina.replace(',', '');
                     valorHeparina = valorHeparina.replace('.', '');
+                    valorHeparina = valorHeparina.replace(',', '.');
 
                     let resultadoValorHeparina = valorHeparina * 2;
                     let resultadoSemanalValorHeparina = resultadoValorHeparina * 3;
                     let resultadoMensalValorHeparina = resultadoSemanalValorHeparina * 4;
 
-                    valorLuva = valorLuva.replace(',', '');
                     valorLuva = valorLuva.replace('.', '');
+                    valorLuva = valorLuva.replace(',', '.');
+
                     let resultadoLuva = valorLuva * 2;
                     let resultadoSemanalLuva = resultadoLuva * 3;
                     let resultadoMensalLuva = resultadoSemanalLuva * 4;
@@ -549,10 +546,10 @@
                     let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
 
-                    let numeroPacientes = document.getElementById("numeroPacientes").value;
+                    let numeroPacientes = parseInt(document.getElementById("numeroPacientes").value);
 
-                    let rsomaTotalPacientesSemanal = somaTotalSemanal * parseInt(numeroPacientes);
-                    let rsomaTotalPacientesMensal = somaTotalMensal * parseInt(numeroPacientes);
+                    let rsomaTotalPacientesSemanal = somaTotalSemanal * numeroPacientes;
+                    let rsomaTotalPacientesMensal = somaTotalMensal * numeroPacientes;
 
                     rsomaTotalPacientesSemanal = rsomaTotalPacientesSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                     rsomaTotalPacientesMensal = rsomaTotalPacientesMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
@@ -570,9 +567,16 @@
                         && valorLuvaMedCorp != "")
                 ) {
 
+                    valorTegoUnidade = valorTegoUnidade.replace('.', '');
+                    valorTegoUnidade = valorTegoUnidade.replace(',', '.');
+
                     let resultadoTegoUnidade = valorTegoUnidade * 2;
                     let resultadoSemanalTegoUnidade = resultadoTegoUnidade * 3;
                     let resultadoMensalTegoUnidade = resultadoSemanalTegoUnidade * 4;
+
+
+                    valorLuvaMedCorp = valorLuvaMedCorp.replace('.', '');
+                    valorLuvaMedCorp = valorLuvaMedCorp.replace(',', '.');
 
                     let resultadoLuvaMedCorp = valorLuvaMedCorp * 2;
                     let resultadoSemanalLuvaMedCorp = resultadoLuvaMedCorp * 3;
@@ -585,10 +589,10 @@
                     let rsomaTotalSemanal = somaTotalSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                     let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
-                    let numeroPacientes = document.getElementById("numeroPacientes").value;
+                    let numeroPacientes = parseInt(document.getElementById("numeroPacientes").value);
 
-                    let somaTotalPacientesSemanalMedCorp = somaTotalSemanal * parseInt(numeroPacientes);
-                    somaTotalPacientesMensalMedCorp = somaTotalMensal * parseInt(numeroPacientes);
+                    let somaTotalPacientesSemanalMedCorp = somaTotalSemanal * numeroPacientes;
+                    somaTotalPacientesMensalMedCorp = somaTotalMensal * numeroPacientes;
 
                     let rsomaTotalPacientesSemanalMedCorp = somaTotalPacientesSemanalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                     rsomaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
@@ -598,31 +602,31 @@
                     document.getElementById("cellSomaTotalPacientesSemanalMedCorp").innerHTML = rsomaTotalPacientesSemanalMedCorp;
                     document.getElementById("cellSomaTotalPacientesMensalMedCorp").innerHTML = rsomaTotalPacientesMensalMedCorp;
                     document.getElementById("CellDiferencaCustoMedCorp").innerHTML = rsomaTotalPacientesMensalMedCorp;
-                    
 
-                    let cellSomaTotalPacientesMensal  =  document.getElementById("cellSomaTotalPacientesMensal").innerHTML;
+
+                    let cellSomaTotalPacientesMensal = document.getElementById("cellSomaTotalPacientesMensal").innerHTML;
                     let res = cellSomaTotalPacientesMensal.split(";");
-                    
+
                     console.log(res[1]);
 
-                    let cellEconomiaMensal = res[1].replace(',', '');
-                    cellEconomiaMensal = cellEconomiaMensal.replace('.', '');
+                    let cellEconomiaMensal = res[1].replace('.', '');
+                    cellEconomiaMensal = cellEconomiaMensal.replace(',', '.');
 
-                    //somaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toFixed(2);
-                    //let n = parseFloat(somaTotalPacientesMensalMedCorp);
-                    let reconomiaMensal = cellEconomiaMensal - somaTotalPacientesMensalMedCorp.toFixed(2);
+                    let economiaMensal = parseFloat(cellEconomiaMensal - somaTotalPacientesMensalMedCorp);
 
-                    reconomiaMensal = reconomiaMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-                    reconomiaMensal= reconomiaMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                    let reconomiaMensal = economiaMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
                     document.getElementById("CellEconomiaMensal").innerHTML = reconomiaMensal;
-                    
-                    /*
-                    CellDiferencaCustoConector
-                    CellDiferencaCustoMedCorp
-                    CellEconomiaMensal
-                    CellEconomiaAnual
-                    */
+
+                    economiaMensal = economiaMensal.toFixed(2);
+
+                    let economiaAnual = economiaMensal * 12;
+
+
+                    let reconomiaAnual = economiaAnual.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+                    document.getElementById("CellEconomiaAnual").innerHTML = reconomiaAnual;
+
 
                 }
 
@@ -649,8 +653,9 @@
                 else {
 
                     let valorConectorTampa = conectorTampa.val();
-                    valorConectorTampa = valorConectorTampa.replace(',', '');
                     valorConectorTampa = valorConectorTampa.replace('.', '');
+                    valorConectorTampa = valorConectorTampa.replace(',', '.');
+
 
                     let resultado = valorConectorTampa * 2;
                     let resultadoSemanal = resultado * 3;
@@ -671,8 +676,9 @@
 
             heparina.focusout(function () {
                 let valorHeparina = heparina.val();
-                valorHeparina = valorHeparina.replace(',', '');
+
                 valorHeparina = valorHeparina.replace('.', '');
+                valorHeparina = valorHeparina.replace(',', '.');
 
                 let resultado = valorHeparina * 1;
                 let resultadoSemanal = resultado * 3;
@@ -693,8 +699,8 @@
 
             luva.focusout(function () {
                 let valorLuva = luva.val();
-                valorLuva = valorLuva.replace(',', '');
                 valorLuva = valorLuva.replace('.', '');
+                valorLuva = valorLuva.replace(',', '.');
 
                 let resultado = valorLuva * 2;
                 let resultadoSemanal = resultado * 3;
@@ -715,8 +721,8 @@
 
             tegoUnidade.focusout(function () {
                 let valorTegoUnidade = tegoUnidade.val();
-                valorTegoUnidade = valorTegoUnidade.replace(',', '');
                 valorTegoUnidade = valorTegoUnidade.replace('.', '');
+                valorTegoUnidade = valorTegoUnidade.replace(',', '.');
 
                 let resultado = valorTegoUnidade * 2;
                 let resultadoSemanal = resultado * 3;
@@ -736,8 +742,8 @@
 
             luvaMedCorp.focusout(function () {
                 let valorLuvaMedCorp = luvaMedCorp.val();
-                valorLuvaMedCorp = valorLuvaMedCorp.replace(',', '');
                 valorLuvaMedCorp = valorLuvaMedCorp.replace('.', '');
+                valorLuvaMedCorp = valorLuvaMedCorp.replace(',', '.');
 
                 let resultado = valorLuvaMedCorp * 2;
                 let resultadoSemanal = resultado * 3;
@@ -769,7 +775,14 @@
                     datasets: [
                         {
                             label: "Compatativo Tego",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#e6e6fa"],
+                            backgroundColor: [
+                              "rgba(255,99,132, 0.3)"
+                            , "rgba(54,162,235, 0.3)"
+                            , "rgba(255,206,86, 0.3)"
+                            , "rgba(75,192,192, 0.3)"
+                            , "rgba(153,102,255, 0.3)"
+                            , "rgba(255,159,64, 0.3)"
+                            ],
                             data: [2478, 5267, 734, 784, 0, 533]
                         }
                     ]
@@ -783,13 +796,17 @@
                     }
                 }
             });
+
+            numeroPacientes.keyup(function () {
+                $(this).val(this.value.replace(/\D/g, ''));
+            });
+
+            function soNumeros(numeros) { //variavel do parametro recebe o caractere digitado//  
+                return numeros.replace(/\D/g, "");
+            }
+
         });
-
-
-        function soNumeros(numeros) { //variavel do parametro recebe o caractere digitado//  
-            return numeros.replace(/\D/g, "");
-        }
-
     </script>
+</body>
 
 </html>

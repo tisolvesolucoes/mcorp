@@ -17,6 +17,7 @@
 
 <body>
 
+
     <div class="container" style="border: 1px solid #000;">
         <h1>MedCorp</h1>
         <p>Comparativo.</p>
@@ -32,13 +33,16 @@
                     <div class="col-md-5"></div>
 
                     <div class="form-group col-md-2">
-                        <input type="text" class="form-control" placeholder="PACIENTES" id="numeroPacientes">
+                        <input type="text" maxlength="5" class="form-control" placeholder="PACIENTES"
+                            id="numeroPacientes">
                     </div>
 
                 </div>
 
                 <div class="row" style="font-weight: 600;"></div>
-
+                <!--
+                inicio estrutura comparacao  
+                -->
                 <div class="col-md-4">
 
                     <div class="row">
@@ -225,7 +229,16 @@
 
 
                 </div>
+                <!--
+                     fim estrutura comparacao  
+                -->
 
+
+
+
+                <!--
+                inicio estrutura tego 
+                -->
                 <div class="col-md-4">
 
 
@@ -388,7 +401,7 @@
 
                         <div class="col-md-3"></div>
 
-                        <div class="col-md-3 arrumaAlinhamento">
+                        <div class="col-md-3 arrumaAlinhamento" style="background-color: black; color: #fff;">
                             TOTAL
                         </div>
 
@@ -397,7 +410,6 @@
                         </div>
 
                         <div class="col-md-3 arrumaAlinhamento" id="cellSomaTotalPacientesMensalMedCorp">
-
                             R$ 0,00
                         </div>
 
@@ -405,29 +417,80 @@
 
 
                 </div>
+                <!--
+                    fim estrutura tego 
+                -->
 
 
-                <div class="col-md-4" style="background-color:mediumaquamarine;">
-                    div 3
+
+                <!--
+                    inicio estrutura grafico 
+                -->
+                <div class="col-md-4">
+                    <canvas id="Grafico"></canvas>
                 </div>
+                <!--
+                fim estrutura grafico
+                -->
+
 
 
         </div>
+
+
+        <div class="row">
+
+            <div class="col-md-auto">
+                DIFERENCA DE CUSTO POR MÊS
+            </div>
+
+            <div class="col-md-6">
+                CONECTOR/TAMPA
+            </div>
+
+            <div class="col-md-6">
+                MEDCORP
+            </div>
+
+            <div class="col-md-6" id="CellDiferencaCustoConector">
+                R$0,00
+            </div>
+
+            <div class="col-md-6" id="CellDiferencaCustoMedCorp">
+                R$0,00
+            </div>
+                            
+            <div class="col-md-12" style="text-align: center;">
+                ECONOMIA POR MÊS			
+            </div>
+
+            <div class="col-md-12" id="CellEconomiaMensal" style="text-align: center;">
+                R$0,00
+            </div>
+               
+            <div class="col-md-12" style="text-align: center;">
+                ECONOMIA ANUAL			
+            </div>
+
+            <div class="col-md-12" id="CellEconomiaAnual" style="text-align: center;">
+                R$0,00
+            </div>
+        </div>
+
+
+        <!--
+            fim estrutura container 
+            -->
 
         <button type="submit" id="botao" class="btn btn-primary">Submit</button>
 
         </form>
 
-        <div class="col-6" style="background-color:lavenderblush;">
-            <canvas id="primeiroGrafico"></canvas>
-        </div>
-
     </div>
 
-    <button id="myBtn">Try it</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <script>
-
 
         $(document).ready(function () {
 
@@ -441,6 +504,11 @@
             let tegoUnidade = $("#tegoUnidade");
             let heparinaMedCorp = 0;
             let luvaMedCorp = $("#luvaMedCorp");
+
+            numeroPacientes.keyup(function () {
+                $(this).val(this.value.replace(/\D/g, ''));
+            });
+
 
             function calculaTotalMensal(c) {
                 let valorConectorTampa = conectorTampa.val();
@@ -494,6 +562,7 @@
                     document.getElementById("cellTotalMensal").innerHTML = rsomaTotalMensal;
                     document.getElementById("cellSomaTotalPacientesSemanal").innerHTML = rsomaTotalPacientesSemanal;
                     document.getElementById("cellSomaTotalPacientesMensal").innerHTML = rsomaTotalPacientesMensal;
+                    document.getElementById("CellDiferencaCustoConector").innerHTML = rsomaTotalPacientesMensal;
 
                 }
                 else if (c == 2
@@ -518,22 +587,57 @@
 
                     let numeroPacientes = document.getElementById("numeroPacientes").value;
 
-                    let rsomaTotalPacientesSemanalMedCorp = somaTotalSemanal * parseInt(numeroPacientes);
-                    let rsomaTotalPacientesMensalMedCorp = somaTotalMensal * parseInt(numeroPacientes);
+                    let somaTotalPacientesSemanalMedCorp = somaTotalSemanal * parseInt(numeroPacientes);
+                    somaTotalPacientesMensalMedCorp = somaTotalMensal * parseInt(numeroPacientes);
 
-                    rsomaTotalPacientesSemanalMedCorp = rsomaTotalPacientesSemanalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-                    rsomaTotalPacientesMensalMedCorp = rsomaTotalPacientesMensalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
+                    let rsomaTotalPacientesSemanalMedCorp = somaTotalPacientesSemanalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                    rsomaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
                     document.getElementById("cellTotalSemanalMedCorp").innerHTML = rsomaTotalSemanal;
                     document.getElementById("cellTotalMensalMedCorp").innerHTML = rsomaTotalMensal;
                     document.getElementById("cellSomaTotalPacientesSemanalMedCorp").innerHTML = rsomaTotalPacientesSemanalMedCorp;
                     document.getElementById("cellSomaTotalPacientesMensalMedCorp").innerHTML = rsomaTotalPacientesMensalMedCorp;
+                    document.getElementById("CellDiferencaCustoMedCorp").innerHTML = rsomaTotalPacientesMensalMedCorp;
+                    
+
+                    let cellSomaTotalPacientesMensal  =  document.getElementById("cellSomaTotalPacientesMensal").innerHTML;
+                    let res = cellSomaTotalPacientesMensal.split(";");
+                    
+                    console.log(res[1]);
+
+                    let cellEconomiaMensal = res[1].replace(',', '');
+                    cellEconomiaMensal = cellEconomiaMensal.replace('.', '');
+
+                    //somaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toFixed(2);
+                    //let n = parseFloat(somaTotalPacientesMensalMedCorp);
+                    let reconomiaMensal = cellEconomiaMensal - somaTotalPacientesMensalMedCorp.toFixed(2);
+
+                    reconomiaMensal = reconomiaMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                    reconomiaMensal= reconomiaMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+                    document.getElementById("CellEconomiaMensal").innerHTML = reconomiaMensal;
+                    
+                    /*
+                    CellDiferencaCustoConector
+                    CellDiferencaCustoMedCorp
+                    CellEconomiaMensal
+                    CellEconomiaAnual
+                    */
 
                 }
 
             }
 
+            numeroPacientes.focusout(function () {
+
+                if (numeroPacientes.val() == "" || (numeroPacientes.val().length < 1)) {
+                    alert("Coloque o numero de pacientes, para o calculo. ");
+                    numeroPacientes.focus();
+                } else {
+                    conectorTampa.focus();
+                }
+
+            });
 
             conectorTampa.focusout(function () {
 
@@ -650,10 +754,42 @@
                 calculaTotalMensal(2);
 
             });
+            new Chart(document.getElementById("Grafico"), {
+                type: 'bar',
+                data: {
+                    labels: [
+                        "Conector"
+                        , "Heparina"
+                        , "Luva"
+                        , "Tego-MedCorp"
+                        , "Heparina-MedCorp"
+                        , "Luva-MedCorp",
+                    ]
+                    ,
+                    datasets: [
+                        {
+                            label: "Compatativo Tego",
+                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#e6e6fa"],
+                            data: [2478, 5267, 734, 784, 0, 533]
+                        }
+                    ]
 
+                },
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Comparativo Tego'
+                    }
+                }
+            });
         });
 
+
+        function soNumeros(numeros) { //variavel do parametro recebe o caractere digitado//  
+            return numeros.replace(/\D/g, "");
+        }
+
     </script>
-</body>
 
 </html>

@@ -825,7 +825,8 @@
                 </div>
 
 
-                
+
+                <!--INICIO DIV CONTAINER-->
 
                 <div class="container">
                     <h1>MedCorp</h1>
@@ -1260,11 +1261,13 @@
                             MEDCORP
                         </div>
             
-                        <div class="col-md-6" id="CellDiferencaCustoConector" style="text-align: center; color: green; font-weight: 600;">
+                        <div class="col-md-6" id="CellDiferencaCustoConector"
+                            style="text-align: center; color: green; font-weight: 600;">
                             R$0,00
                         </div>
             
-                        <div class="col-md-6" id="CellDiferencaCustoMedCorp" style="text-align: center; color: green; font-weight: 600;">
+                        <div class="col-md-6" id="CellDiferencaCustoMedCorp"
+                            style="text-align: center; color: green; font-weight: 600;">
                             R$0,00
                         </div>
             
@@ -1297,7 +1300,8 @@
                 </div>
 
 
-
+                
+                <!--FIM DIV CONTAINER-->
 
     </div>
     </section>
@@ -1398,6 +1402,7 @@
 
             let numeroPacientes = $("#numeroPacientes");
             numeroPacientes.focus();
+
             let custoPacienteTotalMensal;
 
             let conectorTampa = $("#conectorTampa");
@@ -1409,7 +1414,7 @@
 
 
 
-            function calculaTotalMensal(c) {
+            function calculaTotalMensal(chart, c) {
 
                 let valorConectorTampa = conectorTampa.val();
                 let valorHeparina = heparina.val();
@@ -1496,7 +1501,7 @@
                     let numeroPacientes = parseInt(document.getElementById("numeroPacientes").value);
 
                     let somaTotalPacientesSemanalMedCorp = somaTotalSemanal * numeroPacientes;
-                    somaTotalPacientesMensalMedCorp = somaTotalMensal * numeroPacientes;
+                    let somaTotalPacientesMensalMedCorp = somaTotalMensal * numeroPacientes;
 
                     let rsomaTotalPacientesSemanalMedCorp = somaTotalPacientesSemanalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                     rsomaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
@@ -1508,6 +1513,16 @@
                     document.getElementById("CellDiferencaCustoMedCorp").innerHTML = rsomaTotalPacientesMensalMedCorp;
 
 
+                    let cellSomaTotalPacientesSemanal = document.getElementById("cellSomaTotalPacientesSemanal").innerHTML;
+                    let resSomaTotalPacientesSemanal = cellSomaTotalPacientesSemanal.split(";");
+
+                    console.log(resSomaTotalPacientesSemanal[1]);
+
+                    let SomaTotalSemanalGrafico = resSomaTotalPacientesSemanal[1].replace('.', '');
+                    SomaTotalSemanalGrafico = SomaTotalSemanalGrafico.replace(',', '.');
+
+
+
                     let cellSomaTotalPacientesMensal = document.getElementById("cellSomaTotalPacientesMensal").innerHTML;
                     let res = cellSomaTotalPacientesMensal.split(";");
 
@@ -1515,6 +1530,8 @@
 
                     let cellEconomiaMensal = res[1].replace('.', '');
                     cellEconomiaMensal = cellEconomiaMensal.replace(',', '.');
+
+                    let SomaTotalMensalGrafico = cellEconomiaMensal;
 
                     let economiaMensal = parseFloat(cellEconomiaMensal - somaTotalPacientesMensalMedCorp);
 
@@ -1532,20 +1549,30 @@
                     document.getElementById("CellEconomiaAnual").innerHTML = reconomiaAnual;
 
 
+                    add_data(chart,
+                        SomaTotalSemanalGrafico,
+                        SomaTotalMensalGrafico,
+                        somaTotalPacientesSemanalMedCorp.toFixed(2),
+                        somaTotalPacientesMensalMedCorp.toFixed(2));
+
                 }
 
             }
 
-            numeroPacientes.focusout(function () {
+            /*
+                    numeroPacientes.focusout(function () {
 
                 if (numeroPacientes.val() == "" || (numeroPacientes.val().length < 1)) {
+                    
                     alert("Coloque o numero de pacientes, para o calculo. ");
                     numeroPacientes.focus();
                 } else {
                     conectorTampa.focus();
                 }
 
-            });
+            });               
+            */
+
 
             conectorTampa.focusout(function () {
 
@@ -1566,6 +1593,7 @@
                     let resultadoMensal = resultadoSemanal * 4;
 
                     var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
                     var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                     var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
@@ -1601,7 +1629,7 @@
 
 
 
-            luva.focusout(function () {
+            luva.focusout(function (chart) {
                 let valorLuva = luva.val();
                 valorLuva = valorLuva.replace('.', '');
                 valorLuva = valorLuva.replace(',', '.');
@@ -1619,7 +1647,7 @@
                 document.getElementById("cellLuvaSemanal").innerHTML = rSemanal;
                 document.getElementById("cellLuvaMensal").innerHTML = rMensal;
 
-                calculaTotalMensal(1);
+                calculaTotalMensal(chart, 1);
 
             });
 
@@ -1644,7 +1672,7 @@
             });
 
 
-            luvaMedCorp.focusout(function () {
+            luvaMedCorp.focusout(function (chart) {
                 let valorLuvaMedCorp = luvaMedCorp.val();
                 valorLuvaMedCorp = valorLuvaMedCorp.replace('.', '');
                 valorLuvaMedCorp = valorLuvaMedCorp.replace(',', '.');
@@ -1661,28 +1689,62 @@
                 document.getElementById("cellLuvaMedCorpSemanal").innerHTML = rSemanal;
                 document.getElementById("cellLuvaMedCorpMensal").innerHTML = rMensal;
 
-                calculaTotalMensal(2);
+                calculaTotalMensal(chart, 2);
 
             });
+
+            /*
             new Chart(document.getElementById("Grafico"), {
                 type: 'bar',
                 data: {
                     labels: [
-                        "Conector"
-                        , "Heparina"
-                        , "Luva"
-                        , "Tego-MedCorp"
-                        , "Heparina-MedCorp"
-                        , "Luva-MedCorp",
+                        "Custo ", 
+                        "Custo   MedCorp Tego"
                     ]
                     ,
                     datasets: [
                         {
-                            label: "Compatativo Tego",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#e6e6fa"],
-                            data: [2478, 5267, 734, 784, 0, 533]
+                            label: "Comparativo Semanal",
+                            backgroundColor: [
+                                "rgba(255,99,132, 0.3)"
+                                , "rgba(54,162,235, 0.3)"
+                                ,  "rgba(255,206,86, 0.3)"
+                                , "rgba(255,190,192, 0.3)"
+
+                            ],
+                            label: "Comparativo Mensal",
+                            borderColor: [
+                                "rgba(255,46,86, 0.7)"
+                                , "rgba(75,40,12, 0.7)"
+                                ,"rgba(255,99,132, 0.7)"
+                                , "rgba(54,162,235, 0.7)"
+                            ],
+                            borderWidth: 1,
+                            data: [22.23, 50.27, 3.44, 5,42],
                         }
+                        ,{
+                            label: "Comparativo Semanal MedCorp Tego",
+                            backgroundColor: [
+                                  "rgba(255,206,86, 0.7)"
+                                , "rgba(75,192,192, 0.7)"
+                                ,  "rgba(000,255,64, 0.3)"
+                                ,  "rgba(255,50,60, 0.3)"
+
+                            ],
+                            label: "Comparativo Mensal MedCorp Tego",
+                            borderColor: [
+                                  "rgba(153,102,255, 0.3)"
+                                , "rgba(255,159,64, 0.3)"
+                                ,  "rgba(255,60,64, 0.3)"
+                                ,  "rgba(255,255,60, 0.3)"
+                                
+                            ],
+                            borderWidth: 1,
+                            data: [30.23, 60.27, 10.23, 11.22],
+                        },
+                      
                     ]
+
 
                 },
                 options: {
@@ -1691,8 +1753,23 @@
                         display: true,
                         text: 'Comparativo Tego'
                     }
+
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
                 }
             });
+
+            function adddata(){
+                Chart.data.datasets[0].data[3] = 4;
+                Chart.data.labels[7] = "Newly Added";
+                Chart.update();
+            }
+            //const data = [{x: 'Jan', net: 100, cogs: 50, gm: 50}, {x: 'Feb', net: 120, cogs: 55, gm: 75}];
 
             numeroPacientes.keyup(function () {
                 $(this).val(this.value.replace(/\D/g, ''));
@@ -1701,8 +1778,88 @@
             function soNumeros(numeros) { //variavel do parametro recebe o caractere digitado//  
                 return numeros.replace(/\D/g, "");
             }
+            */
+
+            var ctxL = document.getElementById("Grafico").getContext('2d');
+            var myLineChart = new Chart(ctxL, {
+                type: 'bar',
+                data:
+                {
+                    labels:
+                        [
+                            ,
+                            "Custo emanal",
+                            "Custo Mensal",
+                            "Custo Semanal MedCorp",
+                            "Custo Mensal MedCorp",
+
+                        ],
+
+                    datasets:
+                        [
+                            {
+                                label: "Custo Semanal",
+                                data: [0],
+                                backgroundColor: [
+                                    , "rgba(255,206,86, 0.3)"
+                                    , "rgba(75,192,192, 0.3)"
+                                    , "rgba(153,102,255, 0.3)"
+                                    , "rgba(255,159,64, 0.3)"
+                                ],
+                                borderColor: [
+                                    , "rgba(255,206,86, 0.9)"
+                                    , "rgba(75,192,192, 0.9)"
+                                    , "rgba(153,102,255, 0.9)"
+                                    , "rgba(255,159,64, 0.9)"
+                                ],
+                                borderWidth: 2
+                            }
+                        ]
+                },
+
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Comparativo Tego'
+                    },
+                    responsive: true,
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+
+            });
+
+
+            function add_data(chart, cSemanal, cMensal, cSemanalMedCorp, cMensalMedCorp) {
+                //var today = new Date();
+                //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                //let data = [{, , cSemanalMedCorp, cMensalMedCorp}];
+
+                myLineChart.data.datasets[0].data.push(cSemanal);
+                myLineChart.data.datasets[0].data.push(cMensal);
+                myLineChart.data.datasets[0].data.push(cSemanalMedCorp);
+                myLineChart.data.datasets[0].data.push(cMensalMedCorp);
+                myLineChart.data.datasets[0].data.push(543);
+
+                //myLineChart.data.datasets[1].data.push(Math.random() * 100);
+                //myLineChart.data.labels.push(time)
+                myLineChart.update();
+            }
+
+            //setInterval(add_data, 10); //milisecond
+
+            numeroPacientes.keyup(function () {
+                $(this).val(this.value.replace(/\D/g, ''));
+            });
 
         });
     </script>
 </body>
+
 </html>

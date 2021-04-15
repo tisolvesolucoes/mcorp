@@ -26,18 +26,20 @@
     <meta itemprop='image' content='http://www.medcorpnet.com.br/images/logo.png' />
     <meta itemprop='url' content='http://www.medcorpnet.com.br' />
     <!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Medcorp®</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Bootstrap 3 template for corporate business" /> -->
+        <html lang="en">
+        
+        <head>
+            <meta charset="utf-8">
+            <title>Medcorp®</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="description" content="Bootstrap 3 template for corporate business" /> -->
     <!-- css -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/teste.css">
+
     <link href="plugins/flexslider/flexslider.css" rel="stylesheet" media="screen" />
     <link href="css/cubeportfolio.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+
     <!-- Theme skin -->
     <link id="t-colors" href="skins/default.css" rel="stylesheet" />
     <style>
@@ -827,71 +829,62 @@
 
                 <!--INICIO DIV CONTAINER-->
 
+
+
                 <div class="container" id="geraPDF">
-                    <h1>MedCorp</h1>
-                    <p>Comparativo.</p>
+
                     <div class="row" style=" font-size:small; font-weight: 800;">
+
 
                         <div class="row arrumaTextoCentro">
 
-                            <div class="col-md-12" style="background-color:lavender;">
-                                PACIENTES EM USO DE CATÉTER:
-                            </div>
-
-                            <div class="col-md-5"></div>
-
-                            <div class="form-group col-md-2">
-                                <input tabindex="1" type="text" maxlength="5" class="form-control"
-                                    placeholder="PACIENTES" id="numeroPacientes">
+                            <div class="col-md-12">
+                                <div class="box-pacientes">
+                                    <h3>PACIENTES EM USO DE CATÉTER</h3>
+                                    <div class="form-group">
+                                        <input tabindex="1" type="text" maxlength="5" class="form-control"
+                                            placeholder="Digite a quantidade" id="numeroPacientes">
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
 
                         <div class="row" style="font-weight: 600;"></div>
+
                         <!--
-            inicio estrutura comparacao  
-            -->
-                        <div class="col-md-4">
+                            inicio estrutura comparacao  
+                        -->
+
+
+                        <div class="col-md-4 coluna-calculo">
 
                             <div class="row">
 
-                                <div class="col-md-3">
-                                </div>
-
-                                <div class="col-md-3">
-                                    CONECTOR/
-                                    <br> TAMPA
-                                    <br> UNITÁRIO
-                                </div>
-
-                                <div class="col-md-3">
-                                    HEPARINA - FRASCO
-                                </div>
-
-                                <div class="col-md-3">
-                                    LUVA - PAR
-                                </div>
-
-                            </div>
-
-
-                            <div class="row arrumaInput">
-
-                                <div class="col-md-3"></div>
-
-                                <div class="form-group col-md-3">
+                                <div class="col-md-4">
+                                    <div class="title-calculo">
+                                        CONECTOR/
+                                        <br> TAMPA
+                                        <br> UNITÁRIO
+                                    </div>
                                     <input tabindex="2" type="text"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                         placeholder="R$:" id="conectorTampa">
                                 </div>
 
-                                <div class="form-group col-md-3">
+                                <div class="col-md-4">
+                                    <div class="title-calculo">
+                                        HEPARINA - FRASCO
+                                    </div>
                                     <input tabindex="3" type="text"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                         placeholder="R$:" id="heparina">
                                 </div>
 
-                                <div class="form-group col-md-3">
+                                <div class="col-md-4">
+                                    <div class="title-calculo">
+                                        LUVA - PAR
+                                    </div>
                                     <input tabindex="4" type="text"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                         placeholder="R$:" id="luva">
@@ -901,30 +894,30 @@
 
 
                             <div class="row ">
-                                <div class="col-md-auto arrumaTextoCentro"
-                                    style="background-color: black; color: #fff;">
+                                <div class="col-md-auto arrumaTextoCentro coluna-head">
                                     Custo por paciente
                                 </div>
-
-                                <div class="col-md-3">
-                                </div>
-                                <div class="col-md-3 arrumaAlinhamento">
-                                    Custo Diário
-                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
 
                                 <div class="col-md-3 arrumaAlinhamento">
-                                    Custo Semanal
+                                    <b>Diário</b>
                                 </div>
 
                                 <div class="col-md-3 arrumaAlinhamento">
-                                    Custo Mensal
+                                    <b>Semanal</b>
+                                </div>
+
+                                <div class="col-md-3 arrumaAlinhamento">
+                                    <b>Mensal</b>
                                 </div>
 
                             </div>
 
 
 
-                            <div class="row">
+                            <div class="row line-calculo-bg">
 
                                 <div class="col-md-3">
                                     CONECTOR
@@ -969,7 +962,7 @@
 
 
 
-                            <div class="row">
+                            <div class="row line-calculo-bg">
 
                                 <div class="col-md-3">
                                     LUVA
@@ -993,10 +986,11 @@
                             <div class="row">
 
                                 <div class="col-md-3">
+                                    TOTAL
                                 </div>
 
-                                <div class="col-md-3" style="background-color: black; color: #fff;">
-                                    TOTAL
+                                <div class="col-md-3">
+
                                 </div>
 
                                 <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanal">
@@ -1014,7 +1008,7 @@
 
                                 <div class="col-md-1"></div>
 
-                                <div class="col-md-11" style="background-color: black; color: #fff; font-weight: 800;">
+                                <div class="col-md-12 coluna-head arrumaTextoCentro">
                                     CUSTO POR PACIENTE COM CATÉTER
                                 </div>
 
@@ -1023,17 +1017,17 @@
 
                             <div class="row">
 
-                                <div class="col-md-3"></div>
-
-                                <div class="col-md-3 arrumaAlinhamento" style="background-color: black; color: #fff;">
+                                <div class="col-md-4 arrumaAlinhamento result-paciente">
                                     TOTAL
                                 </div>
 
-                                <div class="col-md-3 arrumaAlinhamento" id="cellSomaTotalPacientesSemanal">
+                                <div class="col-md-4 arrumaAlinhamento result-paciente"
+                                    id="cellSomaTotalPacientesSemanal">
                                     R$ 0,00
                                 </div>
 
-                                <div class="col-md-3 arrumaAlinhamento" id="cellSomaTotalPacientesMensal">
+                                <div class="col-md-4 arrumaAlinhamento result-paciente"
+                                    id="cellSomaTotalPacientesMensal">
                                     R$ 0,00
                                 </div>
 
@@ -1042,53 +1036,43 @@
 
                         </div>
                         <!--
-                 fim estrutura comparacao  
-            -->
+                                 fim estrutura comparacao  
+                            -->
 
 
 
 
                         <!--
-            inicio estrutura tego 
-            -->
-                        <div class="col-md-4">
+                            inicio estrutura tego 
+                            -->
+                        <div class="col-md-4 coluna-calculo">
 
 
 
                             <div class="row">
 
-                                <div class="col-md-3"></div>
 
-                                <div class="col-md-3">
-                                    TEGO - UNIDADE
-                                    <br><br>
-                                </div>
 
-                                <div class="col-md-3">
-                                    HEPARINA
-                                </div>
-
-                                <div class="col-md-3">
-                                    LUVA - PAR
-                                </div>
-
-                            </div>
-
-                            <div class="row arrumaInput">
-
-                                <div class="col-md-3"></div>
-
-                                <div class="form-group col-md-3">
+                                <div class="col-md-4">
+                                    <div class="title-calculo">
+                                        TEGO - UNIDADE
+                                    </div>
                                     <input tabindex="5" type="text"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                         placeholder="R$:" id="tegoUnidade">
                                 </div>
 
-                                <div class="form-group col-md-3">
+                                <div class="col-md-4">
+                                    <div class="title-calculo">
+                                        HEPARINA
+                                    </div>
                                     <input type="text" class="form-control" readonly value="ZERO" id="heparinaMedCorp">
                                 </div>
 
-                                <div class="form-group col-md-3">
+                                <div class="col-md-4">
+                                    <div class="title-calculo">
+                                        LUVA - PAR
+                                    </div>
                                     <input type="text" tabindex="6"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                         placeholder="R$:" id="luvaMedCorp">
@@ -1098,29 +1082,28 @@
 
                             <div class="row">
 
-                                <div class="col-md-auto arrumaTextoCentro"
-                                    style="background-color: black; color: #fff;">
+                                <div class="col-md-auto arrumaTextoCentro coluna-head">
                                     Custo por paciente
                                 </div>
-
-                                <div class="col-md-3">
-                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
                                 <div class="col-md-3 arrumaAlinhamento">
-                                    Custo Diário
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento">
-                                    Custo Semanal
+                                    <b>Diário</b>
                                 </div>
 
                                 <div class="col-md-3 arrumaAlinhamento">
-                                    Custo Mensal
+                                    <b>Semanal</b>
+                                </div>
+
+                                <div class="col-md-3 arrumaAlinhamento">
+                                    <b>Mensal</b>
                                 </div>
 
                             </div>
 
 
-                            <div class="row">
+                            <div class="row line-calculo-bg">
 
                                 <div class="col-md-3">
                                     TEGO
@@ -1161,7 +1144,7 @@
                             </div>
 
 
-                            <div class="row">
+                            <div class="row line-calculo-bg">
 
                                 <div class="col-md-3">
                                     LUVA
@@ -1183,10 +1166,10 @@
 
                             <div class="row">
 
-                                <div class="col-md-3"></div>
+                                <div class="col-md-3">TOTAL</div>
 
-                                <div class="col-md-3" style="background-color: black; color: #fff;">
-                                    TOTAL
+                                <div class="col-md-3">
+
                                 </div>
 
                                 <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanalMedCorp">
@@ -1204,7 +1187,7 @@
 
                                 <div class="col-md-1"></div>
 
-                                <div class="col-md-11" style="background-color: black; color: #fff; font-weight: 800;">
+                                <div class="col-md-12 coluna-head arrumaTextoCentro">
                                     CUSTO POR PACIENTE COM CATÉTER
                                 </div>
 
@@ -1213,17 +1196,19 @@
 
                             <div class="row">
 
-                                <div class="col-md-3"></div>
 
-                                <div class="col-md-3 arrumaAlinhamento" style="background-color: black; color: #fff;">
+
+                                <div class="col-md-4 arrumaAlinhamento result-paciente">
                                     TOTAL
                                 </div>
 
-                                <div class="col-md-3 arrumaAlinhamento" id="cellSomaTotalPacientesSemanalMedCorp">
+                                <div class="col-md-4 arrumaAlinhamento result-paciente"
+                                    id="cellSomaTotalPacientesSemanalMedCorp">
                                     R$ 0,00
                                 </div>
 
-                                <div class="col-md-3 arrumaAlinhamento" id="cellSomaTotalPacientesMensalMedCorp">
+                                <div class="col-md-4 arrumaAlinhamento result-paciente"
+                                    id="cellSomaTotalPacientesMensalMedCorp">
                                     R$ 0,00
                                 </div>
 
@@ -1232,76 +1217,75 @@
 
                         </div>
                         <!--
-                fim estrutura tego 
-            -->
+                                fim estrutura tego 
+                            -->
 
 
 
                         <!--
-                inicio estrutura grafico 
-            -->
-                        <div class="col-md-4">
+                                inicio estrutura grafico 
+                            -->
+                        <div class="col-md-4 coluna-grafico">
                             <canvas id="Grafico"></canvas>
                         </div>
                         <!--
-            fim estrutura grafico
-            -->
+                            fim estrutura grafico
+                            -->
 
 
 
                     </div>
 
 
-                    <div class="row jumbotron">
+                    <div class="row">
 
-                        <div class="col-md-auto" style="color: green; font-weight: 600;">
+                        <div class="col-md-12 diferenca-title">
                             DIFERENCA DE CUSTO POR MÊS
                         </div>
 
-                        <div class="col-md-6" style="text-align: center; font-weight: 600;">
+                        <div class="col-md-4 diferenca-txt">
                             CONECTOR/TAMPA
+                            <div class="col-md-12 diferenca-num" id="CellDiferencaCustoConector">
+                                R$0,00
+                            </div>
                         </div>
 
-                        <div class="col-md-6" style="text-align: center; font-weight: 600;">
+                        <div class="col-md-4 x-custo"> X </div>
+
+                        <div class="col-md-4 diferenca-txt">
                             MEDCORP
+                            <div class="col-md-12 diferenca-num" id="CellDiferencaCustoMedCorp">
+                                R$0,00
+                            </div>
                         </div>
 
-                        <div class="col-md-6" id="CellDiferencaCustoConector"
-                            style="text-align: center; color: green; font-weight: 600;">
-                            R$0,00
-                        </div>
 
-                        <div class="col-md-6" id="CellDiferencaCustoMedCorp"
-                            style="text-align: center; color: green; font-weight: 600;">
-                            R$0,00
-                        </div>
 
-                        <div class="col-md-12" style="text-align: center; background-color: black; color: #fff;">
+
+
+                        <div class="col-md-6 economia-txt">
                             ECONOMIA POR MÊS
+                            <div class="col-md-12 economia-num" id="CellEconomiaMensal">
+                                R$0,00
+                            </div>
                         </div>
 
-                        <div class="col-md-12" id="CellEconomiaMensal"
-                            style="text-align: center; color: green; font-weight: 600;">
-                            R$0,00
-                        </div>
 
-                        <div class="col-md-12" style="text-align: center; background-color: black; color: #fff;">
+
+                        <div class="col-md-6 economia-txt">
                             ECONOMIA ANUAL
+                            <div class="col-md-12 economia-num" id="CellEconomiaAnual">
+                                R$0,00
+                            </div>
                         </div>
 
-                        <div class="col-md-12" id="CellEconomiaAnual"
-                            style="text-align: center; color: green; font-weight: 600;">
-                            R$0,00
-                        </div>
+
                     </div>
 
 
                     <!--
-        fim estrutura container 
-    <button type="submit" id="botao" class="btn btn-primary">Submit</button>
-    -->
-
-
+                        fim estrutura container 
+                        -->
                     <div class="col-md-12">
                         <!--1 linha -->
                         <!--box principal -->
@@ -1352,20 +1336,24 @@
                         </div>
                     </div>
 
+
                     <button class="btn btn-danger" id="btnPDF">BAIXAR COMPARATIVO - PDF</button>
+
+
 
                 </div>
 
-                <!--FIM DIV CONTAINER-->
+
+                <!--           
+                    <button class="btn btn-danger" id="btnPDF">BAIXAR COMPARATIVO - PDF</button>
+            
+                    FIM  DIV CONTAINER
+                
+                -->
 
 
-            </section>
-
-
-
-        </section>
     </div>
-
+    </section>
 
     <footer class="footer">
         <div class="container">
@@ -1474,7 +1462,7 @@
             let tegoUnidade = $("#tegoUnidade");
             let heparinaMedCorp = 0;
             let luvaMedCorp = $("#luvaMedCorp");
-
+            var formulario = document.querySelector('form');
 
 
             function calculaTotalMensal(chart, c) {
@@ -1621,20 +1609,6 @@
                 }
 
             }
-
-            /*
-                    numeroPacientes.focusout(function () {
-
-                if (numeroPacientes.val() == "" || (numeroPacientes.val().length < 1)) {
-                    
-                    alert("Coloque o numero de pacientes, para o calculo. ");
-                    numeroPacientes.focus();
-                } else {
-                    conectorTampa.focus();
-                }
-
-            });               
-            */
 
 
             conectorTampa.focusout(function () {
@@ -1813,36 +1787,23 @@
 
 
             function add_data(chart, cSemanal, cMensal, cSemanalMedCorp, cMensalMedCorp) {
-                //var today = new Date();
-                //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                //let data = [{, , cSemanalMedCorp, cMensalMedCorp}];
 
                 myLineChart.data.datasets[0].data.push(cSemanal);
                 myLineChart.data.datasets[0].data.push(cMensal);
                 myLineChart.data.datasets[0].data.push(cSemanalMedCorp);
                 myLineChart.data.datasets[0].data.push(cMensalMedCorp);
                 myLineChart.data.datasets[0].data.push(543);
-
-                //myLineChart.data.datasets[1].data.push(Math.random() * 100);
-                //myLineChart.data.labels.push(time)
                 myLineChart.update();
             }
-
-            //setInterval(add_data, 10); //milisecond
 
             numeroPacientes.keyup(function () {
                 $(this).val(this.value.replace(/\D/g, ''));
             });
 
-            $('#btnPDF').click(function () {
-                savePDF(document.querySelector('.container'));
-            });
-
-
 
             /*****************INICIO PDF**************************/
 
-            function savePDF(codigoHTML) {
+            function savePDF() {
                 var doc = new jsPDF('portrait', 'pt', 'a4'),
                     data = new Date();
                 margins = {
@@ -1851,20 +1812,23 @@
                     left: 40,
                     width: 1000
                 };
-                doc.fromHTML(codigoHTML,
+                doc.fromHTML(document.querySelector('.container'),
                     margins.left, // x coord
                     margins.top, { pagesplit: true },
                     function (dispose) {
-                        doc.save("Relatorio - " + data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear() + ".pdf");
+                        doc.save("Relatorio-" + data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear() + ".pdf");
                     });
             }
 
-
             /*****************FIM PDF******************************/
+
+            formulario.onsubmit = function () {
+                alert("Enviado com sucesso.");
+                savePDF();
+            }
 
         });
     </script>
-
 </body>
 
 </html>

@@ -113,6 +113,7 @@ text-decoration: none;
  // Exibe uma mensagem de resultado do envio (sucesso/erro)
  if ($enviado) {
    echo "E-mail enviado com sucesso!";
+   include("geraPdf/index.php");
  } else {
    echo "Não foi possível enviar o e-mail.";
    echo "Detalhes do erro: " . $mail->ErrorInfo;

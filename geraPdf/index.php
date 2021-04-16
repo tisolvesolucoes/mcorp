@@ -4,7 +4,21 @@ require_once 'dompdf/lib/html5lib/Parser.php';
 require_once 'dompdf/lib/php-font-lib-master/src/FontLib/Autoloader.php';
 require_once 'dompdf/lib/php-svg-lib-master/src/autoload.php';
 require_once 'dompdf/src/Autoloader.php';
-
+/*
+    $numeroPacientes                    = $_REQUEST['numeroPacientes'];
+    $conectorTampa                      = $_REQUEST['conectorTampa'];
+    $heparina                           = $_REQUEST['heparina'];
+    $luva                               = $_REQUEST['luva'];
+    $tegoUnidade                        = $_REQUEST['tegoUnidade'];
+    $heparinaMedCorp                    = $_REQUEST['heparinaMedCorp'];
+    $luvaMedCorp                        = $_REQUEST['luvaMedCorp'];
+    $economiaMensal                     = $_REQUEST['economiaMensal'];
+    $economiaAnual                      = $_REQUEST['economiaAnual'];
+    $SomaTotalSemanalGrafico            = $_REQUEST['SomaTotalSemanalGrafico'];
+    $SomaTotalMensalGrafico             = $_REQUEST['SomaTotalMensalGrafico'];
+    $somaTotalPacientesSemanalMedCorp   = $_REQUEST['somaTotalPacientesSemanalMedCorp'];
+    $somaTotalPacientesMensalMedCorp    = $_REQUEST['somaTotalPacientesMensalMedCorp'];
+*/
 // definindo os namespaces
 Dompdf\Autoloader::register();
 use Dompdf\Dompdf;
@@ -17,389 +31,364 @@ $options->set('isRemoteEnabled', TRUE);
 $dompdf = new Dompdf($options);
 
 // coloque nessa variável o código HTML que você quer que seja inserido no PDF
-$codigo_html = '<!doctype html>
+$codigo_html = '
+<!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Atenção, apenas um teste</title>
 <style>
-* { font-family: sans-serif; }
-</style>
+* { font-family: Arial; , sans-serif}
+    .box-pacientes {
+        background: #1b365d;
+        width: 45%;
+        padding: 30px;
+        margin: 0 auto;
+        color:#fff;
+        font-weight: 800;
+        text-align: center;
+    }
+    .titulo{
+        color: #1B365D;
+        text-align: center;
+    }
 
+    .head{
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+
+
+    .coluna-calculo{
+        padding: 10px;
+    }
+    
+    .coluna-calculo .row{
+        margin: 0;
+        padding: 7px 0;
+    }
+    
+    .line-calculo-bg{
+        background: #f6f7ff;
+    }
+    
+    .coluna-grafico .row{
+        
+    }
+    .coluna-head{
+        background: #1b365d;
+        padding: 10px 0;
+        color: #FFF;
+        text-transform: uppercase;
+    }
+    
+    .arrumaTextoCentro{
+        text-align: center;
+    }
+    
+    .arrumaAlinhamento{
+        white-space: nowrap;
+        font-size: small;
+        text-align: center;
+        font-weight: 300!important;
+    }
+    
+     .arrumaInput input{
+        font-size: small;
+    }
+    
+    .box-pacientes {
+        background: #1b365d;
+        width: 45%;
+        padding: 30px;
+        margin: 0 auto;
+    }
+    
+    .box-pacientes h3{
+        color: #FFF;
+    }
+    
+    .box-pacientes input{
+        width: 250px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .title-calculo {
+        height: 80px;
+        vertical-align: bottom;
+        padding-bottom: 10px;
+        display: table-cell;
+    } 
+    
+    .coluna-grafico{
+        margin-top:115px;
+    }
+    
+    .result-paciente{
+        font-size: 18px;
+    }
+    
+    .diferenca-title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 35px;
+        border-top: 3px solid #1B365D;
+        padding-top: 40px;
+        margin-top: 40px;
+        color: #1B365D;
+        margin-bottom: 30px;
+    }
+    
+    .diferenca-txt{
+        text-align: center;
+        font-size: 25px;
+        padding-top: 20px;
+    }
+    
+    .diferenca-num{
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        padding-top: 20px;
+        color: #656565;
+    }
+    
+    .x-custo {
+        text-align: center;
+        font-size: 50px;
+        padding: 40px 0 20px;
+    }
+    
+    .economia-txt {
+        font-size: 30px;
+        text-align: center;
+        background: #1b365d;
+        padding: 50px 0;
+        margin-top: 60px;
+        color: #FFF;
+    }
+    
+    .economia-num {
+        font-size: 40px;
+        margin-top: 20px;
+        font-weight: bold;
+        color: #66e566;
+    }
+
+
+</style>
+<link href="style.css" rel="stylesheet" />
 </head>
 <body>
 
-    <p style="text-align:center">
-        <img width="400px" src="../img/comparativo.jpg">
-    </p>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-    <div class="container" id="geraPDF">
+    <table>        
+            <tr>
+                <td>
+                        <p style="text-align:left">
+                            <img width="250px" src="img/comparativo.jpg">
+                        </p>
+                </td> 
+            </tr>
+        <tr>
+        <td class="titulo">
+            <h1> Calculadora Tego</h1>
+        </td> 
+        </tr>
+        <tr>
+        <td class="box-pacientes"><h3>PACIENTES EM USO DE CATÉTER</h3></td>
+        </tr>
+            <tr>
+            <td class="box-pacientes">'.$numeroPacientes.'</td>
+            </tr>
+        <tr>
+        <td>
+            <table>
+            <tr class="head">
+                <td>
+                CONECTOR/
+                TAMPA
+                </td> 
+
+                <td>
+                HEPARINA - FRASCO
+                </td>
+
+                <td>
+                LUVA - PAR 
+                </td>
+                
+                <td>TEGO - UNIDADE 
+                </td>
+                <td>HEPARINA
+                </td>
+                <td>LUVA - PAR
+                </td>
+            </tr>
+                
+            <tr>
+                <td>
+               <span class="head">R$ -</span>'.$conectorTampa.'
+                </td> 
+
+                <td>
+                <span class="head">R$ -</span>'.$heparina.'
+                </td>
+
+                <td>
+                <span class="head">R$ -</span>'.$luva.'
+                </td>
+                
+                <td> 
+                <span class="head">R$ -</span>'.$tegoUnidade.'
+                </td>
+                <td>
+                <span class="head">R$ -</span> ZERO
+                </td>
+                <td>
+                <span class="head">R$ -</span>'.$luvaMedCorp.'
+                </td>
+            </tr>
+
+            </table>
+
+        </td>
+        </tr>
+            <tr> 
+                <td>
+                
+                        <table border="1" width="100%">
+                            <tr class="coluna-head">
+                                <td>
+                                CUSTO POR PACIENTE COM CATÉTER 
+                                </td> 
+
+                                <td>
+                                CUSTO POR PACIENTE COM CATÉTER 
+                                </td>
+                            </tr>
+                        </table>
+
+
+                </td>
+            </tr>
+
+            <tr> 
+                <td>
+                
+                        <table border="1" width="100%">
+                            <tr class="result-paciente">
+                                <td>
+                                TOTAL SEMANAL
+                                </td> 
+
+                                <td> 
+                                TOTAL MENSAL
+                                </td>
+
+                                <td>
+                                TOTAL SEMANAL
+                                </td> 
+
+                                <td> 
+                                TOTAL MENSAL
+                                </td>
+                               
+                            </tr> 
+                            <tr class="box-pacientes">
+                                <td> 
+                                <span class="head">R$ -</span> '.$SomaTotalSemanalGrafico.'
+                                </td>
+                               
+                                <td> 
+                                <span class="head">R$ -</span>'.$SomaTotalMensalGrafico .'
+                               
+                                </td> 
+
+                                <td> 
+                                <span class="head">R$ -</span>'.$somaTotalPacientesSemanalMedCorp.'
+                                </td>
+                               
+                                <td> 
+                                <span class="head">R$ -</span>'.$somaTotalPacientesMensalMedCorp.'
+                                </td>
+                            </tr>
+                        </table>
+
+                </td>
+            </tr>
+            <tr>
+            <td class="diferenca-title"><h2>DIFERENÇA DE CUSTO POR MÊS</h2></td>
+            </tr>
+                <tr> 
+                    <td>
+
+                        <table border="1" width="100%">
+                        <tr class="diferenca-txt">
+                            <td>
+                            CONECTOR/TAMPA 
+                            </td> 
+
+                            <td> 
+                                X
+                            </td>
+                             <td>
+                             MEDCORP
+                            </td> 
+                           
+                        </tr> 
+                        <tr class="diferenca-num">
+                            <td> 
+                            <span class="head">R$ -</span>'.$somaTotalPacientesSemanalMedCorp .'
+                            </td> 
+
+                            <td>
+                           
+                            </td> 
+                            
+                            <td> 
+                            <span class="head">R$ -</span>'.$somaTotalPacientesMensalMedCorp.'
+                            </td>
+                    
+                        </tr>
+                     </table>
+                    <td>
+                </tr>
+
+
+                <tr> 
+                <td>
+
+                <table border="1" width="100%" style="background-color:#1b365d;">
+                <tr class="economia-txt">
+                    <td>
+                    ECONOMIA POR MÊS 
+                    </td> 
+                   
+                     <td>
+                         ECONOMIA ANUAL
+                    </td> 
+                   
+                </tr> 
+                <tr class="economia-num" >
+                    <td> 
+                    <span class="head">R$ -</span>'.$economiaMensal.'
+                    </td> 
+                    
+                    <td> 
+                    <span class="head">R$ -</span>'.$economiaAnual.'
+                    </td>
+            
+                </tr>
+                
+             </table>
+                <td>
+            </tr>
+
+    </table>
 
-    <div class="row" style=" font-size:small; font-weight: 800;">
-
-        <div class="row" style="font-weight: 600;"></div>
-
-        <div class="col-md-4 coluna-calculo">
-
-            <div class="row">
-
-                <div class="col-md-4">
-                    <div class="title-calculo">
-                        CONECTOR/
-                        <br> TAMPA
-                        <br> UNITÁRIO
-                    </div>
-              </div>
-
-                <div class="col-md-4">
-                    <div class="title-calculo">
-                        HEPARINA - FRASCO
-                    </div>
-              </div>
-
-                <div class="col-md-4">
-                    <div class="title-calculo">
-                        LUVA - PAR
-                    </div>
-              </div>
-
-            </div>
-
-
-            <div class="row ">
-                <div class="col-md-auto arrumaTextoCentro coluna-head">
-                    Custo por paciente
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3"></div>
-
-                <div class="col-md-3 arrumaAlinhamento">
-                    <b>Diário</b>
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento">
-                    <b>Semanal</b>
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento">
-                    <b>Mensal</b>
-                </div>
-
-            </div>
-
-
-
-            <div class="row line-calculo-bg">
-
-                <div class="col-md-3">
-                    CONECTOR
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellConectorTampa">R$&nbsp;19,74</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellConectorTampaSemanal">R$&nbsp;59,22</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellConectorTampaMensal">R$&nbsp;236,88</div>
-
-            </div>
-
-
-
-
-            <div class="row">
-
-                <div class="col-md-3">
-                    HEPARINA
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellHeparina">R$&nbsp;6,58</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaSemanal">R$&nbsp;19,74</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaMensal">R$&nbsp;78,96</div>
-
-            </div>
-
-
-
-            <div class="row line-calculo-bg">
-
-                <div class="col-md-3">
-                    LUVA
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellLuva">R$&nbsp;17,48</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellLuvaSemanal">R$&nbsp;52,44</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellLuvaMensal">R$&nbsp;209,76</div>
-
-            </div>
-
-
-            <div class="row">
-
-                <div class="col-md-3">
-                    TOTAL
-                </div>
-
-                <div class="col-md-3">
-
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanal">R$&nbsp;151,14</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellTotalMensal">R$&nbsp;604,56</div>
-
-            </div>
-
-
-            <div class="row">
-
-                <div class="col-md-1"></div>
-
-                <div class="col-md-12 coluna-head arrumaTextoCentro">
-                    CUSTO POR PACIENTE COM CATÉTER
-                </div>
-
-            </div>
-
-
-            <div class="row">
-
-                <div class="col-md-4 arrumaAlinhamento result-paciente">
-                    TOTAL
-                </div>
-
-                <div class="col-md-4 arrumaAlinhamento result-paciente" id="cellSomaTotalPacientesSemanal">R$&nbsp;755,70</div>
-
-                <div class="col-md-4 arrumaAlinhamento result-paciente" id="cellSomaTotalPacientesMensal">R$&nbsp;3.022,80</div>
-
-            </div>
-
-
-        </div>
-            <!--
-                 fim estrutura comparacao  
-            -->
-
-        <!--
-            inicio estrutura tego 
-            -->
-        <div class="col-md-4 coluna-calculo">
-
-
-            <div class="row">
-
-
-                <div class="col-md-4">
-                    <div class="title-calculo">
-                        TEGO - UNIDADE
-                    </div>
-               </div>
-
-                <div class="col-md-4">
-                    <div class="title-calculo">
-                        HEPARINA
-                    </div>
-                    <input type="text" class="form-control" readonly="" value="ZERO" id="heparinaMedCorp">
-                </div>
-
-                <div class="col-md-4">
-                    <div class="title-calculo">
-                        LUVA - PAR
-                    </div>
-               </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-auto arrumaTextoCentro coluna-head">
-                    Custo por paciente
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-3 arrumaAlinhamento">
-                    <b>Diário</b>
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento">
-                    <b>Semanal</b>
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento">
-                    <b>Mensal</b>
-                </div>
-
-            </div>
-
-            <div class="row line-calculo-bg">
-
-                <div class="col-md-3">
-                    TEGO
-                </div>
-                <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidade">R$&nbsp;8,68</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidadeSemanal">R$&nbsp;26,04</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidadeMensal">R$&nbsp;104,16</div>
-
-            </div>
-
-
-            <div class="row">
-
-                <div class="col-md-3">
-                    HEPARINA
-                </div>
-                <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaMedCorp">
-                    ZERO
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaMedCorpSemanal">
-                    ZERO
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaMedCorpMensal">
-                    ZERO
-                </div>
-
-            </div>
-
-            <div class="row line-calculo-bg">
-
-                <div class="col-md-3">
-                    LUVA
-                </div>
-                <div class="col-md-3 arrumaAlinhamento" id="cellLuvaMedCorp">R$&nbsp;4,44</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellLuvaMedCorpSemanal">R$&nbsp;13,32</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellLuvaMedCorpMensal">R$&nbsp;53,28</div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-3">TOTAL</div>
-
-                <div class="col-md-3">
-
-                </div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanalMedCorp">R$&nbsp;39,36</div>
-
-                <div class="col-md-3 arrumaAlinhamento" id="cellTotalMensalMedCorp">R$&nbsp;157,44</div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-1"></div>
-
-                <div class="col-md-12 coluna-head arrumaTextoCentro">
-                    CUSTO POR PACIENTE COM CATÉTER
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-4 arrumaAlinhamento result-paciente">
-                    TOTAL
-                </div>
-
-                <div class="col-md-4 arrumaAlinhamento result-paciente" id="cellSomaTotalPacientesSemanalMedCorp">R$&nbsp;196,80</div>
-
-                <div class="col-md-4 arrumaAlinhamento result-paciente" id="cellSomaTotalPacientesMensalMedCorp">R$&nbsp;787,20</div>
-
-            </div>
-
-
-        </div>
-            <!--
-                fim estrutura tego 
-            -->
-
-
-            <!--
-                inicio estrutura grafico 
-            -->
-        <div class="col-md-4 coluna-grafico"><iframe class="chartjs-hidden-iframe" style="display: block; overflow: hidden; border: 0px none; margin: 0px; inset: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" tabindex="-1"></iframe>
-            <canvas id="Grafico" style="display: block; width: 360px; height: 180px;" width="360" height="180"></canvas>
-        </div>
-
-            <!--
-            fim estrutura grafico
-            -->
-
-    </div>
-
-
-    <div class="row">
-
-        <div class="col-md-12 diferenca-title">
-            DIFERENÇA DE CUSTO POR MÊS
-        </div>
-
-        <div class="col-md-4 diferenca-txt">
-            CONECTOR/TAMPA
-            <div class="col-md-12 diferenca-num" id="CellDiferencaCustoConector">R$&nbsp;3.022,80</div>
-        </div>
-
-        <div class="col-md-4 x-custo"> X </div>
-
-        <div class="col-md-4 diferenca-txt">
-            MEDCORP
-            <div class="col-md-12 diferenca-num" id="CellDiferencaCustoMedCorp">R$&nbsp;787,20</div>
-        </div>
-
-
-        <div class="col-md-6 economia-txt">
-            ECONOMIA POR MÊS
-            <div class="col-md-12 economia-num" id="CellEconomiaMensal">R$&nbsp;2.235,60</div>
-        </div>
-
-
-
-        <div class="col-md-6 economia-txt">
-            ECONOMIA ANUAL
-            <div class="col-md-12 economia-num" id="CellEconomiaAnual">R$&nbsp;26.827,20</div>
-        </div>
-
-
-    </div>
-
-
-        <!--
-        fim estrutura container 
-        -->
-    
-</div>
 
 </body>
 </html>';
@@ -420,6 +409,6 @@ $output = $dompdf->output();
 file_put_contents("nome_do_arquivo.pdf", $output);
 
 // redirecionamos o usuário para o download do arquivo
-die("<script>location.href='nome_do_arquivo.pdf';</script>");
+die("<script>location.href = 'nome_do_arquivo.pdf';</script>");
 
 ?>

@@ -36,7 +36,7 @@ $codigo_html = '
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Atenção, apenas um teste</title>
+<title>Med Corp Net - Calculadora Tego</title>
 <style>
 * { font-family: Arial; , sans-serif}
     .box-pacientes {
@@ -198,14 +198,11 @@ $codigo_html = '
         </td> 
         </tr>
         <tr>
-        <td class="box-pacientes"><h3>PACIENTES EM USO DE CATÉTER</h3></td>
+        <td class="box-pacientes"><h3>PACIENTES EM USO DE CATÉTER - '.$numeroPacientes.'</h3></td>
         </tr>
-            <tr>
-            <td class="box-pacientes">'.$numeroPacientes.'</td>
-            </tr>
         <tr>
         <td>
-            <table>
+            <table >
             <tr class="head">
                 <td>
                 CONECTOR/
@@ -228,27 +225,27 @@ $codigo_html = '
                 </td>
             </tr>
                 
-            <tr>
+            <tr >
                 <td>
-               <span class="head">R$ -</span>'.$conectorTampa.'
+               <span class="head">R$-</span> <b>'.$conectorTampa.'</b>
                 </td> 
 
                 <td>
-                <span class="head">R$ -</span>'.$heparina.'
+                <span class="head">R$-</span> <b>'.$heparina.'</b>
                 </td>
 
                 <td>
-                <span class="head">R$ -</span>'.$luva.'
+                <span class="head">R$-</span> <b>'.$luva.'</b>
                 </td>
                 
                 <td> 
-                <span class="head">R$ -</span>'.$tegoUnidade.'
+                <span class="head">R$-</span> <b>'.$tegoUnidade.'</b>
                 </td>
                 <td>
-                <span class="head">R$ -</span> ZERO
+                <span class="head">R$-</span> ZERO
                 </td>
                 <td>
-                <span class="head">R$ -</span>'.$luvaMedCorp.'
+                <span class="head">R$-</span> <b>'.$luvaMedCorp.'</b>
                 </td>
             </tr>
 
@@ -259,7 +256,7 @@ $codigo_html = '
             <tr> 
                 <td>
                 
-                        <table border="1" width="100%">
+                        <table  width="100%">
                             <tr class="coluna-head">
                                 <td>
                                 CUSTO POR PACIENTE COM CATÉTER 
@@ -278,7 +275,7 @@ $codigo_html = '
             <tr> 
                 <td>
                 
-                        <table border="1" width="100%">
+                        <table  width="100%">
                             <tr class="result-paciente">
                                 <td>
                                 TOTAL SEMANAL
@@ -289,30 +286,30 @@ $codigo_html = '
                                 </td>
 
                                 <td>
-                                TOTAL SEMANAL
+                                T SEM MEDCORP
                                 </td> 
 
                                 <td> 
-                                TOTAL MENSAL
+                                T MEN MERCORP
                                 </td>
                                
                             </tr> 
                             <tr class="box-pacientes">
                                 <td> 
-                                <span class="head">R$ -</span> '.$SomaTotalSemanalGrafico.'
+                                <span class="head">R$ -</span> <b>'.$SomaTotalSemanalGrafico.'</b>
                                 </td>
                                
                                 <td> 
-                                <span class="head">R$ -</span>'.$SomaTotalMensalGrafico .'
+                                <span class="head">R$ -</span> <b>'.$SomaTotalMensalGrafico .'</b>
                                
                                 </td> 
 
                                 <td> 
-                                <span class="head">R$ -</span>'.$somaTotalPacientesSemanalMedCorp.'
+                                <span class="head">R$ -</span> <b>'.$somaTotalPacientesSemanalMedCorp.'</b>
                                 </td>
                                
                                 <td> 
-                                <span class="head">R$ -</span>'.$somaTotalPacientesMensalMedCorp.'
+                                <span class="head">R$ -</span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
                                 </td>
                             </tr>
                         </table>
@@ -325,7 +322,7 @@ $codigo_html = '
                 <tr> 
                     <td>
 
-                        <table border="1" width="100%">
+                        <table  width="100%">
                         <tr class="diferenca-txt">
                             <td>
                             CONECTOR/TAMPA 
@@ -341,7 +338,7 @@ $codigo_html = '
                         </tr> 
                         <tr class="diferenca-num">
                             <td> 
-                            <span class="head">R$ -</span>'.$somaTotalPacientesSemanalMedCorp .'
+                            <span class="head">R$-</span> <b>'.$somaTotalPacientesSemanalMedCorp .'</b>
                             </td> 
 
                             <td>
@@ -349,7 +346,7 @@ $codigo_html = '
                             </td> 
                             
                             <td> 
-                            <span class="head">R$ -</span>'.$somaTotalPacientesMensalMedCorp.'
+                            <span class="head">R$-</span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
                             </td>
                     
                         </tr>
@@ -361,7 +358,7 @@ $codigo_html = '
                 <tr> 
                 <td>
 
-                <table border="1" width="100%" style="background-color:#1b365d;">
+                <table  width="100%" style="background-color:#1b365d;">
                 <tr class="economia-txt">
                     <td>
                     ECONOMIA POR MÊS 
@@ -374,11 +371,11 @@ $codigo_html = '
                 </tr> 
                 <tr class="economia-num" >
                     <td> 
-                    <span class="head">R$ -</span>'.$economiaMensal.'
+                    <span class="head">R$-</span> <b>'.$economiaMensal.'</b>
                     </td> 
                     
                     <td> 
-                    <span class="head">R$ -</span>'.$economiaAnual.'
+                    <span class="head">R$-</span> <b>'.$economiaAnual.'</b>
                     </td>
             
                 </tr>
@@ -398,7 +395,7 @@ $dompdf->loadHtml($codigo_html);
 
 // (Opcional) Defina o tamanho (A4, A3, A2, etc) e a oritenação do papel, que pode ser 'portrait' (em pé) ou 'landscape' (deitado)
 $dompdf->setPaper('A4', 'portrait');
-
+$dompdf->set_option('defaultFont', 'Arial’');
 // Renderizar o documento
 $dompdf->render();
 
@@ -406,9 +403,9 @@ $dompdf->render();
 $output = $dompdf->output();
 
 // defina aqui o nome do arquivo que você quer que seja salvo
-file_put_contents("nome_do_arquivo.pdf", $output);
+file_put_contents("geraPdf/calculo-tego.pdf", $output);
 
 // redirecionamos o usuário para o download do arquivo
-die("<script>location.href = 'nome_do_arquivo.pdf';</script>");
+die("<script>location.href = 'geraPdf/calculo-tego.pdf';</script>");
 
 ?>

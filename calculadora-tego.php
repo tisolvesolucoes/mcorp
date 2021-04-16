@@ -1292,6 +1292,7 @@
                         <div class="col-md-12" class="box_principal">
 
                             <h2 class="diferenca-title">Salve seu calculo</h2>
+                            <img src="img/pdf.png" width="60px">
                             <form 
                             onsubmit="return validacao();"
                             class="shake" 

@@ -12,8 +12,8 @@
     $tegoUnidade                        = $_REQUEST['tegoUnidadeFormEmail'];
     $heparinaMedCorp                    = $_REQUEST['heparinaMedCorpFormEmail'];
     $luvaMedCorp                        = $_REQUEST['luvaMedCorpFormEmail'];
-    $economiaMensal                     = $_REQUEST['economiaMensal'];
-    $economiaAnual                      = $_REQUEST['economiaAnual'];
+    $economiaMensal                     = round($_REQUEST['economiaMensal'], 2);
+    $economiaAnual                      = round($_REQUEST['economiaAnual'], 2);
     $SomaTotalSemanalGrafico            = $_REQUEST['SomaTotalSemanalGrafico'];
     $SomaTotalMensalGrafico             = $_REQUEST['SomaTotalMensalGrafico'];
     $somaTotalPacientesSemanalMedCorp   = $_REQUEST['somaTotalPacientesSemanalMedCorp'];
@@ -81,7 +81,7 @@ text-decoration: none;
 }
 </style>
   <html>
-	  <table width='510' border='1' cellpadding='1' cellspacing='1' bgcolor='#CCCCCC'>
+	  <table width='510' border='1' cellpadding='1' cellspacing='1'>
 		  <tr>
 			<td>
 			<tr>

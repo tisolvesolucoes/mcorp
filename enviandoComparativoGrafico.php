@@ -1,121 +1,121 @@
-    <?php
-    //ob_start();
-    include 'config/configs.php';
-    //session_start();
-   // print_r($_POST);
-    $nome                                                 =  strtoupper($_POST['nome']);
-    $email                                                =  $_POST['email'];
-    $telefone                                             =  $_POST['telefone'];
-    $cargo                                                =  $_POST['cargo'];
-    $empresa                                              =  strtoupper($_POST['empresa']);
-    $msg                                                  =  $_POST['msg'];
-
-    // Inclui o arquivo class.phpmailer.php localizado na pasta phpmailer
-    require("config/mail/class.phpmailer.php");
-    // Inicia a classe PHPMailer
-    $mail                                                 = new PHPMailer();
-    // Define os dados do servidor e tipo de conexão
-    //                                                    =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    $mail->IsSMTP(); // Define que a mensagem será SMTP
-    $mail->Host                                           = "smtp.medcorpnet.com.br"; // Endereço do servidor SMTP
-    $mail->SMTPAuth                                       = true; // Usa autenticação SMTP? (opcional)
-    $mail->Username                                       = 'medcorpnet@medcorpnet.com.br'; // Usuário do servidor SMTP
-    $mail->Password                                       = 'dri031251'; // Senha do servidor SMTP
-    $mail->Port                                           = '587';
-
-
-
-
-
-
-    // Define o remetente
-    //                                                    =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    $mail->From                                           =  'medcorpnet@medcorpnet.com.br'; // Seu e-mail
-    $fromname                                             =  "Formulário Comparativo - MEDCORP";
-    $mail->FromName                                       =  utf8_decode($fromname); // Seu nome
-    // Define os destinatário(s)
-    //                                                    =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    $mail->AddAddress('medcorpnet@medcorpnet.com.br',("$nome"));
+<?php 
+	//include('../config/config.php');
+    $nome		= $_REQUEST['nome'];
+	$telefone 	= $_REQUEST['telefone'];
+	$email		= $_REQUEST['email'];
+	$cargo 		= $_REQUEST['cargo'];
     
-    //$mail->AddCC('contato@gtlynx.com.br', 'Pedrinho'); // Copia
-    //$mail->AddBCC('fulano@dominio.com.br', 'Fulano da Silva'); // Cópia Oculta
-    // Define os dados técnicos da Mensagem
-    //                                                    =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
-    $mail->CharSet                                        = 'iso-8859-1'; // Charset da mensagem (opcional)
-    // Define a mensagem (Texto e Assunto)
-    //                                                    =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    $assunto                                              = "Comparativo tego - MEDCORP - Usuario ".$nome." através do formulário do site"; // Assunto da mensagem
-    $corpodoemail                                         =
-    "<strong style='font-size:16px;'>Mensagem Automatica</strong><hr><br>Foi feito contato através do formulário Comparativo site MEDCORP.<br><br>
-    <strong>Contato de: </strong>".$nome."<br>
-    <strong>Comparativo: </strong>
-    <strong>O seu email para contato é: </strong ><a href ='mailto:".$email."'>".$email."</a><br>
-    <strong>Telefone: </strong>".$telefone."<br>
-    <strong>Cargo: </strong>".$cargo."<br>
-    <strong>Empresa: </strong>".$empresa."<br>
-    <strong>Mensagem: </strong>".$msg."<br>
-    <br> Obrigado <br><br>"; // corpo da mensagem
-    //$mail->Subject                                      = "GTLYNX - Contato"; // Assunto da mensagem
-    $mail->Subject                                        = utf8_decode($assunto); // Assunto da mensagem
-    $mail->Body                                           = utf8_decode($corpodoemail);
-    $mail->AltBody                                        = "Novo Cliente";
-    // Define os anexos (opcional)
-    //                                                    =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    /*$mail->AddAttachment("temp/{$nome}.zip", "{$nome}.zip");  // Insere um anexo*/
-    // Envia o e-mail
-    $enviado                                   = $mail->Send();
-    // Limpa os destinatários e os anexos
-    $mail->ClearAllRecipients();
-    $mail->ClearAttachments();
+    $numeroPacientes                    = $_REQUEST['numeroPacientesFormEmail'];
+    $conectorTampa                      = $_REQUEST['conectorTampaFormEmail'];
+    $heparina                           = $_REQUEST['heparinaFormEmail'];
+    $luva                               = $_REQUEST['luvaFormEmail'];
+    $tegoUnidade                        = $_REQUEST['tegoUnidadeFormEmail'];
+    $heparinaMedCorp                    = $_REQUEST['heparinaMedCorpFormEmail'];
+    $luvaMedCorp                        = $_REQUEST['luvaMedCorpFormEmail'];
+    $economiaMensal                     = $_REQUEST['economiaMensal'];
+    $economiaAnual                      = $_REQUEST['economiaAnual'];
+    $SomaTotalSemanalGrafico            = $_REQUEST['SomaTotalSemanalGrafico'];
+    $SomaTotalMensalGrafico             = $_REQUEST['SomaTotalMensalGrafico'];
+    $somaTotalPacientesSemanalMedCorp   = $_REQUEST['somaTotalPacientesSemanalMedCorp'];
+    $somaTotalPacientesMensalMedCorp    = $_REQUEST['somaTotalPacientesMensalMedCorp'];
 
 
 
-if ($enviado) {
-include 'estrutura/header.php';
+	$data_envio = date('d/m/Y');
+	$hora_envio = date('H:i:s');
 
-    echo'
+//enviar ;
+ // Adiciona o arquivo class.phpmailer.php - você deve especificar corretamente o caminho da pasta com o este arquivo.
+ require_once("enviaEmail/PHPMailerAutoload.php");
+ // Inicia a classe PHPMailer
+ $mail = new PHPMailer();
 
-    <section id="content">
+ $mail->Host = 'smtp.office365.com';
+ $mail->SMTPSecure = 'tls';
 
-    <div class="container">
-        <div class="row">
+ // DEFINIÇÃO DOS DADOS DE AUTENTICAÇÃO - Você deve auterar conforme o seu domínio!
+ $mail->IsSMTP(); // Define que a mensagem será SMTP
+ //$mail->Host = "smtp.medcorpnet.com.br"; // Seu endereço de host SMTP
+ $mail->SMTPAuth = true; // Define que será utilizada a autenticação -  Mantenha o valor "true"
+ $mail->Port = 587; // Porta de comunicação SMTP - Mantenha o valor "587"
+ //$mail->SMTPSecure = true; // Define se é utilizado SSL/TLS - Mantenha o valor "false"
+ //$mail->SMTPAutoTLS = true; // Define se, por padrão, será utilizado TLS - Mantenha o valor "false"
+ $mail->Username = 'calculadoratego@medcorpnet.com.br'; // Conta de email existente e ativa em seu domínio
+ $mail->Password = 'Cal@abb123@#$'; // Senha da sua conta de email
+ // DADOS DO REMETENTE
+ $mail->Sender = "calculadoratego@medcorpnet.com.br"; // Conta de email existente e ativa em seu domínio
+ $mail->From = "calculadoratego@medcorpnet.com.br"; // Sua conta de email que será remetente da mensagem
+ $mail->FromName = "medcorpnet.com.br"; // Nome da conta de email
+ // DADOS DO DESTINATÁRIO
+ $mail->AddAddress('calculadoratego@medcorpnet.com.br', 'Comparativo - site'); // Define qual conta de email receberá a mensagem
+ //$mail->AddAddress('recebe2@dominio.com.br'); // Define qual conta de email receberá a mensagem
+ //$mail->AddCC('copia@dominio.net'); // Define qual conta de email receberá uma cópia
+ //$mail->AddBCC('copiaoculta@dominio.info'); // Define qual conta de email receberá uma cópia oculta
+ // Definição de HTML/codificação
+ $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
+ $mail->CharSet = 'utf-8'; // Charset da mensagem (opcional)
+ 
+ // DEFINIÇÃO DA MENSAGEM
 
-            <div class="col-md-12">
-                <!--1 linha -->
-                <!--box principal -->
-                <div class="col-md-12" class="box_principal">
-                    <div class="contact-info-wrapper clearfix">
-                    <h2>CONTATO ENVIADO COM SUCESSO!</h2>
-                    <hr>
+ $mail->Subject = "Calculadora - site"; // Assunto da mensagem
+ //$mail->Body .= "Nome: ".$_POST['nome'].""; // Texto da mensagem
+ //$mail->Body .= "E-mail: ".$_POST['email'].""; // Texto da mensagem
+ //$mail->Body .= "Assunto: ".$_POST['assunto'].""; // Texto da mensagem
+ //$mail->Body .= "Mensagem: ".nl2br($_POST['mensagem']).""; // Texto da mensagem
 
-                    </div><!-- Contact Info End -->
-
-                <br>
-            </div>
-        </div>
-    </div>
-</div>
-        </div>
-    </div>
-    </section>';
-
-include 'estrutura/footer.php';
-
-
-
+$mail->Body .= "
+<style type='text/css'>
+body {
+margin:0px;
+font-family:Verdane;
+font-size:12px;
+color: #666666;
 }
+a{
+color: #666666;
+text-decoration: none;
+}
+a:hover {
+color: #FF0000;
+text-decoration: none;
+}
+</style>
+  <html>
+	  <table width='510' border='1' cellpadding='1' cellspacing='1' bgcolor='#CCCCCC'>
+		  <tr>
+			<td>
+			<tr>
+			   <td width='500'>Nome:$nome</td>
+				  </tr>
+				  <tr>
+				<td width='320'>E-mail:<b>$email</b></td>
+				   </tr>
+				<tr>
+				<td width='320'>Telefone:<b>$telefone</b></td>
+				  </tr>
+				  <tr>
+				<td width='320'>Cargo:$cargo</td>
+			  </tr>
+			  </td>
+		</tr>
+		<tr>
+		  <td>Este e-mail foi enviado em <b>$data_envio</b> às <b>$hora_envio</b></td>
+		</tr>
+	  </table>
+  </html>";
 
 
 
-
-
-
-
-
-
-
-
-
-
-    ?>
+ // ENVIO DO EMAIL
+ $enviado = $mail->Send();
+ // Limpa os destinatários e os anexos
+ $mail->ClearAllRecipients();
+ // Exibe uma mensagem de resultado do envio (sucesso/erro)
+ if ($enviado) {
+   echo "E-mail enviado com sucesso!";
+ } else {
+   echo "Não foi possível enviar o e-mail.";
+   echo "Detalhes do erro: " . $mail->ErrorInfo;
+ }
+ ?>
+ 

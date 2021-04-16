@@ -819,7 +819,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center" style="margin-top: -30px;">
-                                <h2 style="color:#1B365D">Comparativo Tego</span></h2>
+                                <h2 style="color:#1B365D">Calculadora Tego</span></h2>
 
                             </div>
                         </div>
@@ -1240,7 +1240,7 @@
                     <div class="row">
 
                         <div class="col-md-12 diferenca-title">
-                            DIFERENCA DE CUSTO POR MÊS
+                            DIFERENÇA DE CUSTO POR MÊS
                         </div>
 
                         <div class="col-md-4 diferenca-txt">
@@ -1291,9 +1291,16 @@
                         <!--box principal -->
                         <div class="col-md-12" class="box_principal">
 
-                            <h2 class="diferenca-title">Salve seu comparativo</h2>
-                            <form class="shake" onSubmit="savePDF();" data-toggle="validator" id="contactForm344"
-                                name="contactForm" method="post" role="form" action="enviandoGrafico.php">
+                            <h2 class="diferenca-title">Salve seu calculo</h2>
+                            <form 
+                            onsubmit="return validacao();"
+                            class="shake" 
+                            data-toggle="validator" 
+                            id="contactForm344"
+                                name="contactForm" 
+                                method="post" 
+                                role="form" 
+                                action="enviandoComparativoGrafico.php"> 
                                 <div class="col-md-12">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -1330,24 +1337,39 @@
                                     </div>
                                     <div class="clearfix"></div>
 
-                                </div>
+                                </div>                             
+                                <input type="hidden" name="numeroPacientesFormEmail" id="numeroPacientesFormEmail" >
+                                <input type="hidden" name="conectorTampaFormEmail" id="conectorTampaFormEmail" >
+                                <input type="hidden" name="heparinaFormEmail" id="heparinaFormEmail" >
+                                <input type="hidden" name="luvaFormEmail" id="luvaFormEmail" >
+                                <input type="hidden" name="tegoUnidadeFormEmail" id="tegoUnidadeFormEmail" >
+                                <input type="hidden" name="heparinaMedCorpFormEmail" id="heparinaMedCorpFormEmail" >
+                                <input type="hidden" name="luvaMedCorpFormEmail" id="luvaMedCorpFormEmail" >
+                                <input type="hidden" name="SomaTotalSemanalGrafico" id="SomaTotalSemanalGrafico" >
+                                <input type="hidden" name="SomaTotalMensalGrafico" id="SomaTotalMensalGrafico" >
+                                <input type="hidden" name="somaTotalPacientesSemanalMedCorp" id="somaTotalPacientesSemanalMedCorp" >
+                                <input type="hidden" name="somaTotalPacientesMensalMedCorp" id="somaTotalPacientesMensalMedCorp" >
+                                <input type="hidden" name="economiaMensal" id="economiaMensal" >
+                                <input type="hidden" name="economiaAnual" id="economiaAnual" >
                             </form>
                             <br>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <button class="col-md-6 btn btn-warning" id="btnPDF">BAIXAR COMPARATIVO - PDF</button>
-                        <div class="col-md-3"></div>
-                    </div>
+                
 
                 </div>
 
 
-                <!--           
+                <!--      
+                    
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <button class="col-md-6 btn btn-warning" id="btnPDF">BAIXAR CALCULO - PDF</button>
+                        <div class="col-md-3"></div>
+                    </div>     
+
                     <button class="btn btn-danger" id="btnPDF">BAIXAR COMPARATIVO - PDF</button>
-            
                     FIM  DIV CONTAINER
                 
                 -->
@@ -1445,39 +1467,38 @@
     <script src="js/animate.js"></script>
     <script src="js/custom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
     <script>
 
         $(document).ready(function () {
 
-            let numeroPacientes = $("#numeroPacientes");
+            let numeroPacientes     = $("#numeroPacientes");
             numeroPacientes.focus();
 
             let custoPacienteTotalMensal;
 
-            let conectorTampa = $("#conectorTampa");
-            let heparina = $("#heparina");
-            let luva = $("#luva");
-            let tegoUnidade = $("#tegoUnidade");
-            let heparinaMedCorp = 0;
-            let luvaMedCorp = $("#luvaMedCorp");
-            var formulario = document.querySelector('form');
+            let conectorTampa       = $("#conectorTampa");
+            let heparina            = $("#heparina");
+            let luva                = $("#luva");
+            let tegoUnidade         = $("#tegoUnidade");
+            let heparinaMedCorp     = 0;
+            let luvaMedCorp         = $("#luvaMedCorp");
+            var formulario          = document.querySelector('form');
 
 
             function calculaTotalMensal(chart, c) {
 
-                let valorConectorTampa = conectorTampa.val();
-                let valorHeparina = heparina.val();
-                let valorLuva = luva.val();
-                let valorTegoUnidade = tegoUnidade.val();
-                let valorLuvaMedCorp = luvaMedCorp.val();
+                let valorConectorTampa  = conectorTampa.val();
+                let valorHeparina       = heparina.val();
+                let valorLuva           = luva.val();
+                let valorTegoUnidade    = tegoUnidade.val();
+                let valorLuvaMedCorp    = luvaMedCorp.val();
 
                 if (c == 1
-                    && (valorConectorTampa != ""
-                        && valorHeparina != ""
-                        && valorLuva != "")) {
+                    && (valorConectorTampa  != ""
+                        && valorHeparina    != ""
+                        && valorLuva        != "")) {
 
                     valorConectorTampa = valorConectorTampa.replace('.', '');
                     valorConectorTampa = valorConectorTampa.replace(',', '.');
@@ -1574,11 +1595,9 @@
                     SomaTotalSemanalGrafico = SomaTotalSemanalGrafico.replace(',', '.');
 
 
-
                     let cellSomaTotalPacientesMensal = document.getElementById("cellSomaTotalPacientesMensal").innerHTML;
                     let res = cellSomaTotalPacientesMensal.split(";");
 
-                    console.log(res[1]);
 
                     let cellEconomiaMensal = res[1].replace('.', '');
                     cellEconomiaMensal = cellEconomiaMensal.replace(',', '.');
@@ -1599,13 +1618,31 @@
                     let reconomiaAnual = economiaAnual.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
                     document.getElementById("CellEconomiaAnual").innerHTML = reconomiaAnual;
+                    somaTotalPacientesSemanalMedCorp = somaTotalPacientesSemanalMedCorp.toFixed(2);
+                    somaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toFixed(2);
+                    
+                    $("#numeroPacientesFormEmail").val($("#numeroPacientes").val());
+                    $("#conectorTampaFormEmail").val($("#conectorTampa").val());
+                    $("#heparinaFormEmail").val($("#heparina").val());
+                    $("#luvaFormEmail").val($("#luva").val());
+                    $("#tegoUnidadeFormEmail").val($("#tegoUnidade").val());
+                    $("#heparinaMedCorpFormEmail").val($("#heparinaMedCorp").val());
+                    $("#luvaMedCorpFormEmail").val($("#luvaMedCorp").val());
 
+                    $("#economiaMensal").val(economiaMensal);
+                    $("#economiaAnual").val(economiaAnual);
+
+                    $("#SomaTotalSemanalGrafico").val(SomaTotalSemanalGrafico) ;
+                    $("#SomaTotalMensalGrafico").val(SomaTotalMensalGrafico) ;
+                    $("#somaTotalPacientesSemanalMedCorp").val(somaTotalPacientesSemanalMedCorp);
+                    $("#somaTotalPacientesMensalMedCorp").val(somaTotalPacientesMensalMedCorp);
 
                     add_data(chart,
                         SomaTotalSemanalGrafico,
                         SomaTotalMensalGrafico,
-                        somaTotalPacientesSemanalMedCorp.toFixed(2),
-                        somaTotalPacientesMensalMedCorp.toFixed(2));
+                        somaTotalPacientesSemanalMedCorp,
+                        somaTotalPacientesMensalMedCorp
+                    );
 
                 }
 
@@ -1772,7 +1809,7 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Comparativo Tego'
+                        text: 'Calculadora Tego'
                     },
                     responsive: true,
                 },
@@ -1802,65 +1839,24 @@
             });
 
 
-            $('#btnPDF').click(function () {
-                savePDF(document.querySelector('#geraPDF'));
-            });
+            function validacao() {
+            var formulario = document.contactForm;
+            var nome = formulario.nome;
+            var email = formulario.email;
 
-
-
-            /*****************INICIO PDF**************************/
-
-            function savePDF(codigoHTML) {
-                var doc = new jsPDF('portrait', 'pt', 'a4'),
-                    data = new Date();
-                margins = {
-                    top: 40,
-                    bottom: 60,
-                    left: 40,
-                    width: 1000
-                };
-                doc.fromHTML(codigoHTML,
-                    margins.left, // x coord
-                    margins.top, { pagesplit: true },
-                    function (dispose) {
-                        doc.save("Relatorio - " + data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear() + ".pdf");
-                    });
+            if (nome.value == "") {
+                alert("Insira um nome válido.");
+                return false;
             }
 
-
-
-            /*
-            $('#btnPDF').click(function () {
-                savePDF(document.querySelector('.container'));
-            });
-
-
-            /*****************INICIO PDF************************** /
-
-            function savePDF() {
-                var doc = new jsPDF('portrait', 'pt', 'a4'),
-                    data = new Date();
-                margins = {
-                    top: 40,
-                    bottom: 60,
-                    left: 40,
-                    width: 1000
-                };
-                doc.fromHTML(document.querySelector('.container'),
-                    margins.left, // x coord
-                    margins.top, { pagesplit: true },
-                    function (dispose) {
-                        doc.save("Relatorio-" + data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear() + ".pdf");
-                    });
+            if(email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1) {
+                alert("Insira um email válido");
+                return false;
             }
+            
+            return true;
+        }
 
-            /**************** FIM PDF ****************************** /
-
-            formulario.onsubmit = function () {
-                alert("Enviado com sucesso.");
-                savePDF();
-            }
-                */
         });
     </script>
 </body>

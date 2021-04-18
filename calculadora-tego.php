@@ -827,7 +827,6 @@
                 </div>
 
 
-                <!--INICIO DIV CONTAINER-->
 
 
 
@@ -852,9 +851,7 @@
 
                         <div class="row" style="font-weight: 600;"></div>
 
-                        <!--
-                            inicio estrutura comparacao  
-                        -->
+                        <!-- inicio estrutura comparacao  -->
 
 
                         <div class="col-md-4 coluna-calculo">
@@ -867,7 +864,7 @@
                                         <br> TAMPA
                                         <br> UNITÁRIO
                                     </div>
-                                    <input tabindex="2" type="text"
+                                    <input tabindex="2" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                         placeholder="R$:" id="conectorTampa">
                                 </div>
@@ -876,7 +873,7 @@
                                     <div class="title-calculo">
                                         HEPARINA - FRASCO
                                     </div>
-                                    <input tabindex="3" type="text"
+                                    <input tabindex="3" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                         placeholder="R$:" id="heparina">
                                 </div>
@@ -885,7 +882,7 @@
                                     <div class="title-calculo">
                                         LUVA - PAR
                                     </div>
-                                    <input tabindex="4" type="text"
+                                    <input tabindex="4" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                         placeholder="R$:" id="luva">
                                 </div>
@@ -1035,16 +1032,12 @@
 
 
                         </div>
-                        <!--
-                                 fim estrutura comparacao  
-                            -->
+                        <!-- fim estrutura comparacao  -->
 
 
 
 
-                        <!--
-                            inicio estrutura tego 
-                            -->
+                        <!--inicio estrutura tego  -->
                         <div class="col-md-4 coluna-calculo">
 
 
@@ -1057,7 +1050,7 @@
                                     <div class="title-calculo">
                                         TEGO - UNIDADE
                                     </div>
-                                    <input tabindex="5" type="text"
+                                    <input tabindex="5" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                         placeholder="R$:" id="tegoUnidade">
                                 </div>
@@ -1073,8 +1066,7 @@
                                     <div class="title-calculo">
                                         LUVA - PAR
                                     </div>
-                                    <input type="text" tabindex="6"
-                                        onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                    <input type="text" tabindex="6" maxlength="10" readonly class="form-control"
                                         placeholder="R$:" id="luvaMedCorp">
                                 </div>
 
@@ -1216,23 +1208,15 @@
 
 
                         </div>
-                        <!--
-                                fim estrutura tego 
-                            -->
+                        <!-- fim estrutura tego  -->
 
 
 
-                        <!--
-                                inicio estrutura grafico 
-                            -->
+                        <!-- inicio estrutura grafico -->
                         <div class="col-md-4 coluna-grafico">
                             <canvas id="Grafico"></canvas>
                         </div>
-                        <!--
-                            fim estrutura grafico
-                            -->
-
-
+                        <!-- fim estrutura grafico -->
 
                     </div>
 
@@ -1283,9 +1267,13 @@
                     </div>
 
 
-                    <!--
-                        fim estrutura container 
-                        -->
+                    <!-- fim estrutura container  -->
+
+
+                    <!--FIM  DIV CONTAINER-->
+
+
+
                     <div class="col-md-12">
                         <!--1 linha -->
                         <!--box principal -->
@@ -1293,15 +1281,9 @@
 
                             <h2 class="diferenca-title">Salve seu calculo</h2>
                             <img src="img/pdf.png" width="60px">
-                            <form 
-                            onsubmit="return validacao();"
-                            class="shake" 
-                            data-toggle="validator" 
-                            id="contactForm344"
-                                name="contactForm" 
-                                method="post" 
-                                role="form" 
-                                action="enviandoComparativoGrafico.php"> 
+                            <form onsubmit="return validacao();" class="shake" data-toggle="validator"
+                                id="contactForm344" name="contactForm" method="post" role="form"
+                                action="enviandoComparativoGrafico.php">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -1338,26 +1320,28 @@
                                     </div>
                                     <div class="clearfix"></div>
 
-                                </div>                             
-                                <input type="hidden" name="numeroPacientesFormEmail" id="numeroPacientesFormEmail" >
-                                <input type="hidden" name="conectorTampaFormEmail" id="conectorTampaFormEmail" >
-                                <input type="hidden" name="heparinaFormEmail" id="heparinaFormEmail" >
-                                <input type="hidden" name="luvaFormEmail" id="luvaFormEmail" >
-                                <input type="hidden" name="tegoUnidadeFormEmail" id="tegoUnidadeFormEmail" >
-                                <input type="hidden" name="heparinaMedCorpFormEmail" id="heparinaMedCorpFormEmail" >
-                                <input type="hidden" name="luvaMedCorpFormEmail" id="luvaMedCorpFormEmail" >
-                                <input type="hidden" name="SomaTotalSemanalGrafico" id="SomaTotalSemanalGrafico" >
-                                <input type="hidden" name="SomaTotalMensalGrafico" id="SomaTotalMensalGrafico" >
-                                <input type="hidden" name="somaTotalPacientesSemanalMedCorp" id="somaTotalPacientesSemanalMedCorp" >
-                                <input type="hidden" name="somaTotalPacientesMensalMedCorp" id="somaTotalPacientesMensalMedCorp" >
-                                <input type="hidden" name="economiaMensal" id="economiaMensal" >
-                                <input type="hidden" name="economiaAnual" id="economiaAnual" >
+                                </div>
+                                <input type="hidden" name="numeroPacientesFormEmail" id="numeroPacientesFormEmail">
+                                <input type="hidden" name="conectorTampaFormEmail" id="conectorTampaFormEmail">
+                                <input type="hidden" name="heparinaFormEmail" id="heparinaFormEmail">
+                                <input type="hidden" name="luvaFormEmail" id="luvaFormEmail">
+                                <input type="hidden" name="tegoUnidadeFormEmail" id="tegoUnidadeFormEmail">
+                                <input type="hidden" name="heparinaMedCorpFormEmail" id="heparinaMedCorpFormEmail">
+                                <input type="hidden" name="luvaMedCorpFormEmail" id="luvaMedCorpFormEmail">
+                                <input type="hidden" name="SomaTotalSemanalGrafico" id="SomaTotalSemanalGrafico">
+                                <input type="hidden" name="SomaTotalMensalGrafico" id="SomaTotalMensalGrafico">
+                                <input type="hidden" name="somaTotalPacientesSemanalMedCorp"
+                                    id="somaTotalPacientesSemanalMedCorp">
+                                <input type="hidden" name="somaTotalPacientesMensalMedCorp"
+                                    id="somaTotalPacientesMensalMedCorp">
+                                <input type="hidden" name="economiaMensal" id="economiaMensal">
+                                <input type="hidden" name="economiaAnual" id="economiaAnual">
                             </form>
                             <br>
                         </div>
                     </div>
 
-                
+
 
                 </div>
 
@@ -1474,32 +1458,34 @@
 
         $(document).ready(function () {
 
-            let numeroPacientes     = $("#numeroPacientes");
+            let numeroPacientes = $("#numeroPacientes");
             numeroPacientes.focus();
 
             let custoPacienteTotalMensal;
 
-            let conectorTampa       = $("#conectorTampa");
-            let heparina            = $("#heparina");
-            let luva                = $("#luva");
-            let tegoUnidade         = $("#tegoUnidade");
-            let heparinaMedCorp     = 0;
-            let luvaMedCorp         = $("#luvaMedCorp");
-            var formulario          = document.querySelector('form');
+            let conectorTampa = $("#conectorTampa");
+            let heparina = $("#heparina");
+            let luva = $("#luva");
+            let tegoUnidade = $("#tegoUnidade");
+            let heparinaMedCorp = 0;
+            let luvaMedCorp = $("#luvaMedCorp");
+            var formulario = document.querySelector('form');
 
 
             function calculaTotalMensal(chart, c) {
 
-                let valorConectorTampa  = conectorTampa.val();
-                let valorHeparina       = heparina.val();
-                let valorLuva           = luva.val();
-                let valorTegoUnidade    = tegoUnidade.val();
-                let valorLuvaMedCorp    = luvaMedCorp.val();
+                let numeroPacientes = parseInt(document.getElementById("numeroPacientes").value);
+
+                let valorConectorTampa = conectorTampa.val();
+                let valorHeparina = heparina.val();
+                let valorLuva = luva.val();
+                let valorTegoUnidade = tegoUnidade.val();
+                let valorLuvaMedCorp = luvaMedCorp.val();
 
                 if (c == 1
-                    && (valorConectorTampa  != ""
-                        && valorHeparina    != ""
-                        && valorLuva        != "")) {
+                    && (valorConectorTampa != ""
+                        && valorHeparina != ""
+                        && valorLuva != "")) {
 
                     valorConectorTampa = valorConectorTampa.replace('.', '');
                     valorConectorTampa = valorConectorTampa.replace(',', '.');
@@ -1511,7 +1497,7 @@
                     valorHeparina = valorHeparina.replace('.', '');
                     valorHeparina = valorHeparina.replace(',', '.');
 
-                    let resultadoValorHeparina = valorHeparina * 2;
+                    let resultadoValorHeparina = valorHeparina * 1;
                     let resultadoSemanalValorHeparina = resultadoValorHeparina * 3;
                     let resultadoMensalValorHeparina = resultadoSemanalValorHeparina * 4;
 
@@ -1528,8 +1514,6 @@
                     let rsomaTotalSemanal = somaTotalSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                     let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
-
-                    let numeroPacientes = parseInt(document.getElementById("numeroPacientes").value);
 
                     let rsomaTotalPacientesSemanal = somaTotalSemanal * numeroPacientes;
                     let rsomaTotalPacientesMensal = somaTotalMensal * numeroPacientes;
@@ -1554,7 +1538,7 @@
                     valorTegoUnidade = valorTegoUnidade.replace(',', '.');
 
                     let resultadoTegoUnidade = valorTegoUnidade * 2;
-                    let resultadoSemanalTegoUnidade = resultadoTegoUnidade * 3;
+                    let resultadoSemanalTegoUnidade = resultadoTegoUnidade;
                     let resultadoMensalTegoUnidade = resultadoSemanalTegoUnidade * 4;
 
 
@@ -1562,7 +1546,7 @@
                     valorLuvaMedCorp = valorLuvaMedCorp.replace(',', '.');
 
                     let resultadoLuvaMedCorp = valorLuvaMedCorp * 2;
-                    let resultadoSemanalLuvaMedCorp = resultadoLuvaMedCorp * 3;
+                    let resultadoSemanalLuvaMedCorp = resultadoLuvaMedCorp;
                     let resultadoMensalLuvaMedCorp = resultadoSemanalLuvaMedCorp * 4;
 
                     let somaTotalSemanal = resultadoSemanalTegoUnidade + resultadoSemanalLuvaMedCorp;
@@ -1621,7 +1605,7 @@
                     document.getElementById("CellEconomiaAnual").innerHTML = reconomiaAnual;
                     somaTotalPacientesSemanalMedCorp = somaTotalPacientesSemanalMedCorp.toFixed(2);
                     somaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toFixed(2);
-                    
+
                     $("#numeroPacientesFormEmail").val($("#numeroPacientes").val());
                     $("#conectorTampaFormEmail").val($("#conectorTampa").val());
                     $("#heparinaFormEmail").val($("#heparina").val());
@@ -1633,8 +1617,8 @@
                     $("#economiaMensal").val(economiaMensal);
                     $("#economiaAnual").val(economiaAnual);
 
-                    $("#SomaTotalSemanalGrafico").val(SomaTotalSemanalGrafico) ;
-                    $("#SomaTotalMensalGrafico").val(SomaTotalMensalGrafico) ;
+                    $("#SomaTotalSemanalGrafico").val(SomaTotalSemanalGrafico);
+                    $("#SomaTotalMensalGrafico").val(SomaTotalMensalGrafico);
                     $("#somaTotalPacientesSemanalMedCorp").val(somaTotalPacientesSemanalMedCorp);
                     $("#somaTotalPacientesMensalMedCorp").val(somaTotalPacientesMensalMedCorp);
 
@@ -1714,6 +1698,7 @@
                 let resultadoSemanal = resultado * 3;
                 let resultadoMensal = resultadoSemanal * 4;
 
+                var valorLuvaInput = valorLuva.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                 var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                 var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                 var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
@@ -1722,12 +1707,12 @@
                 document.getElementById("cellLuva").innerHTML = r;
                 document.getElementById("cellLuvaSemanal").innerHTML = rSemanal;
                 document.getElementById("cellLuvaMensal").innerHTML = rMensal;
-
+                document.getElementById("luvaMedCorp").value = valorLuvaInput;
                 calculaTotalMensal(chart, 1);
 
             });
 
-            tegoUnidade.focusout(function () {
+            tegoUnidade.focusout(function (chart) {
                 let valorTegoUnidade = tegoUnidade.val();
                 valorTegoUnidade = valorTegoUnidade.replace('.', '');
                 valorTegoUnidade = valorTegoUnidade.replace(',', '.');
@@ -1745,10 +1730,12 @@
                 document.getElementById("cellTegoUnidadeMensal").innerHTML = rMensal;
                 luvaMedCorp.focus();
 
+                calculaTotalMensal(chart, 2);
+
             });
 
 
-            luvaMedCorp.focusout(function (chart) {
+            luvaMedCorp.focusout(function () {
                 let valorLuvaMedCorp = luvaMedCorp.val();
                 valorLuvaMedCorp = valorLuvaMedCorp.replace('.', '');
                 valorLuvaMedCorp = valorLuvaMedCorp.replace(',', '.');
@@ -1765,7 +1752,6 @@
                 document.getElementById("cellLuvaMedCorpSemanal").innerHTML = rSemanal;
                 document.getElementById("cellLuvaMedCorpMensal").innerHTML = rMensal;
 
-                calculaTotalMensal(chart, 2);
 
             });
 
@@ -1841,22 +1827,22 @@
 
 
             function validacao() {
-            var formulario = document.contactForm;
-            var nome = formulario.nome;
-            var email = formulario.email;
+                var formulario = document.contactForm;
+                var nome = formulario.nome;
+                var email = formulario.email;
 
-            if (nome.value == "") {
-                alert("Insira um nome válido.");
-                return false;
-            }
+                if (nome.value == "") {
+                    alert("Insira um nome válido.");
+                    return false;
+                }
 
-            if(email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1) {
-                alert("Insira um email válido");
-                return false;
+                if (email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1) {
+                    alert("Insira um email válido");
+                    return false;
+                }
+
+                return true;
             }
-            
-            return true;
-        }
 
         });
     </script>

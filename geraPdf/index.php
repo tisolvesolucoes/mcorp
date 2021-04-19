@@ -4,21 +4,7 @@ require_once 'dompdf/lib/html5lib/Parser.php';
 require_once 'dompdf/lib/php-font-lib-master/src/FontLib/Autoloader.php';
 require_once 'dompdf/lib/php-svg-lib-master/src/autoload.php';
 require_once 'dompdf/src/Autoloader.php';
-/*
-    $numeroPacientes                    = $_REQUEST['numeroPacientes'];
-    $conectorTampa                      = $_REQUEST['conectorTampa'];
-    $heparina                           = $_REQUEST['heparina'];
-    $luva                               = $_REQUEST['luva'];
-    $tegoUnidade                        = $_REQUEST['tegoUnidade'];
-    $heparinaMedCorp                    = $_REQUEST['heparinaMedCorp'];
-    $luvaMedCorp                        = $_REQUEST['luvaMedCorp'];
-    $economiaMensal                     = $_REQUEST['economiaMensal'];
-    $economiaAnual                      = $_REQUEST['economiaAnual'];
-    $SomaTotalSemanalGrafico            = $_REQUEST['SomaTotalSemanalGrafico'];
-    $SomaTotalMensalGrafico             = $_REQUEST['SomaTotalMensalGrafico'];
-    $somaTotalPacientesSemanalMedCorp   = $_REQUEST['somaTotalPacientesSemanalMedCorp'];
-    $somaTotalPacientesMensalMedCorp    = $_REQUEST['somaTotalPacientesMensalMedCorp'];
-*/
+
 // definindo os namespaces
 Dompdf\Autoloader::register();
 use Dompdf\Dompdf;
@@ -38,7 +24,15 @@ $codigo_html = '
 <meta charset="UTF-8">
 <title>Med Corp Net - Calculadora Tego</title>
 <style>
-* { font-family: Arial; , sans-serif}
+* { font-family: Arial, sans-serif;}
+body{font-family: Arial, sans-serif;}
+    table{width: 100%;}
+@media print {
+  selector{
+    font-family: Arial, sans-serif; 
+  }
+}
+td{padding:5px;}
     .box-pacientes {
         background: #1b365d;
         width: 45%;
@@ -185,206 +179,178 @@ $codigo_html = '
 <body>
 
     <table>        
-            <tr>
-                <td>
-                        <p style="text-align:left">
-                            <img width="250px" src="img/comparativo.jpg">
-                        </p>
-                </td> 
-            </tr>
         <tr>
-        <td class="titulo">
-            <h1> Calculadora Tego</h1>
-        </td> 
+            <td style="text-align:left; width:50%;">
+                <p style="text-align:left">
+                    <img width="250px" src="img/medcorp-logo-pdf.jpg">
+                </p>
+            </td> 
+            <td style="text-align:right; width:50%;">
+            Medcorp Hospitalar Ltda.<br>
+ESCRITÓRIO:<br>
+Rua Arminda, 93 - 3º andar - CEP: 04545 100 Vila Olímpia - São Paulo/SP - Brasil<br>
+Fone/Fax: +55 11-3849-8992</td>
+       
         </tr>
         <tr>
-        <td class="box-pacientes"><h3>PACIENTES EM USO DE CATÉTER - '.$numeroPacientes.'</h3></td>
+            <td class="titulo" colspan="4">
+                <h1> Calculadora Tego</h1>
+            </td> 
         </tr>
         <tr>
-        <td>
-            <table >
-            <tr class="head">
-                <td>
-                CONECTOR/
-                TAMPA
-                </td> 
+            <td class="coluna-head" colspan="4" style="padding:0;" ><h3 style="text-align:center;">PACIENTES EM USO DE CATÉTER - '.$numeroPacientes.'</h3></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td class="coluna-head" style="text-align:center; width:50%;">
+            ATUAL
+            </td> 
 
-                <td>
-                HEPARINA - FRASCO
-                </td>
-
-                <td>
-                LUVA - PAR 
-                </td>
-                
-                <td>TEGO - UNIDADE 
-                </td>
-                <td>HEPARINA
-                </td>
-                <td>LUVA - PAR
-                </td>
-            </tr>
-                
-            <tr >
-                <td>
-               <span class="head">R$-</span> <b>'.$conectorTampa.'</b>
-                </td> 
-
-                <td>
-                <span class="head">R$-</span> <b>'.$heparina.'</b>
-                </td>
-
-                <td>
-                <span class="head">R$-</span> <b>'.$luva.'</b>
-                </td>
-                
-                <td> 
-                <span class="head">R$-</span> <b>'.$tegoUnidade.'</b>
-                </td>
-                <td>
-                <span class="head">R$-</span> ZERO
-                </td>
-                <td>
-                <span class="head">R$-</span> <b>'.$luvaMedCorp.'</b>
-                </td>
-            </tr>
-
-            </table>
+            <td class="coluna-head" style="text-align:center;  width:50%;">
+            MEDCORP
+            </td>
+        </tr>
+    </table>
+    <table>        
+      <tr>
+        <td style="text-align:center; width:50%;">
+           
+            CONECTOR/ TAMPA <br>
+            <span class="head">R$</span> <b>'.$conectorTampa.'</b>
+            <br><br>
+            HEPARINA - FRASCO <br>
+            <span class="head">R$</span> <b>'.$heparina.'</b>
+            <br><br>
+            LUVA - PAR <br>
+            <span class="head">R$</span> <b>'.$luva.'</b>
+                 
+        </td>
+        <td style="text-align:center; width:50%;">
+           
+            TEGO - UNIDADE<br>
+            <span class="head">R$</span> <b>'.$tegoUnidade.'</b>
+            <br><br>
+            HEPARINA<br>
+            <span class="head">R$</span> ZERO
+            <br><br>
+            LUVA - PAR<br>
+            <span class="head">R$</span> <b>'.$luvaMedCorp.'</b>
 
         </td>
-        </tr>
-            <tr> 
-                <td>
-                
-                        <table  width="100%">
-                            <tr class="coluna-head">
-                                <td>
-                                CUSTO POR PACIENTE COM CATÉTER 
-                                </td> 
-
-                                <td>
-                                CUSTO POR PACIENTE COM CATÉTER 
-                                </td>
-                            </tr>
-                        </table>
-
-
-                </td>
-            </tr>
-
-            <tr> 
-                <td>
-                
-                        <table  width="100%">
-                            <tr class="result-paciente">
-                                <td>
-                                TOTAL SEMANAL
-                                </td> 
-
-                                <td> 
-                                TOTAL MENSAL
-                                </td>
-
-                                <td>
-                                T SEM MEDCORP
-                                </td> 
-
-                                <td> 
-                                T MEN MERCORP
-                                </td>
-                               
-                            </tr> 
-                            <tr class="box-pacientes">
-                                <td> 
-                                <span class="head">R$ -</span> <b>'.$SomaTotalSemanalGrafico.'</b>
-                                </td>
-                               
-                                <td> 
-                                <span class="head">R$ -</span> <b>'.$SomaTotalMensalGrafico .'</b>
-                               
-                                </td> 
-
-                                <td> 
-                                <span class="head">R$ -</span> <b>'.$somaTotalPacientesSemanalMedCorp.'</b>
-                                </td>
-                               
-                                <td> 
-                                <span class="head">R$ -</span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
-                                </td>
-                            </tr>
-                        </table>
-
-                </td>
-            </tr>
-            <tr>
-            <td class="diferenca-title"><h2>DIFERENÇA DE CUSTO POR MÊS</h2></td>
-            </tr>
-                <tr> 
-                    <td>
-
-                        <table  width="100%">
-                        <tr class="diferenca-txt">
-                            <td>
-                            CONECTOR/TAMPA 
-                            </td> 
-
-                            <td> 
-                                X
-                            </td>
-                             <td>
-                             MEDCORP
-                            </td> 
-                           
-                        </tr> 
-                        <tr class="diferenca-num">
-                            <td> 
-                            <span class="head">R$-</span> <b>'.$somaTotalPacientesSemanalMedCorp .'</b>
-                            </td> 
-
-                            <td>
-                           
-                            </td> 
-                            
-                            <td> 
-                            <span class="head">R$-</span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
-                            </td>
-                    
-                        </tr>
-                     </table>
-                    <td>
-                </tr>
-
-
-                <tr> 
-                <td>
-
-                <table  width="100%" style="background-color:#1b365d;">
-                <tr class="economia-txt">
-                    <td>
-                    ECONOMIA POR MÊS 
-                    </td> 
-                   
-                     <td>
-                         ECONOMIA ANUAL
-                    </td> 
-                   
-                </tr> 
-                <tr class="economia-num" >
-                    <td> 
-                    <span class="head">R$-</span> <b>'.$economiaMensal.'</b>
-                    </td> 
-                    
-                    <td> 
-                    <span class="head">R$-</span> <b>'.$economiaAnual.'</b>
-                    </td>
-            
-                </tr>
-                
-             </table>
-                <td>
-            </tr>
-
+    </tr>
     </table>
+    <table>
+        <tr> 
+            <td class="coluna-head" style="text-align:center; width:50%;">
+                CUSTO POR PACIENTE COM CATÉTER 
+            </td> 
+                
+                    
+            <td class="coluna-head" style="text-align:center; width:50%;">
+            CUSTO POR PACIENTE COM CATÉTER 
+            </td>
+         </tr>
+    </table>
+    <table>
+        <tr class="result-paciente"> 
+            
+            <td colspan="1" style="text-align:center; width:25%;">
+                TOTAL SEMANAL
+            </td> 
+
+            <td colspan="1" style="text-align:center; width:25%;"> 
+                TOTAL MENSAL
+            </td>
+                
+           <td colspan="1" style="text-align:center; width:25%;">
+                TOTAL SEMANAL
+            </td> 
+
+            <td colspan="1" style="text-align:center; width:25%;"> 
+                TOTAL MENSAL
+            </td>
+
+        </tr> 
+    </table>
+    <table>
+        <tr>
+            <td style="text-align:center; width:25%;"> 
+            <span colspan="1">R$ </span> <b>'.number_format($SomaTotalSemanalGrafico, 2,",",".").'</b>
+            </td>
+
+            <td style="text-align:center; width:25%;"> 
+            <span>R$ </span> <b>'.number_format($SomaTotalMensalGrafico, 2,",",".").'</b>
+
+            </td> 
+
+            <td style="text-align:center; width:25%;"> 
+            <span>R$ </span> <b>'.number_format($somaTotalPacientesSemanalMedCorp, 2,",",".").'</b>
+            </td>
+
+            <td style="text-align:center; width:25%;"> 
+            <span>R$ </span> <b>'.number_format($somaTotalPacientesMensalMedCorp, 2,",",".").'</b>
+            </td>
+        </tr>
+    </table>
+    <table>
+
+        <tr>
+            <td class="diferenca-title" style="margin-bottom: 0;padding-top: 0px;">
+            <h2>DIFERENÇA DE CUSTO POR MÊS</h2></td>
+        </tr>
+    </table>
+    <table>
+        <tr class="diferenca-txt"> 
+
+            <td class="diferenca-num" style="text-align:center; width:33%;">
+                <span style="font-size:20px;">CONECTOR/TAMPA</span> <br>
+                <span class="head">R$</span> <b>'.$somaTotalPacientesSemanalMedCorp .'</b>
+            </td> 
+
+            <td style="text-align:center; width:33%;"> 
+                <span>X</span>
+            </td>
+                <td class="diferenca-num" style="text-align:center; width:33%;">
+                <span style="font-size:20px;">MEDCORP</span><br>
+                <span class="head">R$</span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
+            </td> 
+
+
+        </tr>
+    </table>
+    
+       
+
+    <table  width="100%" style="background-color:#1b365d;">
+        <tr class="economia-txt">
+            <td>
+            ECONOMIA POR MÊS 
+            </td> 
+
+             <td>
+                 ECONOMIA ANUAL
+            </td> 
+
+        </tr> 
+        <tr class="economia-num" >
+            <td style="text-align:center; width:50%;"> 
+            <span class="head">R$</span> <b>'.$economiaMensal.'</b>
+            </td> 
+
+            <td style="text-align:center; width:50%;"> 
+            <span class="head">R$</span> <b>'.
+            $economiaAnual.'</b>
+            </td>
+
+        </tr>
+
+
+     </table>
+
+
+
+
 
 
 </body>
@@ -395,7 +361,7 @@ $dompdf->loadHtml($codigo_html);
 
 // (Opcional) Defina o tamanho (A4, A3, A2, etc) e a oritenação do papel, que pode ser 'portrait' (em pé) ou 'landscape' (deitado)
 $dompdf->setPaper('A4', 'portrait');
-$dompdf->set_option('defaultFont', 'Arial’');
+$dompdf->set_option('defaultFont', 'Arial');
 // Renderizar o documento
 $dompdf->render();
 

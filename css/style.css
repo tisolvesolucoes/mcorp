@@ -2714,6 +2714,16 @@ a.btn.btn-wide {
     padding-top: 20px;
 }
 
+.diferenca-num-red{
+	color: red;
+	text-decoration: line-through;
+}
+
+.diferenca-num-green{
+	color: #66e566;
+}
+
+
 .x-custo {
     text-align: center;
     font-size: 50px;
@@ -2735,6 +2745,8 @@ a.btn.btn-wide {
     font-weight: bold;
     color: #66e566;
 }
+
+
 
 @media only screen and (max-width: 600px) {
    .box-pacientes {

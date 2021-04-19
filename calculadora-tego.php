@@ -1229,7 +1229,7 @@
 
                         <div class="col-md-4 diferenca-txt">
                             CONECTOR/TAMPA
-                            <div class="col-md-12 diferenca-num" id="CellDiferencaCustoConector">
+                            <div class="col-md-12 diferenca-num diferenca-num-red" id="CellDiferencaCustoConector">
                                 R$0,00
                             </div>
                         </div>
@@ -1238,7 +1238,7 @@
 
                         <div class="col-md-4 diferenca-txt">
                             MEDCORP
-                            <div class="col-md-12 diferenca-num" id="CellDiferencaCustoMedCorp">
+                            <div class="col-md-12 diferenca-num diferenca-num-green" id="CellDiferencaCustoMedCorp">
                                 R$0,00
                             </div>
                         </div>
@@ -1718,7 +1718,7 @@
                 valorTegoUnidade = valorTegoUnidade.replace(',', '.');
 
                 let resultado = valorTegoUnidade * 2;
-                let resultadoSemanal = resultado * 3;
+                let resultadoSemanal = resultado;
                 let resultadoMensal = resultadoSemanal * 4;
 
                 var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });

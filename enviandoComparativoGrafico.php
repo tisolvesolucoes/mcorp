@@ -1,5 +1,5 @@
 <?php 
-	//include('../config/config.php');
+
     $nome		= $_REQUEST['nome'];
 	$telefone 	= $_REQUEST['telefone'];
 	$email		= $_REQUEST['email'];
@@ -12,8 +12,8 @@
     $tegoUnidade                        = $_REQUEST['tegoUnidadeFormEmail'];
     $heparinaMedCorp                    = $_REQUEST['heparinaMedCorpFormEmail'];
     $luvaMedCorp                        = $_REQUEST['luvaMedCorpFormEmail'];
-    $economiaMensal                     = round($_REQUEST['economiaMensal'], 2);
-    $economiaAnual                      = round($_REQUEST['economiaAnual'], 2);
+    $economiaMensal                     = number_format($_REQUEST['economiaMensal'], 2,",",".");
+    $economiaAnual                      = number_format($_REQUEST['economiaAnual'], 2,",",".");
     $SomaTotalSemanalGrafico            = $_REQUEST['SomaTotalSemanalGrafico'];
     $SomaTotalMensalGrafico             = $_REQUEST['SomaTotalMensalGrafico'];
     $somaTotalPacientesSemanalMedCorp   = $_REQUEST['somaTotalPacientesSemanalMedCorp'];

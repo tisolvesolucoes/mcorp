@@ -17,6 +17,8 @@ $options->set('isRemoteEnabled', TRUE);
 $dompdf = new Dompdf($options);
 
 // coloque nessa variável o código HTML que você quer que seja inserido no PDF
+
+/*
 $codigo_html = '
 <!doctype html>
 <html>
@@ -345,16 +347,11 @@ Fone/Fax: +55 11-3849-8992</td>
 
         </tr>
 
-
      </table>
-
-
-
-
-
 
 </body>
 </html>';
+*/
 
 // carregamos o código HTML no nosso arquivo PDF
 $dompdf->loadHtml($codigo_html);

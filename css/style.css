@@ -2664,6 +2664,13 @@ a.btn.btn-wide {
     margin: 0 auto;
 }
 
+.box-pacientes-qtd-sessoes-mensais {
+    background: #1b365d;
+    padding: 30px;
+    margin: 0 auto;
+	color: #FFF;
+}
+
 .box-pacientes h3{
     color: #FFF;
 }

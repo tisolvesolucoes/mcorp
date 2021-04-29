@@ -18,7 +18,7 @@ $dompdf = new Dompdf($options);
 
 // coloque nessa variável o código HTML que você quer que seja inserido no PDF
 
-/*
+
 $codigo_html = '
 <!doctype html>
 <html>
@@ -278,20 +278,20 @@ Fone/Fax: +55 11-3849-8992</td>
     <table>
         <tr>
             <td style="text-align:center; width:25%;"> 
-            <span colspan="1">R$ </span> <b>'.number_format($SomaTotalSemanalGrafico, 2,",",".").'</b>
+            <span colspan="1">R$ </span> <b>'.$SomaTotalSemanalGrafico.'</b>
             </td>
 
             <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.number_format($SomaTotalMensalGrafico, 2,",",".").'</b>
+            <span>R$ </span> <b>'.$SomaTotalMensalGrafico.'</b>
 
             </td> 
 
             <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.number_format($somaTotalPacientesSemanalMedCorp, 2,",",".").'</b>
+            <span>R$ </span> <b>'.$somaTotalPacientesSemanalMedCorp.'</b>
             </td>
 
             <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.number_format($somaTotalPacientesMensalMedCorp, 2,",",".").'</b>
+            <span>R$ </span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
             </td>
         </tr>
     </table>
@@ -351,7 +351,7 @@ Fone/Fax: +55 11-3849-8992</td>
 
 </body>
 </html>';
-*/
+
 
 // carregamos o código HTML no nosso arquivo PDF
 $dompdf->loadHtml($codigo_html);

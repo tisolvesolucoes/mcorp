@@ -41,7 +41,7 @@
  //$mail->SMTPSecure = true; // Define se é utilizado SSL/TLS - Mantenha o valor "false"
  //$mail->SMTPAutoTLS = true; // Define se, por padrão, será utilizado TLS - Mantenha o valor "false"
  $mail->Username = 'calculadoratego@medcorpnet.com.br'; // Conta de email existente e ativa em seu domínio
- $mail->Password = 'Cal@abb123@#$'; // Senha da sua conta de email
+ $mail->Password = 'Cal@abb123@#$2021'; // Senha da sua conta de email
  // DADOS DO REMETENTE
  $mail->Sender = "calculadoratego@medcorpnet.com.br"; // Conta de email existente e ativa em seu domínio
  $mail->From = "calculadoratego@medcorpnet.com.br"; // Sua conta de email que será remetente da mensagem
@@ -428,11 +428,11 @@ td{padding:5px;}
   $mail->Body .= $codigo_html;
 
  // ENVIO DO EMAIL
- //$enviado = $mail->Send();
+ $enviado = $mail->Send();
  // Limpa os destinatários e os anexos
  $mail->ClearAllRecipients();
- // Exibe uma mensagem de resultado do envio (sucesso/erro)
- if (1 == 1) {//$enviado
+  //Exibe uma mensagem de resultado do envio (sucesso/erro)
+ if ($enviado) {//
    //echo "E-mail enviado com sucesso!";
    include("geraPdf/index.php");
  } else {

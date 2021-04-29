@@ -858,11 +858,22 @@
 
                             <div class="row">
 
+                                <div class="col-md-12">
+                                    <div class="title-calculo">
+                                        QUANTIDADE DE SESSÕES MENSAIS
+                                    </div>
+                                    <input tabindex="2" type="text" maxlength="3" class="form-control"
+                                        id="qtdSessoesMensais">
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        CONECTOR/
-                                        <br> TAMPA
-                                        <br> UNITÁRIO
+                                        CONECTORES <br>DE INFUSÃO <br> - UNIDADE
                                     </div>
                                     <input tabindex="2" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -871,7 +882,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        HEPARINA - FRASCO
+                                        SOLUÇÕES DE LOCK
                                     </div>
                                     <input tabindex="3" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -880,7 +891,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        LUVA - PAR
+                                        KIT MATERIAIS DESCARTÁVEIS
                                     </div>
                                     <input tabindex="4" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -917,7 +928,7 @@
                             <div class="row line-calculo-bg">
 
                                 <div class="col-md-3">
-                                    CONECTOR
+                                    CONECTORES DE </br>INFUSÃO - UNIDADE
                                 </div>
 
                                 <div class="col-md-3 arrumaAlinhamento" id="cellConectorTampa">
@@ -940,7 +951,7 @@
                             <div class="row">
 
                                 <div class="col-md-3">
-                                    HEPARINA
+                                    SOLUÇÕES DE LOCK
                                 </div>
 
                                 <div class="col-md-3 arrumaAlinhamento" id="cellHeparina">
@@ -962,7 +973,7 @@
                             <div class="row line-calculo-bg">
 
                                 <div class="col-md-3">
-                                    LUVA
+                                    KIT MATERIAIS DESCARTÁVEIS
                                 </div>
 
                                 <div class="col-md-3 arrumaAlinhamento" id="cellLuva">
@@ -1040,7 +1051,18 @@
                         <!--inicio estrutura tego  -->
                         <div class="col-md-4 coluna-calculo">
 
+                            <div class="row">
 
+                                <div class="col-md-12">
+                                    <div class="title-calculo">
+                                        QUANTIDADE DE SESSÕES MENSAIS
+                                    </div>
+                                    <input tabindex="2" type="text" maxlength="3" class="form-control"
+                                        id="qtdSessoesMensaisTego">
+                                </div>
+
+
+                            </div>
 
                             <div class="row">
 
@@ -1048,7 +1070,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        TEGO - UNIDADE
+                                        CONECTOR </br>TEGO UNIDADE
                                     </div>
                                     <input tabindex="5" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -1057,14 +1079,14 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        HEPARINA
+                                        SOLUÇÕES DE LOCK
                                     </div>
                                     <input type="text" class="form-control" readonly value="ZERO" id="heparinaMedCorp">
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        LUVA - PAR
+                                        KIT MATERIAIS </br>DESCARTÁVEIS
                                     </div>
                                     <input type="text" tabindex="6" maxlength="10" readonly class="form-control"
                                         placeholder="R$:" id="luvaMedCorp">
@@ -1098,7 +1120,7 @@
                             <div class="row line-calculo-bg">
 
                                 <div class="col-md-3">
-                                    TEGO
+                                    CONECTOR TEGO UNIDADE
                                 </div>
                                 <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidade">
                                     R$ 0,00
@@ -1119,7 +1141,7 @@
                             <div class="row">
 
                                 <div class="col-md-3">
-                                    HEPARINA
+                                    SOLUÇÕES DE LOCK
                                 </div>
                                 <div class="col-md-3 arrumaAlinhamento" id="cellHeparinaMedCorp">
                                     ZERO
@@ -1139,7 +1161,7 @@
                             <div class="row line-calculo-bg">
 
                                 <div class="col-md-3">
-                                    LUVA
+                                    KIT MATERIAIS DESCARTÁVEIS
                                 </div>
                                 <div class="col-md-3 arrumaAlinhamento" id="cellLuvaMedCorp">
                                     R$ 0,00
@@ -1442,405 +1464,405 @@
 
     <script>
 
-$(document).ready(function () {
+        $(document).ready(function () {
 
-    let numeroPacientes = $("#numeroPacientes");
-    numeroPacientes.focus();
+            let numeroPacientes = $("#numeroPacientes");
+            numeroPacientes.focus();
 
-    let custoPacienteTotalMensal;
+            let custoPacienteTotalMensal;
 
-    let conectorTampa = $("#conectorTampa");
-    let heparina = $("#heparina");
-    let luva = $("#luva");
-    let tegoUnidade = $("#tegoUnidade");
-    let heparinaMedCorp = 0;
-    let luvaMedCorp = $("#luvaMedCorp");
-    var formulario = document.querySelector('form');
+            let conectorTampa = $("#conectorTampa");
+            let heparina = $("#heparina");
+            let luva = $("#luva");
+            let tegoUnidade = $("#tegoUnidade");
+            let heparinaMedCorp = 0;
+            let luvaMedCorp = $("#luvaMedCorp");
+            var formulario = document.querySelector('form');
 
 
-    function calculaTotalMensal(chart, c) {
+            function calculaTotalMensal(chart, c) {
 
-        let numeroPacientes = parseInt(document.getElementById("numeroPacientes").value);
+                let numeroPacientes = parseInt(document.getElementById("numeroPacientes").value);
 
-        let valorConectorTampa = conectorTampa.val();
-        let valorHeparina = heparina.val();
-        let valorLuva = luva.val();
-        let valorTegoUnidade = tegoUnidade.val();
-        let valorLuvaMedCorp = luvaMedCorp.val();
+                let valorConectorTampa = conectorTampa.val();
+                let valorHeparina = heparina.val();
+                let valorLuva = luva.val();
+                let valorTegoUnidade = tegoUnidade.val();
+                let valorLuvaMedCorp = luvaMedCorp.val();
 
-        if (c == 1) {
+                if (c == 1) {
 
-           
-                valorConectorTampa = limpaPonto(valorConectorTampa);
+
+                    valorConectorTampa = limpaPonto(valorConectorTampa);
+                    valorHeparina = limpaPonto(valorHeparina);
+                    valorLuva = limpaPonto(valorLuva);
+
+
+                    let resultadovalorConectorTampa = valorConectorTampa * 2;
+                    let resultadoSemanalValorConectorTampa = resultadovalorConectorTampa * 3;
+                    let resultadoMensalConectorTampa = resultadoSemanalValorConectorTampa * 4;
+
+                    let resultadoValorHeparina = valorHeparina * 1;
+                    let resultadoSemanalValorHeparina = resultadoValorHeparina * 3;
+                    let resultadoMensalValorHeparina = resultadoSemanalValorHeparina * 4;
+
+
+                    let resultadoLuva = valorLuva * 2;
+                    let resultadoSemanalLuva = resultadoLuva * 3;
+                    let resultadoMensalLuva = resultadoSemanalLuva * 4;
+
+                    let somaTotalSemanal = resultadoSemanalValorConectorTampa + resultadoSemanalValorHeparina + resultadoSemanalLuva;
+                    let somaTotalMensal = resultadoMensalConectorTampa + resultadoMensalValorHeparina + resultadoMensalLuva;
+
+                    let rsomaTotalSemanal = somaTotalSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                    let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+
+                    let rsomaTotalPacientesSemanal = somaTotalSemanal * numeroPacientes;
+                    let rsomaTotalPacientesMensal = somaTotalMensal * numeroPacientes;
+
+                    rsomaTotalPacientesSemanal = rsomaTotalPacientesSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                    rsomaTotalPacientesMensal = rsomaTotalPacientesMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+
+                    document.getElementById("cellTotalSemanal").innerHTML = rsomaTotalSemanal;
+                    document.getElementById("cellTotalMensal").innerHTML = rsomaTotalMensal;
+                    document.getElementById("cellSomaTotalPacientesSemanal").innerHTML = rsomaTotalPacientesSemanal;
+                    document.getElementById("cellSomaTotalPacientesMensal").innerHTML = rsomaTotalPacientesMensal;
+                    document.getElementById("CellDiferencaCustoConector").innerHTML = rsomaTotalPacientesMensal;
+
+
+
+                }
+                else if (c == 2) {
+
+
+                    valorTegoUnidade = limpaPonto(valorTegoUnidade);
+                    valorLuvaMedCorp = limpaPonto(valorLuvaMedCorp);
+
+
+                    let resultadoTegoUnidade = valorTegoUnidade * 2;
+                    let resultadoSemanalTegoUnidade = resultadoTegoUnidade;
+                    let resultadoMensalTegoUnidade = resultadoSemanalTegoUnidade * 4;
+
+                    let resultadoLuvaMedCorp = valorLuvaMedCorp * 2;
+                    let resultadoSemanalLuvaMedCorp = resultadoLuvaMedCorp;
+                    let resultadoMensalLuvaMedCorp = resultadoSemanalLuvaMedCorp * 4;
+
+                    let somaTotalSemanal = resultadoSemanalTegoUnidade + resultadoSemanalLuvaMedCorp;
+                    let somaTotalMensal = resultadoMensalTegoUnidade + resultadoMensalLuvaMedCorp;
+
+
+                    let rsomaTotalSemanal = somaTotalSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                    let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+                    let numeroPacientes = parseInt(document.getElementById("numeroPacientes").value);
+
+                    let somaTotalPacientesSemanalMedCorp = somaTotalSemanal * numeroPacientes;
+                    let somaTotalPacientesMensalMedCorp = somaTotalMensal * numeroPacientes;
+
+                    let rsomaTotalPacientesSemanalMedCorp = somaTotalPacientesSemanalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                    rsomaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+                    document.getElementById("cellTotalSemanalMedCorp").innerHTML = rsomaTotalSemanal;
+                    document.getElementById("cellTotalMensalMedCorp").innerHTML = rsomaTotalMensal;
+                    document.getElementById("cellSomaTotalPacientesSemanalMedCorp").innerHTML = rsomaTotalPacientesSemanalMedCorp;
+                    document.getElementById("cellSomaTotalPacientesMensalMedCorp").innerHTML = rsomaTotalPacientesMensalMedCorp;
+                    document.getElementById("CellDiferencaCustoMedCorp").innerHTML = rsomaTotalPacientesMensalMedCorp;
+
+
+                    let cellSomaTotalPacientesSemanal = document.getElementById("cellSomaTotalPacientesSemanal").innerHTML;
+                    let resSomaTotalPacientesSemanal = cellSomaTotalPacientesSemanal.split(";");
+
+                    console.log(resSomaTotalPacientesSemanal[1]);
+
+                    let SomaTotalSemanalGrafico = resSomaTotalPacientesSemanal[1].replace('.', '');
+                    SomaTotalSemanalGrafico = SomaTotalSemanalGrafico.replace(',', '.');
+
+
+                    let cellSomaTotalPacientesMensal = document.getElementById("cellSomaTotalPacientesMensal").innerHTML;
+                    let res = cellSomaTotalPacientesMensal.split(";");
+
+
+                    let cellEconomiaMensal = res[1].replace('.', '');
+                    cellEconomiaMensal = cellEconomiaMensal.replace(',', '.');
+
+                    let SomaTotalMensalGrafico = cellEconomiaMensal;
+
+                    let economiaMensal = parseFloat(cellEconomiaMensal - somaTotalPacientesMensalMedCorp);
+
+                    let reconomiaMensal = economiaMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+                    document.getElementById("CellEconomiaMensal").innerHTML = reconomiaMensal;
+
+                    economiaMensal = economiaMensal.toFixed(2);
+
+                    let economiaAnual = economiaMensal * 12;
+
+
+                    let reconomiaAnual = economiaAnual.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+                    document.getElementById("CellEconomiaAnual").innerHTML = reconomiaAnual;
+                    somaTotalPacientesSemanalMedCorp = somaTotalPacientesSemanalMedCorp.toFixed(2);
+                    somaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toFixed(2);
+
+                    $("#numeroPacientesFormEmail").val($("#numeroPacientes").val());
+                    $("#conectorTampaFormEmail").val($("#conectorTampa").val());
+                    $("#heparinaFormEmail").val($("#heparina").val());
+                    $("#luvaFormEmail").val($("#luva").val());
+                    $("#tegoUnidadeFormEmail").val($("#tegoUnidade").val());
+                    $("#heparinaMedCorpFormEmail").val($("#heparinaMedCorp").val());
+                    $("#luvaMedCorpFormEmail").val($("#luvaMedCorp").val());
+
+                    $("#economiaMensal").val(economiaMensal);
+                    $("#economiaAnual").val(economiaAnual);
+
+                    $("#SomaTotalSemanalGrafico").val(SomaTotalSemanalGrafico);
+                    $("#SomaTotalMensalGrafico").val(SomaTotalMensalGrafico);
+                    $("#somaTotalPacientesSemanalMedCorp").val(somaTotalPacientesSemanalMedCorp);
+                    $("#somaTotalPacientesMensalMedCorp").val(somaTotalPacientesMensalMedCorp);
+
+                    add_data(chart,
+                        SomaTotalSemanalGrafico,
+                        SomaTotalMensalGrafico,
+                        somaTotalPacientesSemanalMedCorp,
+                        somaTotalPacientesMensalMedCorp
+                    );
+
+                }
+
+            }
+
+
+            conectorTampa.focusout(function (chart) {
+
+                if (numeroPacientes.val() == "" || (numeroPacientes.val().length < 1)) {
+                    alert("Coloque o numero de pacientes, para o calculo. ");
+                    document.getElementById("conectorTampa").value = "";
+                    numeroPacientes.focus();
+                }
+                else {
+
+                    let valorConectorTampa = conectorTampa.val();
+                    valorConectorTampa = limpaPonto(valorConectorTampa);
+
+                    let resultado = valorConectorTampa * 2;
+                    let resultadoSemanal = resultado * 3;
+                    let resultadoMensal = resultadoSemanal * 4;
+
+                    var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+                    var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                    var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+
+                    document.getElementById("cellConectorTampa").innerHTML = r;
+                    document.getElementById("cellConectorTampaSemanal").innerHTML = rSemanal;
+                    document.getElementById("cellConectorTampaMensal").innerHTML = rMensal;
+
+                    calculaTotalMensal(chart, 1);
+
+                    heparina.focus();
+                }
+
+            });
+
+            heparina.focusout(function (chart) {
+                let valorHeparina = heparina.val();
+
                 valorHeparina = limpaPonto(valorHeparina);
+
+
+                let resultado = valorHeparina * 1;
+                let resultadoSemanal = resultado * 3;
+                let resultadoMensal = resultadoSemanal * 4;
+
+                var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+
+                document.getElementById("cellHeparina").innerHTML = r;
+                document.getElementById("cellHeparinaSemanal").innerHTML = rSemanal;
+                document.getElementById("cellHeparinaMensal").innerHTML = rMensal;
+                luva.focus();
+
+                calculaTotalMensal(chart, 1);
+
+            });
+
+
+
+            luva.focusout(function (chart) {
+                let valorLuva = luva.val();
+
                 valorLuva = limpaPonto(valorLuva);
-           
 
-            let resultadovalorConectorTampa = valorConectorTampa * 2;
-            let resultadoSemanalValorConectorTampa = resultadovalorConectorTampa * 3;
-            let resultadoMensalConectorTampa = resultadoSemanalValorConectorTampa * 4;
+                let resultado = valorLuva * 2;
+                let resultadoSemanal = resultado * 3;
+                let resultadoMensal = resultadoSemanal * 4;
 
-            let resultadoValorHeparina = valorHeparina * 1;
-            let resultadoSemanalValorHeparina = resultadoValorHeparina * 3;
-            let resultadoMensalValorHeparina = resultadoSemanalValorHeparina * 4;
-
-
-            let resultadoLuva = valorLuva * 2;
-            let resultadoSemanalLuva = resultadoLuva * 3;
-            let resultadoMensalLuva = resultadoSemanalLuva * 4;
-
-            let somaTotalSemanal = resultadoSemanalValorConectorTampa + resultadoSemanalValorHeparina + resultadoSemanalLuva;
-            let somaTotalMensal = resultadoMensalConectorTampa + resultadoMensalValorHeparina + resultadoMensalLuva;
-
-            let rsomaTotalSemanal = somaTotalSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-            let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var valorLuvaInput = valorLuva.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
 
-            let rsomaTotalPacientesSemanal = somaTotalSemanal * numeroPacientes;
-            let rsomaTotalPacientesMensal = somaTotalMensal * numeroPacientes;
+                document.getElementById("cellLuva").innerHTML = r;
+                document.getElementById("cellLuvaSemanal").innerHTML = rSemanal;
+                document.getElementById("cellLuvaMensal").innerHTML = rMensal;
+                valorLuvaInput = valorLuvaInput.replace('.', ',');
+                document.getElementById("luvaMedCorp").value = valorLuvaInput;
 
-            rsomaTotalPacientesSemanal = rsomaTotalPacientesSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-            rsomaTotalPacientesMensal = rsomaTotalPacientesMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
-
-            document.getElementById("cellTotalSemanal").innerHTML = rsomaTotalSemanal;
-            document.getElementById("cellTotalMensal").innerHTML = rsomaTotalMensal;
-            document.getElementById("cellSomaTotalPacientesSemanal").innerHTML = rsomaTotalPacientesSemanal;
-            document.getElementById("cellSomaTotalPacientesMensal").innerHTML = rsomaTotalPacientesMensal;
-            document.getElementById("CellDiferencaCustoConector").innerHTML = rsomaTotalPacientesMensal;
+                document.getElementById("cellLuvaMedCorp").innerHTML = r;
+                document.getElementById("cellLuvaMedCorpSemanal").innerHTML = rSemanal;
+                document.getElementById("cellLuvaMedCorpMensal").innerHTML = rMensal;
 
 
 
-        }
-        else if (c == 2) {
+                calculaTotalMensal(chart, 1);
 
-           
+            });
+
+            tegoUnidade.focusout(function (chart) {
+                let valorTegoUnidade = tegoUnidade.val();
+
                 valorTegoUnidade = limpaPonto(valorTegoUnidade);
+
+                let resultado = valorTegoUnidade * 2;
+                let resultadoSemanal = resultado;
+                let resultadoMensal = resultadoSemanal * 4;
+
+                var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+                document.getElementById("cellTegoUnidade").innerHTML = r;
+                document.getElementById("cellTegoUnidadeSemanal").innerHTML = rSemanal;
+                document.getElementById("cellTegoUnidadeMensal").innerHTML = rMensal;
+
+
+                let valorLuvaMedCorp = luvaMedCorp.val();
+
                 valorLuvaMedCorp = limpaPonto(valorLuvaMedCorp);
 
+                let resultadovalorLuva = valorLuvaMedCorp * 2;
+                let resultadoSemanalvalorLuva = resultadovalorLuva;
+                let resultadoMensalvalorLuva = resultadoSemanalvalorLuva * 4;
+
+                var rvalorLuva = resultadovalorLuva.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rSemanalvalorLuva = resultadoSemanalvalorLuva.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                var rMensalvalorLuva = resultadoMensalvalorLuva.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+                document.getElementById("cellLuvaMedCorp").innerHTML = rvalorLuva;
+                document.getElementById("cellLuvaMedCorpSemanal").innerHTML = rSemanalvalorLuva;
+                document.getElementById("cellLuvaMedCorpMensal").innerHTML = rMensalvalorLuva;
+
+                calculaTotalMensal(chart, 2);
+
+            });
+
+
+            var ctxL = document.getElementById("Grafico").getContext('2d');
+            var myLineChart = new Chart(ctxL, {
+                type: 'bar',
+                data:
+                {
+                    labels:
+                        [
+                            ,
+                            "Custo Semanal",
+                            "Custo Mensal",
+                            "Custo Semanal MedCorp",
+                            "Custo Mensal MedCorp",
 
-            let resultadoTegoUnidade = valorTegoUnidade * 2;
-            let resultadoSemanalTegoUnidade = resultadoTegoUnidade;
-            let resultadoMensalTegoUnidade = resultadoSemanalTegoUnidade * 4;
-
-            let resultadoLuvaMedCorp = valorLuvaMedCorp * 2;
-            let resultadoSemanalLuvaMedCorp = resultadoLuvaMedCorp;
-            let resultadoMensalLuvaMedCorp = resultadoSemanalLuvaMedCorp * 4;
-
-            let somaTotalSemanal = resultadoSemanalTegoUnidade + resultadoSemanalLuvaMedCorp;
-            let somaTotalMensal = resultadoMensalTegoUnidade + resultadoMensalLuvaMedCorp;
-
-
-            let rsomaTotalSemanal = somaTotalSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-            let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-            let numeroPacientes = parseInt(document.getElementById("numeroPacientes").value);
-
-            let somaTotalPacientesSemanalMedCorp = somaTotalSemanal * numeroPacientes;
-            let somaTotalPacientesMensalMedCorp = somaTotalMensal * numeroPacientes;
-
-            let rsomaTotalPacientesSemanalMedCorp = somaTotalPacientesSemanalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-            rsomaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-            document.getElementById("cellTotalSemanalMedCorp").innerHTML = rsomaTotalSemanal;
-            document.getElementById("cellTotalMensalMedCorp").innerHTML = rsomaTotalMensal;
-            document.getElementById("cellSomaTotalPacientesSemanalMedCorp").innerHTML = rsomaTotalPacientesSemanalMedCorp;
-            document.getElementById("cellSomaTotalPacientesMensalMedCorp").innerHTML = rsomaTotalPacientesMensalMedCorp;
-            document.getElementById("CellDiferencaCustoMedCorp").innerHTML = rsomaTotalPacientesMensalMedCorp;
-
-
-            let cellSomaTotalPacientesSemanal = document.getElementById("cellSomaTotalPacientesSemanal").innerHTML;
-            let resSomaTotalPacientesSemanal = cellSomaTotalPacientesSemanal.split(";");
-
-            console.log(resSomaTotalPacientesSemanal[1]);
-
-            let SomaTotalSemanalGrafico = resSomaTotalPacientesSemanal[1].replace('.', '');
-            SomaTotalSemanalGrafico = SomaTotalSemanalGrafico.replace(',', '.');
-
-
-            let cellSomaTotalPacientesMensal = document.getElementById("cellSomaTotalPacientesMensal").innerHTML;
-            let res = cellSomaTotalPacientesMensal.split(";");
-
-
-            let cellEconomiaMensal = res[1].replace('.', '');
-            cellEconomiaMensal = cellEconomiaMensal.replace(',', '.');
-
-            let SomaTotalMensalGrafico = cellEconomiaMensal;
-
-            let economiaMensal = parseFloat(cellEconomiaMensal - somaTotalPacientesMensalMedCorp);
-
-            let reconomiaMensal = economiaMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-            document.getElementById("CellEconomiaMensal").innerHTML = reconomiaMensal;
-
-            economiaMensal = economiaMensal.toFixed(2);
-
-            let economiaAnual = economiaMensal * 12;
-
-
-            let reconomiaAnual = economiaAnual.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-            document.getElementById("CellEconomiaAnual").innerHTML = reconomiaAnual;
-            somaTotalPacientesSemanalMedCorp = somaTotalPacientesSemanalMedCorp.toFixed(2);
-            somaTotalPacientesMensalMedCorp = somaTotalPacientesMensalMedCorp.toFixed(2);
-
-            $("#numeroPacientesFormEmail").val($("#numeroPacientes").val());
-            $("#conectorTampaFormEmail").val($("#conectorTampa").val());
-            $("#heparinaFormEmail").val($("#heparina").val());
-            $("#luvaFormEmail").val($("#luva").val());
-            $("#tegoUnidadeFormEmail").val($("#tegoUnidade").val());
-            $("#heparinaMedCorpFormEmail").val($("#heparinaMedCorp").val());
-            $("#luvaMedCorpFormEmail").val($("#luvaMedCorp").val());
-
-            $("#economiaMensal").val(economiaMensal);
-            $("#economiaAnual").val(economiaAnual);
-
-            $("#SomaTotalSemanalGrafico").val(SomaTotalSemanalGrafico);
-            $("#SomaTotalMensalGrafico").val(SomaTotalMensalGrafico);
-            $("#somaTotalPacientesSemanalMedCorp").val(somaTotalPacientesSemanalMedCorp);
-            $("#somaTotalPacientesMensalMedCorp").val(somaTotalPacientesMensalMedCorp);
-
-            add_data(chart,
-                SomaTotalSemanalGrafico,
-                SomaTotalMensalGrafico,
-                somaTotalPacientesSemanalMedCorp,
-                somaTotalPacientesMensalMedCorp
-            );
-
-        }
-
-    }
-
-
-    conectorTampa.focusout(function (chart) {
-
-        if (numeroPacientes.val() == "" || (numeroPacientes.val().length < 1)) {
-            alert("Coloque o numero de pacientes, para o calculo. ");
-            document.getElementById("conectorTampa").value = "";
-            numeroPacientes.focus();
-        }
-        else {
-
-            let valorConectorTampa = conectorTampa.val();
-            valorConectorTampa = limpaPonto(valorConectorTampa);
-
-            let resultado = valorConectorTampa * 2;
-            let resultadoSemanal = resultado * 3;
-            let resultadoMensal = resultadoSemanal * 4;
-
-            var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-            var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-            var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-
-            document.getElementById("cellConectorTampa").innerHTML = r;
-            document.getElementById("cellConectorTampaSemanal").innerHTML = rSemanal;
-            document.getElementById("cellConectorTampaMensal").innerHTML = rMensal;
-
-            calculaTotalMensal(chart, 1);
-
-            heparina.focus();
-        }
-
-    });
-
-    heparina.focusout(function (chart) {
-        let valorHeparina = heparina.val();
-
-        valorHeparina = limpaPonto(valorHeparina);
-
-
-        let resultado = valorHeparina * 1;
-        let resultadoSemanal = resultado * 3;
-        let resultadoMensal = resultadoSemanal * 4;
-
-        var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-
-        document.getElementById("cellHeparina").innerHTML = r;
-        document.getElementById("cellHeparinaSemanal").innerHTML = rSemanal;
-        document.getElementById("cellHeparinaMensal").innerHTML = rMensal;
-        luva.focus();
-
-        calculaTotalMensal(chart, 1);
-
-    });
-
-
-
-    luva.focusout(function (chart) {
-        let valorLuva = luva.val();
-
-        valorLuva = limpaPonto(valorLuva);
-
-        let resultado = valorLuva * 2;
-        let resultadoSemanal = resultado * 3;
-        let resultadoMensal = resultadoSemanal * 4;
-
-        var valorLuvaInput = valorLuva.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-
-        document.getElementById("cellLuva").innerHTML = r;
-        document.getElementById("cellLuvaSemanal").innerHTML = rSemanal;
-        document.getElementById("cellLuvaMensal").innerHTML = rMensal;
-        valorLuvaInput = valorLuvaInput.replace('.', ',');
-        document.getElementById("luvaMedCorp").value = valorLuvaInput;
-
-
-        document.getElementById("cellLuvaMedCorp").innerHTML = r;
-        document.getElementById("cellLuvaMedCorpSemanal").innerHTML = rSemanal;
-        document.getElementById("cellLuvaMedCorpMensal").innerHTML = rMensal;
-
-
-
-        calculaTotalMensal(chart, 1);
-
-    });
-
-    tegoUnidade.focusout(function (chart) {
-        let valorTegoUnidade = tegoUnidade.val();
-
-        valorTegoUnidade = limpaPonto(valorTegoUnidade);
-
-        let resultado = valorTegoUnidade * 2;
-        let resultadoSemanal = resultado;
-        let resultadoMensal = resultadoSemanal * 4;
-
-        var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-        document.getElementById("cellTegoUnidade").innerHTML = r;
-        document.getElementById("cellTegoUnidadeSemanal").innerHTML = rSemanal;
-        document.getElementById("cellTegoUnidadeMensal").innerHTML = rMensal;
-
-
-        let valorLuvaMedCorp = luvaMedCorp.val();
-
-        valorLuvaMedCorp = limpaPonto(valorLuvaMedCorp);
-
-        let resultadovalorLuva = valorLuvaMedCorp * 2;
-        let resultadoSemanalvalorLuva = resultadovalorLuva;
-        let resultadoMensalvalorLuva = resultadoSemanalvalorLuva * 4;
-
-        var rvalorLuva = resultadovalorLuva.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        var rSemanalvalorLuva = resultadoSemanalvalorLuva.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        var rMensalvalorLuva = resultadoMensalvalorLuva.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-        document.getElementById("cellLuvaMedCorp").innerHTML = rvalorLuva;
-        document.getElementById("cellLuvaMedCorpSemanal").innerHTML = rSemanalvalorLuva;
-        document.getElementById("cellLuvaMedCorpMensal").innerHTML = rMensalvalorLuva;
-
-        calculaTotalMensal(chart, 2);
-
-    });
-
-
-    var ctxL = document.getElementById("Grafico").getContext('2d');
-    var myLineChart = new Chart(ctxL, {
-        type: 'bar',
-        data:
-        {
-            labels:
-                [
-                    ,
-                    "Custo Semanal",
-                    "Custo Mensal",
-                    "Custo Semanal MedCorp",
-                    "Custo Mensal MedCorp",
-
-                ],
-
-            datasets:
-                [
-                    {
-                        label: "Custo Semanal",
-                        data: [0],
-                        backgroundColor: [
-                            , "rgba(255,206,86, 0.3)"
-                            , "rgba(75,192,192, 0.3)"
-                            , "rgba(153,102,255, 0.3)"
-                            , "rgba(255,159,64, 0.3)"
                         ],
-                        borderColor: [
-                            , "rgba(255,206,86, 0.9)"
-                            , "rgba(75,192,192, 0.9)"
-                            , "rgba(153,102,255, 0.9)"
-                            , "rgba(255,159,64, 0.9)"
-                        ],
-                        borderWidth: 2
-                    }
-                ]
-        },
 
-        options: {
-            legend: { display: false },
-            title: {
-                display: true,
-                text: 'Calculadora Tego'
-            },
-            responsive: true,
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
+                    datasets:
+                        [
+                            {
+                                label: "Custo Semanal",
+                                data: [0],
+                                backgroundColor: [
+                                    , "rgba(255,206,86, 0.3)"
+                                    , "rgba(75,192,192, 0.3)"
+                                    , "rgba(153,102,255, 0.3)"
+                                    , "rgba(255,159,64, 0.3)"
+                                ],
+                                borderColor: [
+                                    , "rgba(255,206,86, 0.9)"
+                                    , "rgba(75,192,192, 0.9)"
+                                    , "rgba(153,102,255, 0.9)"
+                                    , "rgba(255,159,64, 0.9)"
+                                ],
+                                borderWidth: 2
+                            }
+                        ]
+                },
+
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Calculadora Tego'
+                    },
+                    responsive: true,
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
                 }
-            }]
-        }
 
-    });
+            });
 
 
-    function add_data(chart, cSemanal, cMensal, cSemanalMedCorp, cMensalMedCorp) {
+            function add_data(chart, cSemanal, cMensal, cSemanalMedCorp, cMensalMedCorp) {
 
-        myLineChart.data.datasets[0].data.push(cSemanal);
-        myLineChart.data.datasets[0].data.push(cMensal);
-        myLineChart.data.datasets[0].data.push(cSemanalMedCorp);
-        myLineChart.data.datasets[0].data.push(cMensalMedCorp);
-        myLineChart.data.datasets[0].data.push(543);
-        myLineChart.update();
-    }
+                myLineChart.data.datasets[0].data.push(cSemanal);
+                myLineChart.data.datasets[0].data.push(cMensal);
+                myLineChart.data.datasets[0].data.push(cSemanalMedCorp);
+                myLineChart.data.datasets[0].data.push(cMensalMedCorp);
+                myLineChart.data.datasets[0].data.push(543);
+                myLineChart.update();
+            }
 
-    numeroPacientes.keyup(function () {
-        $(this).val(this.value.replace(/\D/g, ''));
-    });
-
-
-    function validacao() {
-        var formulario = document.contactForm;
-        var nome = formulario.nome;
-        var email = formulario.email;
-
-        if (nome.value == "") {
-            alert("Insira um nome válido.");
-            return false;
-        }
-
-        if (email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1) {
-            alert("Insira um email válido");
-            return false;
-        }
-
-        return true;
-    }
+            numeroPacientes.keyup(function () {
+                $(this).val(this.value.replace(/\D/g, ''));
+            });
 
 
-    function limpaPonto(a) {
-        a = a.replace('.', '');
-        a = a.replace(',', '.');
-        return a;
-    }
+            function validacao() {
+                var formulario = document.contactForm;
+                var nome = formulario.nome;
+                var email = formulario.email;
+
+                if (nome.value == "") {
+                    alert("Insira um nome válido.");
+                    return false;
+                }
+
+                if (email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1) {
+                    alert("Insira um email válido");
+                    return false;
+                }
+
+                return true;
+            }
 
 
-});
-</script>
+            function limpaPonto(a) {
+                a = a.replace('.', '');
+                a = a.replace(',', '.');
+                return a;
+            }
+
+
+        });
+    </script>
 
 
 </body>

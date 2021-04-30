@@ -2671,6 +2671,7 @@ a.btn.btn-wide {
 	color: #FFF;
 }
 
+
 .box-pacientes h3{
     color: #FFF;
 }
@@ -2753,7 +2754,18 @@ a.btn.btn-wide {
     color: #66e566;
 }
 
+.arruma-cor {
+    padding: 30px;
+    margin: 0 auto;
+	color: #FFF;
+}
 
+.arruma-cor-azul{
+	background: #1b365d;
+	font-size: smaller;
+	text-align: left;
+	white-space: nowrap;
+}
 
 @media only screen and (max-width: 600px) {
    .box-pacientes {

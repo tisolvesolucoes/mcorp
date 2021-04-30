@@ -189,9 +189,9 @@ td{padding:5px;}
             </td> 
             <td style="text-align:right; width:50%;">
             Medcorp Hospitalar Ltda.<br>
-ESCRITÓRIO:<br>
-Rua Arminda, 93 - 3º andar - CEP: 04545 100 Vila Olímpia - São Paulo/SP - Brasil<br>
-Fone/Fax: +55 11-3849-8992</td>
+            ESCRITÓRIO:<br>
+            Rua Arminda, 93 - 3º andar - CEP: 04545 100 Vila Olímpia - São Paulo/SP - Brasil<br>
+            Fone/Fax: +55 11-3849-8992</td>
        
         </tr>
         <tr>
@@ -214,6 +214,30 @@ Fone/Fax: +55 11-3849-8992</td>
             </td>
         </tr>
     </table>
+
+
+    <table>
+    <tr>
+        <td style="text-align:center; width:50%;"> 
+        <span colspan="1"> <b> QUANTIDADE DE SESSÕES MENSAIS</b></span> 
+        </td>
+
+        <td style="text-align:center; width:50%;"> 
+        <span><b> QUANTIDADE DE SESSÕES MENSAIS</b></span> 
+        </td> 
+        </tr>
+
+        <tr>
+        <td style="text-align:center; width:50%;"> 
+        <span colspan="1"> <b>'.$qtdSessoesMensais.'</b></span> 
+        </td>
+
+        <td style="text-align:center; width:50%;"> 
+        <span>R$ </span> <b>'.$qtdSessoesMensaisTego.'</b>
+        </td>
+    </tr>
+    </table>
+
     <table>        
       <tr>
         <td style="text-align:center; width:50%;">

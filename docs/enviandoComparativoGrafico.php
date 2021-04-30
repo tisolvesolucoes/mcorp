@@ -1,13 +1,10 @@
 <?php 
 
-    $NomedaInstituicao		= $_REQUEST['NomedaInstituicao'];
-    $nome		            = $_REQUEST['nome'];
-	$telefone 	            = $_REQUEST['telefone'];
-	$email		            = $_REQUEST['email'];
-	$cargo 		            = $_REQUEST['cargo'];
-    $perfil 		        = $_REQUEST['perfil'];
-
-
+    $nome		= $_REQUEST['nome'];
+	$telefone 	= $_REQUEST['telefone'];
+	$email		= $_REQUEST['email'];
+	$cargo 		= $_REQUEST['cargo'];
+    
     $numeroPacientes                    = $_REQUEST['numeroPacientesFormEmail'];
     $conectorTampa                      = $_REQUEST['conectorTampaFormEmail'];
     $heparina                           = $_REQUEST['heparinaFormEmail'];
@@ -15,14 +12,14 @@
     $tegoUnidade                        = $_REQUEST['tegoUnidadeFormEmail'];
     $heparinaMedCorp                    = $_REQUEST['heparinaMedCorpFormEmail'];
     $luvaMedCorp                        = $_REQUEST['luvaMedCorpFormEmail'];
-    $qtdSessoesMensaisTego              = $_REQUEST['qtdSessoesMensaisTegoFormEmail'];
-    $qtdSessoesMensais                  = $_REQUEST['qtdSessoesMensaisFormEmail'];
     $economiaMensal                     = number_format($_REQUEST['economiaMensal'], 2,",",".");
     $economiaAnual                      = number_format($_REQUEST['economiaAnual'], 2,",",".");
     $SomaTotalSemanalGrafico            = number_format($_REQUEST['SomaTotalSemanalGrafico'], 2,",",".");
     $SomaTotalMensalGrafico             = number_format($_REQUEST['SomaTotalMensalGrafico'], 2,",",".");
     $somaTotalPacientesSemanalMedCorp   = number_format($_REQUEST['somaTotalPacientesSemanalMedCorp'], 2,",",".");
     $somaTotalPacientesMensalMedCorp    = number_format($_REQUEST['somaTotalPacientesMensalMedCorp'], 2,",",".");
+
+
 
 	$data_envio = date('d/m/Y');
 	$hora_envio = date('H:i:s');
@@ -33,7 +30,7 @@
  // Inicia a classe PHPMailer
  $mail = new PHPMailer();
 
- $mail->Host = 'https://outlook.live.com/owa/';
+ $mail->Host = 'smtp.office365.com';
  $mail->SMTPSecure = 'tls';
 
  // DEFINIÇÃO DOS DADOS DE AUTENTICAÇÃO - Você deve auterar conforme o seu domínio!
@@ -44,7 +41,7 @@
  //$mail->SMTPSecure = true; // Define se é utilizado SSL/TLS - Mantenha o valor "false"
  //$mail->SMTPAutoTLS = true; // Define se, por padrão, será utilizado TLS - Mantenha o valor "false"
  $mail->Username = 'calculadoratego@medcorpnet.com.br'; // Conta de email existente e ativa em seu domínio
- $mail->Password = 'Cal@njjj'; // Senha da sua conta de email
+ $mail->Password = 'Cal@abb123@#$2021'; // Senha da sua conta de email
  // DADOS DO REMETENTE
  $mail->Sender = "calculadoratego@medcorpnet.com.br"; // Conta de email existente e ativa em seu domínio
  $mail->From = "calculadoratego@medcorpnet.com.br"; // Sua conta de email que será remetente da mensagem
@@ -262,30 +259,6 @@ td{padding:5px;}
             </td>
         </tr>
     </table>
-
-    <table>
-    <tr>
-        <td style="text-align:center; width:50%;"> 
-        <span colspan="1"> <b> QUANTIDADE DE SESSÕES MENSAIS</b></span> 
-        </td>
-
-        <td style="text-align:center; width:50%;"> 
-        <span><b> QUANTIDADE DE SESSÕES MENSAIS</b></span> 
-        </td> 
-        </tr>
-
-        <tr>
-        <td style="text-align:center; width:50%;"> 
-        <span colspan="1"> <b>'.$qtdSessoesMensais.'</b></span> 
-        </td>
-
-        <td style="text-align:center; width:50%;"> 
-        <span>R$ </span> <b>'.$qtdSessoesMensaisTego.'</b>
-        </td>
-    </tr>
-    </table>
-
-
     <table>        
       <tr>
         <td style="text-align:center; width:50%;">
@@ -428,28 +401,17 @@ td{padding:5px;}
 
   $mail->Body = '<table width="510" border="1" cellpadding="1" cellspacing="1">
 				<tr>
-				   <td width="500">Nome da Instituicao:'.$NomedaInstituicao.'</td>
-					  </tr>
-                      <tr>
 				   <td width="500">Nome:'.$nome.'</td>
 					  </tr>
-
-                      <tr>
-				   <td width="500">Perfil:'.$perfil.'</td>
-					  </tr>
-
 					  <tr>
 					<td width="320">E-mail:<b>'.$email.'</b></td>
 					   </tr>
-
 					<tr>
 					<td width="320">Telefone:<b>'.$telefone.'</b></td>
 					  </tr>
-
 					  <tr>
 					<td width="320">Cargo:'.$cargo.'</td>
 				  </tr>
-                  
 				  </td>
 			</tr>
 			<tr>

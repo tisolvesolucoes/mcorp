@@ -630,6 +630,24 @@ $(document).ready(function () {
     }
 
 
+    kitMateriaisDescartaveis.change(function (chart) {
+
+        let valorkitMateriaisDescartaveis = document.getElementById("kitMateriaisDescartaveis").value;
+
+        valorkitMateriaisDescartaveis = parseFloat(limpaPonto(valorkitMateriaisDescartaveis));
+
+        let valorkitMateriaisDescartaveisInput = valorkitMateriaisDescartaveis.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+
+        valorkitMateriaisDescartaveisInput = valorkitMateriaisDescartaveisInput.replace('.', ',');
+        document.getElementById("kitMateriaisDescartaveisMedCorp").value = valorkitMateriaisDescartaveisInput;
+
+
+
+
+    });
+
+
     numeroPacientes.keyup(function () {
         $(this).val(this.value.replace(/\D/g, ''));
     });

@@ -2668,7 +2668,16 @@ a.btn.btn-wide {
     background: #1b365d;
     padding: 30px;
     margin: 0 auto;
+	text-align: center;
 	color: #FFF;
+}
+.box-pacientes-qtd-sessoes-mensais div {
+    margin: 0 0 10px;
+}
+
+.box-pacientes-qtd-sessoes-mensais input {
+    width: 45%;
+    margin: 0 auto;
 }
 
 
@@ -2690,7 +2699,7 @@ a.btn.btn-wide {
 } 
 
 .coluna-grafico{
-    margin-top:115px;
+    /*margin-top:115px;*/
 }
 
 .result-paciente{

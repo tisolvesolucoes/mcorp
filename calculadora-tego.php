@@ -129,7 +129,6 @@
             padding: 10px;
             display: none
         }
-
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -871,7 +870,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        CONECTORES INFUSÃO UNIDADE
+                                        CONECTORES INFUSÃO - UNIDADE
                                     </div>
                                     <input tabindex="2" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -889,8 +888,10 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-
-                                        KIT MATERIAIS DESCARTÁVEIS <span  data-toggle="modal" data-target="#myModal">?</span>
+                                        <button class="btn btn-success btn-sm" data-toggle="modal"
+                                            data-target="#myModal">Calcular</button><br>
+                                        KIT MATERIAIS DESCARTÁVEIS
+                                        <!--<span style="cursor:pointer;"  data-toggle="modal" data-target="#myModal"><svg width="15" height="15" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-question-circle fa-w-16 fa-2x"><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z" class=""></path></svg></span>-->
                                     </div>
                                     <input tabindex="4" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -899,151 +900,151 @@
 
                             </div>
 
+                            <div class="hide-calcula">
+                                <div class="row ">
+                                    <div class="col-md-auto arrumaTextoCentro coluna-head">
+                                        Custo por paciente
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3"></div>
 
-                            <div class="row ">
-                                <div class="col-md-auto arrumaTextoCentro coluna-head">
-                                    Custo por paciente
+                                    <div class="col-md-3 arrumaAlinhamento">
+                                        <b>Diário</b>
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento">
+                                        <b>Semanal</b>
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento">
+                                        <b>Mensal</b>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="row line-calculo-bg">
+
+                                    <div class="col-md-3" style="font-size:11px; line-height:15px;">
+                                        CONECTORES DE INFUSÃO - UNIDADE
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidade">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidadeSemanal">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidadeMensal">
+                                        R$ 0,00
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="row">
+
+                                    <div class="col-md-3" style="font-size:11px; line-height:15px;">
+                                        SOLUÇÕES DE LOCK
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLock">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockSemanal">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMensal">
+                                        R$ 0,00
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="row line-calculo-bg">
+
+                                    <div class="col-md-3" style="font-size:11px; line-height:15px;">
+                                        KIT MATERIAIS DESCARTÁVEIS
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveis">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveisSemanal">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveisMensal">
+                                        R$ 0,00
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="col-md-3" style="font-size:11px; line-height:15px;">
+                                        TOTAL
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellTotalDiario">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanal">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellTotalMensal">
+                                        R$ 0,00
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="col-md-1"></div>
+
+                                    <div class="col-md-12 coluna-head arrumaTextoCentro">
+                                        CUSTO POR PACIENTE COM CATÉTER
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="col-md-3 arrumaAlinhamento result-paciente">
+                                        TOTAL
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento result-paciente"
+                                        id="cellSomaTotalPacientesDiario">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento result-paciente"
+                                        id="cellSomaTotalPacientesSemanal">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento result-paciente"
+                                        id="cellSomaTotalPacientesMensal">
+                                        R$ 0,00
+                                    </div>
+
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-3"></div>
-
-                                <div class="col-md-3 arrumaAlinhamento">
-                                    <b>Diário</b>
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento">
-                                    <b>Semanal</b>
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento">
-                                    <b>Mensal</b>
-                                </div>
-
-                            </div>
-
-
-
-                            <div class="row line-calculo-bg">
-
-                                <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    CONECTORES DE INFUSÃO UNIDADE
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidade">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidadeSemanal">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidadeMensal">
-                                    R$ 0,00
-                                </div>
-
-                            </div>
-
-
-
-                            <div class="row">
-
-                                <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    SOLUÇÕES DE LOCK
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLock">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockSemanal">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMensal">
-                                    R$ 0,00
-                                </div>
-
-                            </div>
-
-
-
-                            <div class="row line-calculo-bg">
-
-                                <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    KIT MATERIAIS DESCARTÁVEIS
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveis">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveisSemanal">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveisMensal">
-                                    R$ 0,00
-                                </div>
-
-                            </div>
-
-
-                            <div class="row">
-
-                                <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    TOTAL
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellTotalDiario">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanal">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellTotalMensal">
-                                    R$ 0,00
-                                </div>
-
-                            </div>
-
-
-                            <div class="row">
-
-                                <div class="col-md-1"></div>
-
-                                <div class="col-md-12 coluna-head arrumaTextoCentro">
-                                    CUSTO POR PACIENTE COM CATÉTER
-                                </div>
-
-                            </div>
-
-
-                            <div class="row">
-
-                                <div class="col-md-3 arrumaAlinhamento result-paciente">
-                                    TOTAL
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento result-paciente"
-                                    id="cellSomaTotalPacientesDiario">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento result-paciente"
-                                    id="cellSomaTotalPacientesSemanal">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento result-paciente"
-                                    id="cellSomaTotalPacientesMensal">
-                                    R$ 0,00
-                                </div>
-
-                            </div>
-
 
                         </div>
                         <!-- fim estrutura comparacao  -->
@@ -1097,560 +1098,578 @@
                                 </div>
 
                             </div>
+                            <div class="hide-calcula">
+                                <div class="row">
 
-                            <div class="row">
-
-                                <div class="col-md-auto arrumaTextoCentro coluna-head">
-                                    Custo por paciente
+                                    <div class="col-md-auto arrumaTextoCentro coluna-head">
+                                        Custo por paciente
+                                    </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-3 arrumaAlinhamento">
+                                        <b>Diário</b>
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento">
+                                        <b>Semanal</b>
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento">
+                                        <b>Mensal</b>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row line-calculo-bg">
+
+                                    <div class="col-md-3" style="font-size:11px; line-height:15px;">
+                                        CONECTOR TEGO UNIDADE
+                                    </div>
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidade">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidadeSemanal">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidadeMensal">
+                                        R$ 0,00
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="row">
+
+                                    <div class="col-md-3" style="font-size:11px; line-height:15px;">
+                                        SOLUÇÕES DE LOCK
+                                    </div>
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMedCorp">
+                                        ZERO
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMedCorpSemanal">
+                                        ZERO
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMedCorpMensal">
+                                        ZERO
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row line-calculo-bg">
+
+                                    <div class="col-md-3" style="font-size:11px; line-height:15px;">
+                                        KIT MATERIAIS DESCARTÁVEIS
+                                    </div>
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveisMedCorp">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento"
+                                        id="cellkitMateriaisDescartaveisMedCorpSemanal">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento"
+                                        id="cellkitMateriaisDescartaveisMedCorpMensal">
+                                        R$ 0,00
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="col-md-3" style="font-size:11px; line-height:15px;">TOTAL</div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellTotalDiarioMedCorp">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanalMedCorp">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento" id="cellTotalMensalMedCorp">
+                                        R$ 0,00
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="col-md-1"></div>
+
+                                    <div class="col-md-12 coluna-head arrumaTextoCentro">
+                                        CUSTO POR PACIENTE COM CATÉTER
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+
+
+
+                                    <div class="col-md-3 arrumaAlinhamento result-paciente">
+                                        TOTAL
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento result-paciente"
+                                        id="cellSomaTotalPacientesDiarioMedCorp">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento result-paciente"
+                                        id="cellSomaTotalPacientesSemanalMedCorp">
+                                        R$ 0,00
+                                    </div>
+
+                                    <div class="col-md-3 arrumaAlinhamento result-paciente"
+                                        id="cellSomaTotalPacientesMensalMedCorp">
+                                        R$ 0,00
+                                    </div>
+
+                                </div>
+
                             </div>
-                            <div class="row">
-                                <div class="col-md-3"></div>
-                                <div class="col-md-3 arrumaAlinhamento">
-                                    <b>Diário</b>
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento">
-                                    <b>Semanal</b>
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento">
-                                    <b>Mensal</b>
-                                </div>
-
-                            </div>
-
-
-                            <div class="row line-calculo-bg">
-
-                                <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    CONECTOR TEGO UNIDADE
-                                </div>
-                                <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidade">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidadeSemanal">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellTegoUnidadeMensal">
-                                    R$ 0,00
-                                </div>
-
-                            </div>
-
-
-
-                            <div class="row">
-
-                                <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    SOLUÇÕES DE LOCK
-                                </div>
-                                <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMedCorp">
-                                    ZERO
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMedCorpSemanal">
-                                    ZERO
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMedCorpMensal">
-                                    ZERO
-                                </div>
-
-                            </div>
-
-
-                            <div class="row line-calculo-bg">
-
-                                <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    KIT MATERIAIS DESCARTÁVEIS
-                                </div>
-                                <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveisMedCorp">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveisMedCorpSemanal">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellkitMateriaisDescartaveisMedCorpMensal">
-                                    R$ 0,00
-                                </div>
-
-                            </div>
-
-
-                            <div class="row">
-
-                                <div class="col-md-3" style="font-size:11px; line-height:15px;">TOTAL</div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellTotalDiarioMedCorp">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellTotalSemanalMedCorp">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento" id="cellTotalMensalMedCorp">
-                                    R$ 0,00
-                                </div>
-
-                            </div>
-
-
-                            <div class="row">
-
-                                <div class="col-md-1"></div>
-
-                                <div class="col-md-12 coluna-head arrumaTextoCentro">
-                                    CUSTO POR PACIENTE COM CATÉTER
-                                </div>
-
-                            </div>
-
-
-                            <div class="row">
-
-
-
-                                <div class="col-md-3 arrumaAlinhamento result-paciente">
-                                    TOTAL
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento result-paciente"
-                                    id="cellSomaTotalPacientesDiarioMedCorp">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento result-paciente"
-                                    id="cellSomaTotalPacientesSemanalMedCorp">
-                                    R$ 0,00
-                                </div>
-
-                                <div class="col-md-3 arrumaAlinhamento result-paciente"
-                                    id="cellSomaTotalPacientesMensalMedCorp">
-                                    R$ 0,00
-                                </div>
-
-                            </div>
-
 
                         </div>
                         <!-- fim estrutura tego  -->
 
                         <div class="row">
-                            <div class="col-md-4">
 
-                            </div>
 
-                            <div class="col-md-8">
+                            <div class="col-md-12" style="text-align:center;">
 
-                                <button class="btn btn-success" id="calcula">Calcular</button>
+                                <button class="btn btn-success btn-lg" id="calcula">Calcular</button>
 
 
                             </div>
 
-                            <div class="col-md-4">
 
+                        </div>
+
+                        <div class="hide-calcula">
+                            <!-- inicio estrutura grafico -->
+                            <div class="col-md-8 col-md-offset-2 coluna-grafico coluna-grafico">
+                                <canvas id="Grafico"></canvas>
                             </div>
-                        </div>
+                            <!-- fim estrutura grafico -->
 
 
-                        <!-- inicio estrutura grafico -->
-                        <div class="col-md-8 col-md-offset-2 coluna-grafico coluna-grafico">
-                            <canvas id="Grafico"></canvas>
-                        </div>
-                        <!-- fim estrutura grafico -->
-
-                    </div>
-
-
-                    <div class="row">
-
-                        <div class="col-md-12 diferenca-title">
-                            DIFERENÇA DE CUSTO POR MÊS
-                        </div>
-
-                        <div class="col-md-4 diferenca-txt">
-                            CONECTOR/TAMPA
-                            <div class="col-md-12 diferenca-num diferenca-num-red" id="CellDiferencaCustoConector">
-                                R$0,00
+                            <div class="col-md-12 diferenca-title">
+                                DIFERENÇA DE CUSTO POR MÊS
                             </div>
-                        </div>
 
-                        <div class="col-md-4 x-custo"> X </div>
-
-                        <div class="col-md-4 diferenca-txt">
-                            MEDCORP
-                            <div class="col-md-12 diferenca-num diferenca-num-green" id="CellDiferencaCustoMedCorp">
-                                R$0,00
-                            </div>
-                        </div>
-
-
-
-
-
-                        <div class="col-md-6 economia-txt">
-                            ECONOMIA POR MÊS
-                            <div class="col-md-12 economia-num" id="CellEconomiaMensal">
-                                R$0,00
-                            </div>
-                        </div>
-
-
-
-                        <div class="col-md-6 economia-txt">
-                            ECONOMIA ANUAL
-                            <div class="col-md-12 economia-num" id="CellEconomiaAnual">
-                                R$0,00
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-                    <!-- fim estrutura container  -->
-
-
-                    <!--FIM  DIV CONTAINER-->
-
-
-
-                    <div class="col-md-12">
-                        <!--1 linha -->
-                        <!--box principal -->
-                        <div class="col-md-12" class="box_principal">
-
-                            <h2 class="diferenca-title">Salve seu Cálculo</h2>
-                            <!--<img src="img/pdf.png" width="30px">-->
-                            <form onsubmit="return validacao();" class="shake" data-toggle="validator"
-                                id="contactForm344" name="contactForm" method="post" role="form"
-                                action="enviandoComparativoGrafico.php">
-                                <div class="col-md-12">
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input class="form-control"
-                                                data-error="Por favor Informe Nome da Instituição"
-                                                id="NomedaInstituicao" placeholder="Nome da Instituição" type="text"
-                                                name="NomedaInstituicao">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input class="form-control" data-error="Por favor Informe seu nome"
-                                                id="name" placeholder="Seu nome" type="text" name="nome">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input class="form-control" data-error="Por favor Informe seu email"
-                                                id="email" placeholder="E-mail" required="" type="email" name="email">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input class="form-control" data-error="Por favor Informe o telefone"
-                                                id="telefone" placeholder="Telefone" required="" type="text"
-                                                name="telefone">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-
-                                            <select class="form-control" name="cargo" id="cargo"
-                                                data-error="Por favor Informe o Cargo">
-                                                <option value="" selected>Selecione o cargo</option>
-                                                <option value="Vendedor">Vendedor</option>
-                                                <option value="Representante">Representante</option>
-                                                <option value="Almoxarifado">Almoxarifado</option>
-                                                <option value="Estudante">Estudante</option>
-                                                <option value="Outro">Outros Cargos</option>
-                                            </select>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-
-                                            <select class="form-control" name="perfil" id="perfil"
-                                                data-error="Por favor Informe seu perfil">
-                                                <option value="" selected>Selecione o Perfil</option>
-                                                <option value="Distribuidor/Revenda">Distribuidor/Revenda</option>
-                                                <option value="Usuário/Consumidor">Usuário/Consumidor</option>
-                                                <option value="Outro">Outro</option>
-                                            </select>
-
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-
-
-
+                            <div class="col-md-4 diferenca-txt">
+                                OUTROS
+                                <div class="col-md-12 diferenca-num diferenca-num-red" id="CellDiferencaCustoConector">
+                                    R$0,00
                                 </div>
-                                <div class="col-md-12">
-                                    <input type="submit" class="btn btn-success" id="submit" value="Enviar">
-                                    <div class="h3 text-center hidden" id="msgSubmit">
-                                    </div>
-                                    <div class="clearfix"></div>
+                            </div>
 
+                            <div class="col-md-4 x-custo"> X </div>
+
+                            <div class="col-md-4 diferenca-txt">
+                                MEDCORP
+                                <div class="col-md-12 diferenca-num diferenca-num-green" id="CellDiferencaCustoMedCorp">
+                                    R$0,00
                                 </div>
-                                <input type="hidden" name="numeroPacientesFormEmail" id="numeroPacientesFormEmail">
-                                <input type="hidden" name="conectorInfusaoUnidadeFormEmail"
-                                    id="conectorInfusaoUnidadeFormEmail">
-                                <input type="hidden" name="solucoesDeLockFormEmail" id="solucoesDeLockFormEmail">
-                                <input type="hidden" name="kitMateriaisDescartaveisFormEmail"
-                                    id="kitMateriaisDescartaveisFormEmail">
-                                <input type="hidden" name="tegoUnidadeFormEmail" id="tegoUnidadeFormEmail">
-                                <input type="hidden" name="solucoesDeLockMedCorpFormEmail"
-                                    id="solucoesDeLockMedCorpFormEmail">
-                                <input type="hidden" name="kitMateriaisDescartaveisMedCorpFormEmail"
-                                    id="kitMateriaisDescartaveisMedCorpFormEmail">
-                                <input type="hidden" name="SomaTotalSemanalGrafico" id="SomaTotalSemanalGrafico">
-                                <input type="hidden" name="SomaTotalMensalGrafico" id="SomaTotalMensalGrafico">
-                                <input type="hidden" name="somaTotalPacientesSemanalMedCorp"
-                                    id="somaTotalPacientesSemanalMedCorp">
-                                <input type="hidden" name="somaTotalPacientesMensalMedCorp"
-                                    id="somaTotalPacientesMensalMedCorp">
-                                <input type="hidden" name="economiaMensal" id="economiaMensal">
-                                <input type="hidden" name="economiaAnual" id="economiaAnual">
-                                <input type="hidden" name="qtdSessoesMensaisTegoFormEmail"
-                                    id="qtdSessoesMensaisTegoFormEmail">
-                                <input type="hidden" name="qtdSessoesMensaisFormEmail" id="qtdSessoesMensaisFormEmail">
-                            </form>
-                            <br>
+                            </div>
+
+
+
+
+
+                            <div class="col-md-6 economia-txt">
+                                ECONOMIA POR MÊS
+                                <div class="col-md-12 economia-num" id="CellEconomiaMensal">
+                                    R$0,00
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6 economia-txt">
+                                ECONOMIA ANUAL
+                                <div class="col-md-12 economia-num" id="CellEconomiaAnual">
+                                    R$0,00
+                                </div>
+                            </div>
+
+
+
                         </div>
+
+
+
+
+
+                        <!-- fim estrutura container  -->
+
+
+                        <!--FIM  DIV CONTAINER-->
+
+
+                        <div class="hide-calcula">
+                            <div class="col-md-12">
+                                <!--1 linha -->
+                                <!--box principal -->
+                                <div class="col-md-12" class="box_principal">
+
+                                    <h2 class="diferenca-title">Salve seu Cálculo</h2>
+                                    <!--<img src="img/pdf.png" width="30px">-->
+                                    <form onsubmit="return validacao();" class="shake" data-toggle="validator"
+                                        id="contactForm344" name="contactForm" method="post" role="form"
+                                        action="enviandoComparativoGrafico.php">
+                                        <div class="col-md-12">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input class="form-control"
+                                                        data-error="Por favor Informe Nome da Instituição"
+                                                        id="NomedaInstituicao" placeholder="Nome da Instituição"
+                                                        type="text" name="NomedaInstituicao">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" data-error="Por favor Informe seu nome"
+                                                        id="name" placeholder="Seu Nome" type="text" name="nome">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" data-error="Por favor Informe seu email"
+                                                        id="email" placeholder="E-mail" required="" type="email"
+                                                        name="email">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input class="form-control"
+                                                        data-error="Por favor Informe o telefone" id="telefone"
+                                                        placeholder="Telefone" required="" type="text" name="telefone">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+
+                                                    <select class="form-control" name="cargo" id="cargo"
+                                                        data-error="Por favor Informe o Cargo">
+                                                        <option value="" selected>Selecione seu Cargo</option>
+                                                        <option value="CEO">Sócio/CEO/Diretor</option>
+                                                        <option value="Gerente">Gerente/Coordenador</option>
+                                                        <option value="Comprador">Comprador</option>
+                                                        <option value="Engenheiro">Engenheiro de Segurança</option>
+                                                        <option value="seguranca">Técnico de Segurança</option>
+                                                        <option value="Vendedor">Vendedor</option>
+                                                        <option value="Representante">Representante</option>
+                                                        <option value="Almoxarifado">Almoxarifado</option>
+                                                        <option value="Estudante">Estudante</option>
+                                                        <option value="Outro">Outros Cargos</option>
+                                                    </select>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+
+                                                    <select class="form-control" name="perfil" id="perfil"
+                                                        data-error="Por favor Informe seu perfil">
+                                                        <option value="" selected>Selecione seu Perfil</option>
+                                                        <option value="Distribuidor/Revenda">Distribuidor/Revenda
+                                                        </option>
+                                                        <option value="Usuário/Consumidor">Usuário/Consumidor</option>
+                                                        <option value="Outro">Outro</option>
+                                                    </select>
+
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="col-md-12" style="text-align:center;">
+                                            <input type="submit" class="btn btn-success btn-lg" id="submit"
+                                                value="Enviar">
+                                            <div class="h3 text-center hidden" id="msgSubmit">
+                                            </div>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                        <input type="hidden" name="numeroPacientesFormEmail"
+                                            id="numeroPacientesFormEmail">
+                                        <input type="hidden" name="conectorInfusaoUnidadeFormEmail"
+                                            id="conectorInfusaoUnidadeFormEmail">
+                                        <input type="hidden" name="solucoesDeLockFormEmail"
+                                            id="solucoesDeLockFormEmail">
+                                        <input type="hidden" name="kitMateriaisDescartaveisFormEmail"
+                                            id="kitMateriaisDescartaveisFormEmail">
+                                        <input type="hidden" name="tegoUnidadeFormEmail" id="tegoUnidadeFormEmail">
+                                        <input type="hidden" name="solucoesDeLockMedCorpFormEmail"
+                                            id="solucoesDeLockMedCorpFormEmail">
+                                        <input type="hidden" name="kitMateriaisDescartaveisMedCorpFormEmail"
+                                            id="kitMateriaisDescartaveisMedCorpFormEmail">
+                                        <input type="hidden" name="SomaTotalSemanalGrafico"
+                                            id="SomaTotalSemanalGrafico">
+                                        <input type="hidden" name="SomaTotalMensalGrafico" id="SomaTotalMensalGrafico">
+                                        <input type="hidden" name="somaTotalPacientesSemanalMedCorp"
+                                            id="somaTotalPacientesSemanalMedCorp">
+                                        <input type="hidden" name="somaTotalPacientesMensalMedCorp"
+                                            id="somaTotalPacientesMensalMedCorp">
+                                        <input type="hidden" name="economiaMensal" id="economiaMensal">
+                                        <input type="hidden" name="economiaAnual" id="economiaAnual">
+                                        <input type="hidden" name="qtdSessoesMensaisTegoFormEmail"
+                                            id="qtdSessoesMensaisTegoFormEmail">
+                                        <input type="hidden" name="qtdSessoesMensaisFormEmail"
+                                            id="qtdSessoesMensaisFormEmail">
+                                    </form>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
 
                 </div>
+            </section>
 
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-11">
 
-    </div>
-    </section>
+                            <div class="col-md-3">
+                                <ul>
+                                    <li><b>QUEM SOMOS</b></li>
+                                    <li><a href="noticias.php">Nóticias</a></li>
+                                    <li><a href="contato.php">Fale conosco</a></li>
+                                    <li><a href="trabalhe-conosco.php">Trabalhe conosco</a></li>
+                                    <li><a href="eventos.php">Eventos</a></li>
+                                </ul>
+                            </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-11">
-
-                    <div class="col-md-3">
-                        <ul>
-                            <li><b>QUEM SOMOS</b></li>
-                            <li><a href="noticias.php">Nóticias</a></li>
-                            <li><a href="contato.php">Fale conosco</a></li>
-                            <li><a href="trabalhe-conosco.php">Trabalhe conosco</a></li>
-                            <li><a href="eventos.php">Eventos</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-md-3">
-                        <ul>
-                            <li><b>ESPECIALIDADES</b></li>
-                            <li><a href="acessos.php">Acessos Vasculares</a></li>
-                            <li><a href="sistema_fechado.php">Sistema Fechado</a></li>
-                            <li><a href="infusor.php">Infusor Elastomérico</a></li>
-                            <!--    <li><a href="pediatrica.php">Linha Pediátrica</a></li> -->
-                            <!--        <li><a href="laser.php">Laser Endovenoso</a></li> -->
-                            <li><a href="controle_infeccao.php">Controle de Infecção</a></li>
-                            <!--     <li><a href="eletrocir.php">Eletrocirurgia</a></li>-->
-                        </ul>
-                    </div>
+                            <div class="col-md-3">
+                                <ul>
+                                    <li><b>ESPECIALIDADES</b></li>
+                                    <li><a href="acessos.php">Acessos Vasculares</a></li>
+                                    <li><a href="sistema_fechado.php">Sistema Fechado</a></li>
+                                    <li><a href="infusor.php">Infusor Elastomérico</a></li>
+                                    <!--    <li><a href="pediatrica.php">Linha Pediátrica</a></li> -->
+                                    <!--        <li><a href="laser.php">Laser Endovenoso</a></li> -->
+                                    <li><a href="controle_infeccao.php">Controle de Infecção</a></li>
+                                    <!--     <li><a href="eletrocir.php">Eletrocirurgia</a></li>-->
+                                </ul>
+                            </div>
 
 
 
-                    <div class="col-md-3">
-                        <ul>
-                            <li><b>SIGA-NOS</b></li>
-                            <div class="footer-inner text-center">
-                                <div class="social-links">
+                            <div class="col-md-3">
+                                <ul>
+                                    <li><b>SIGA-NOS</b></li>
+                                    <div class="footer-inner text-center">
+                                        <div class="social-links">
 
-                                    <!--
+                                            <!--
                             <a class="twitter social-link icon-rede" data-placement="top" data-toggle="tooltip" href="#" title="Twitter"><i class="fa fa-twitter fa-2x"></i></a> -->
-                                    <a class="facebook social-link icon-rede" data-placement="top" data-toggle="tooltip"
-                                        href="https://www.facebook.com/medcorphospitalarbr" title="Facebook"
-                                        target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
-                                    <!--
+                                            <a class="facebook social-link icon-rede" data-placement="top"
+                                                data-toggle="tooltip"
+                                                href="https://www.facebook.com/medcorphospitalarbr" title="Facebook"
+                                                target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+                                            <!--
                             <a class="linkedin social-link icon-rede" data-placement="top" data-toggle="tooltip" href="#" title="LinkedIn"><i class="fa fa-linkedin fa-2x"></i></a>
 
                             <a class="dribbble social-link icon-rede" data-placement="top" data-toggle="tooltip" href="#" title="Youtube"><i class="fa fa-youtube fa-2x"></i></a>-->
-                                    <a class="pinterest social-link icon-rede" data-placement="top"
-                                        data-toggle="tooltip" href="https://www.instagram.com/medcorphospitalarbr/"
-                                        title="Instagram" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+                                            <a class="pinterest social-link icon-rede" data-placement="top"
+                                                data-toggle="tooltip"
+                                                href="https://www.instagram.com/medcorphospitalarbr/" title="Instagram"
+                                                target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+                                        </div>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3">
+                                <p class="texto_footer">
+                                    <span class="b_logo_footer">Medcorp Hospitalar Ltda.<br></span>
+                                    <b>ESCRITÓRIO:</b> <br>Rua Arminda, 93 - 3º andar - CEP: 04545 100 Vila Olímpia -
+                                    São
+                                    Paulo/SP - Brasil
+                                    <br>Fone/Fax: +55 11-3849-8992 <br> <br>
+                                    <b>MATRIZ/CENTRO DE DISTRIBUIÇÃO:</b><br> Av. Fagundes de Oliveira, 538 - Galpão A5
+                                    - CEP
+                                    09950-300 - Piraporinha Diadema/SP - Brasil <br>Tel.: +5511 4067-5011
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+            <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+            <!-- Placed at the end of the document so the pages load faster -->
+
+            <script src="js/modernizr.custom.js"></script>
+            <script src="js/jquery.easing.1.3.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="plugins/flexslider/jquery.flexslider-min.js"></script>
+            <script src="plugins/flexslider/flexslider.config.js"></script>
+            <script src="js/jquery.appear.js"></script>
+            <script src="js/stellar.js"></script>
+            <script src="js/classie.js"></script>
+            <script src="js/uisearch.js"></script>
+            <script src="js/jquery.cubeportfolio.min.js"></script>
+            <script src="js/google-code-prettify/prettify.js"></script>
+            <script src="js/animate.js"></script>
+            <script src="js/custom.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+
+            <script src="js/calculadora-tego.js"></script>
+
+            <div class="container">
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+
+
+                    <!-- inicio estrutura comparacao  -->
+
+
+                    <div class="row arruma-cor-azul">
+
+                        <div class="col-md-12">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span class="arruma-cor" style="position: absolute;right: 10px;top: 0;font-size: 40px;">
+                                    &times;
+                                </span>
+                            </button>
+                            <div class="box-pacientes" style="text-align:center;">
+                                <h3>MATERIAIS DESCARTÁVEIS</h3>
+
+                            </div>
+
+                            <div class="row arrumaTextoCentro">
+
+                                <div class="col-md-12">
+
+                                    <div class="col-md-3 col-xs-6">
+                                        <span
+                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">SERINGA:</span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="seringa">
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-6">
+                                        <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">GASE
+                                            ESTÉRIL:</span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="gaseEsteril">
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-6">
+                                        <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">LUVA
+                                            ESTÉRIL:</span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="luvaEsteril">
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-6">
+                                        <span
+                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">CAMPO
+                                            ESTÉRIL:</span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="campoEsteril">
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-6">
+                                        <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">LUVA
+                                            DE PROCEDIMENTO:</span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="luvaDeProcedimento">
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-6">
+                                        <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">
+                                            TAMPAS E OCLUSORES:
+                                        </span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="tampasEOclusores">
+                                    </div>
+                                    
+                                    <div class="col-md-3 col-xs-6">
+                                        <span
+                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">AGULHAS:</span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="agulhas">
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-6">
+                                        <span
+                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">OUTROS:</span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="outros">
+                                    </div>
+
                                 </div>
-                        </ul>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:center;">
+                                <button class="btn btn-success btn-lg" id="btSomaKit" data-dismiss="modal">SOMAR VALOR
+                                    TOTAL DOS ITENS</button>
+                            </div>
+
+                        </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <p class="texto_footer">
-                            <span class="b_logo_footer">Medcorp Hospitalar Ltda.<br></span>
-                            <b>ESCRITÓRIO:</b> <br>Rua Arminda, 93 - 3º andar - CEP: 04545 100 Vila Olímpia - São
-                            Paulo/SP - Brasil
-                            <br>Fone/Fax: +55 11-3849-8992 <br> <br>
-                            <b>MATRIZ/CENTRO DE DISTRIBUIÇÃO:</b><br> Av. Fagundes de Oliveira, 538 - Galpão A5 - CEP
-                            09950-300 - Piraporinha Diadema/SP - Brasil <br>Tel.: +5511 4067-5011
-                        </p>
-                    </div>
+
+
 
                 </div>
             </div>
-        </div>
-    </footer>
-
-
-
-
-    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-
-    <!-- Placed at the end of the document so the pages load faster -->
-
-    <script src="js/modernizr.custom.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="plugins/flexslider/jquery.flexslider-min.js"></script>
-    <script src="plugins/flexslider/flexslider.config.js"></script>
-    <script src="js/jquery.appear.js"></script>
-    <script src="js/stellar.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/uisearch.js"></script>
-    <script src="js/jquery.cubeportfolio.min.js"></script>
-    <script src="js/google-code-prettify/prettify.js"></script>
-    <script src="js/animate.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-
-
-    <script src="js/calculadora-tego.js"></script>
-
-    <div class="container">
-        <h2>Modal Login Example</h2>
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
-      
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-          
-           
-             <!-- inicio estrutura comparacao  -->
-
-
-             <div class="row arruma-cor-azul">
-
-                <div class="col-md-12">
-                    <div class="box-pacientes">
-                        <h3>KIT DESCARTÁVEIS</h3>
-
-                    </div>
-
-                    <div class="row arrumaTextoCentro">
-
-                        <div class="col-md-12">
-                            <div class="col-md-2">   
-                                <button type="button" class="close" data-dismiss="modal">
-                                    <span class="arruma-cor">
-                                        &times;
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="col-md-1"><span class="arruma-cor">SERINGA:</span></div>
-                            <div class="col-md-1"><span class="arruma-cor">GASE ESTÉRIL:</span></div>
-                            <div class="col-md-1"><span class="arruma-cor">LUVA ESTÉRIL:</span></div>
-                            <div class="col-md-1"><span class="arruma-cor">CAMPO ESTÉRIL:</span></div>
-                            <div class="col-md-2"><span class="arruma-cor">LUVA DE PROCEDIMENTO:</span>
-                            </div>
-                            <div class="col-md-1"><span class="arruma-cor">AGULHAS:</span> </div>
-                            <div class="col-md-1"><span class="arruma-cor">OUTROS:</span></div>
-                            <div class="col-md-2"></div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-md-12">
-
-                            <div class="col-md-2"></div>
-
-                            <div class="form-group col-md-1">
-                                <input tabindex="3" type="text" maxlength="10"
-                                    onkeypress="$(this).mask('#.##0,00', {reverse: true});"
-                                    class="form-control" placeholder="R$:" id="seringa">
-                            </div>
-
-                            <div class="form-group col-md-1">
-                                <input tabindex="3" type="text" maxlength="10"
-                                    onkeypress="$(this).mask('#.##0,00', {reverse: true});"
-                                    class="form-control" placeholder="R$:" id="gaseEsteril">
-                            </div>
-
-                            <div class="form-group col-md-1">
-                                <input tabindex="3" type="text" maxlength="10"
-                                    onkeypress="$(this).mask('#.##0,00', {reverse: true});"
-                                    class="form-control" placeholder="R$:" id="luvaEsteril">
-                            </div>
-
-                            <div class="form-group col-md-1">
-                                <input tabindex="3" type="text" maxlength="10"
-                                    onkeypress="$(this).mask('#.##0,00', {reverse: true});"
-                                    class="form-control" placeholder="R$:" id="campoEsteril">
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <input tabindex="3" type="text" maxlength="10"
-                                    onkeypress="$(this).mask('#.##0,00', {reverse: true});"
-                                    class="form-control" placeholder="R$:" id="luvaDeProcedimento">
-                            </div>
-
-                            <div class="form-group col-md-1">
-                                <input tabindex="3" type="text" maxlength="10"
-                                    onkeypress="$(this).mask('#.##0,00', {reverse: true});"
-                                    class="form-control" placeholder="R$:" id="agulhas">
-                            </div>
-
-                            <div class="form-group col-md-1">
-                                <input tabindex="3" type="text" maxlength="10"
-                                    onkeypress="$(this).mask('#.##0,00', {reverse: true});"
-                                    class="form-control" placeholder="R$:" id="outros">
-                            </div>
-
-                            <div class="col-md-2"></div>
-
-                        </div>
-                    </div>
-
-
-                </div>  
-
-
-                <div class="row">
-                    <div class="col-md-4"></div>
-                        <div class="col-md-4">
-                            <button class="btn btn-success" id="btSomaKit">Somar Kit Médico</button>
-                        </div>
-                    <div class="col-md-4"></div>
-            </div>
-            </div>
-
-
-
-
-        </div> 
-      </div>
 </body>
 
 </html>

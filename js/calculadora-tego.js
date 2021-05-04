@@ -22,6 +22,7 @@ $(document).ready(function () {
     let luvaEsteril = $("#luvaEsteril");
     let campoEsteril = $("#campoEsteril");
     let luvaDeProcedimento = $("#luvaDeProcedimento");
+    let tampasEOclusores = $("#tampasEOclusores");
     let agulhas = $("#agulhas");
     let outros = $("#outros");
 
@@ -44,15 +45,21 @@ $(document).ready(function () {
 
                 let somaTotalPacientesMedCorp = somaTotalPacienteMedCorp(somaMedCorp, chart);
 
-                validacaoCalc();
+
+                somaTotalPacientesMedCorp[0] = parseFloat(somaTotalPacientesMedCorp[0]);
+                somaTotalPacientesMedCorp[0] = parseFloat(somaTotalPacientesMedCorp[1]);                
+                somaTotalPacientesMedCorp[0] = parseFloat(somaTotalPacientesMedCorp[2]);
                 
+                
+                validacaoCalc();
+
                     add_data(chart,
                         somaTotalPacientes[0],
                         somaTotalPacientes[1],
                         somaTotalPacientes[2],
-                        somaTotalPacientesMedCorp[0].toFixed(2),
-                        somaTotalPacientesMedCorp[1].toFixed(2),
-                        somaTotalPacientesMedCorp[2].toFixed(2)
+                        somaTotalPacientesMedCorp[0],
+                        somaTotalPacientesMedCorp[1],
+                        somaTotalPacientesMedCorp[2]
                     );
 
     }
@@ -123,7 +130,7 @@ $(document).ready(function () {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: false
                     }
                 }]
             }
@@ -134,7 +141,7 @@ $(document).ready(function () {
 
 
     function add_data(chart, cDiario, cSemanal, cMensal, cDiarioMedCorp,cSemanalMedCorp, cMensalMedCorp) {
-
+        myLineChart.data.datasets[0].data.pop();
         myLineChart.data.datasets[0].data.push(cDiario);
         myLineChart.data.datasets[0].data.push(cSemanal);
         myLineChart.data.datasets[0].data.push(cMensal);
@@ -553,6 +560,7 @@ $(document).ready(function () {
         let luvaEsteril         = document.getElementById("luvaEsteril").value;
         let campoEsteril        = document.getElementById("campoEsteril").value;
         let luvaDeProcedimento  = document.getElementById("luvaDeProcedimento").value;
+        let tampasEOclusores  = document.getElementById("tampasEOclusores").value;
         let agulhas             = document.getElementById("agulhas").value;
         let outros              = document.getElementById("outros").value;
 
@@ -575,9 +583,12 @@ $(document).ready(function () {
             campoEsteril = 0;
         }
            
-
         if(luvaDeProcedimento == ""){
            luvaDeProcedimento  = 0;
+        }
+
+        if(tampasEOclusores == ""){
+            tampasEOclusores  = 0;
         }
 
         if(agulhas == ""){
@@ -603,6 +614,9 @@ $(document).ready(function () {
         luvaDeProcedimento = luvaDeProcedimento.replace(',', '.');
         luvaDeProcedimento  = parseFloat(luvaDeProcedimento);
 
+        tampasEOclusores = tampasEOclusores.replace(',', '.');
+        tampasEOclusores  = parseFloat(tampasEOclusores);
+
         agulhas= agulhas.replace(',', '.');
         agulhas = parseFloat(agulhas);
 
@@ -611,7 +625,7 @@ $(document).ready(function () {
 
         v = document.getElementById("kitMateriaisDescartaveis").value;
 
-        let t = seringa + gaseEsteril + luvaEsteril + campoEsteril + luvaDeProcedimento + agulhas + outros;
+        let t = seringa + gaseEsteril + luvaEsteril + campoEsteril + luvaDeProcedimento + tampasEOclusores + agulhas + outros;
 
         t = t.toFixed(2)
         t = t.toString();

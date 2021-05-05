@@ -7,65 +7,52 @@
 	$cargo 		            = $_REQUEST['cargo'];
     $perfil 		        = $_REQUEST['perfil'];
 
-
+    
     $numeroPacientes                    = $_REQUEST['numeroPacientesFormEmail'];
-    $conectorTampa                      = $_REQUEST['conectorTampaFormEmail'];
-    $heparina                           = $_REQUEST['heparinaFormEmail'];
-    $luva                               = $_REQUEST['luvaFormEmail'];
+    $conectorInfusaoUnidade             = $_REQUEST['conectorInfusaoUnidadeFormEmail'];
+    $solucoesDeLock                     = $_REQUEST['solucoesDeLockFormEmail'];
+    $kitMateriaisDescartaveis           = $_REQUEST['kitMateriaisDescartaveisFormEmail'];
     $tegoUnidade                        = $_REQUEST['tegoUnidadeFormEmail'];
-    $heparinaMedCorp                    = $_REQUEST['heparinaMedCorpFormEmail'];
-    $luvaMedCorp                        = $_REQUEST['luvaMedCorpFormEmail'];
+    $solucoesDeLockMedCorp              = $_REQUEST['solucoesDeLockMedCorpFormEmail'];
+    $kitMateriaisDescartaveisMedCorp    = $_REQUEST['kitMateriaisDescartaveisMedCorpFormEmail'];
     $qtdSessoesMensaisTego              = $_REQUEST['qtdSessoesMensaisTegoFormEmail'];
     $qtdSessoesMensais                  = $_REQUEST['qtdSessoesMensaisFormEmail'];
-    $economiaMensal                     = number_format($_REQUEST['economiaMensal'], 2,",",".");
-    $economiaAnual                      = number_format($_REQUEST['economiaAnual'], 2,",",".");
-    $SomaTotalSemanalGrafico            = number_format($_REQUEST['SomaTotalSemanalGrafico'], 2,",",".");
-    $SomaTotalMensalGrafico             = number_format($_REQUEST['SomaTotalMensalGrafico'], 2,",",".");
-    $somaTotalPacientesSemanalMedCorp   = number_format($_REQUEST['somaTotalPacientesSemanalMedCorp'], 2,",",".");
-    $somaTotalPacientesMensalMedCorp    = number_format($_REQUEST['somaTotalPacientesMensalMedCorp'], 2,",",".");
+    $somaTotalSemanal                   = number_format($_REQUEST['somaTotalSemanalFormEmail'], 2,",",".");
+    $somaTotalMensal                    = number_format($_REQUEST['somaTotalMensalFormEmail'], 2,",",".");
+    $somaTotalSemanalMedCorp            = number_format($_REQUEST['somaTotalSemanalMedCorpFormEmail'], 2,",",".");
+    $somaTotalMensalMedCorp             = number_format($_REQUEST['somaTotalMensalMedCorpFormEmail'], 2,",",".");
+    $somaTotalPacientesSemanal          = number_format($_REQUEST['somaTotalPacientesSemanalFormEmail'], 2,",",".");
+    $somaTotalPacientesMensal           = number_format($_REQUEST['somaTotalPacientesMensalFormEmail'], 2,",",".");
+    $somaTotalPacientesSemanalMedCorp   = number_format($_REQUEST['somaTotalPacientesSemanalMedCorpFormEmail'], 2,",",".");
+    $somaTotalPacientesMensalMedCorp    = number_format($_REQUEST['somaTotalPacientesMensalMedCorpFormEmail'], 2,",",".");
+    $economiaMensal                     = number_format($_REQUEST['economiaMensalFormEmail'], 2,",",".");
+    $economiaAnual                      = number_format($_REQUEST['economiaAnualFormEmail'], 2,",",".");
 
-	$data_envio = date('d/m/Y');
+    
+    $data_envio = date('d/m/Y');
 	$hora_envio = date('H:i:s');
+
 
 //enviar ;
  // Adiciona o arquivo class.phpmailer.php - você deve especificar corretamente o caminho da pasta com o este arquivo.
  require_once("enviaEmail/PHPMailerAutoload.php");
  // Inicia a classe PHPMailer
- $mail = new PHPMailer();
+ $mail = new PHPMailer(true);
+$mail->isSMTP();
+$mail->Host = 'smtp.office365.com';
+$mail->Port       = 587;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth   = true;
+$mail->Username = 'calculadoratego@medcorpnet.com.br';
+$mail->Password = 'Cal@abb321@#$#$#';
 
- $mail->Host = 'https://outlook.live.com/owa/';
- $mail->SMTPSecure = 'tls';
-
- // DEFINIÇÃO DOS DADOS DE AUTENTICAÇÃO - Você deve auterar conforme o seu domínio!
- $mail->IsSMTP(); // Define que a mensagem será SMTP
- //$mail->Host = "smtp.medcorpnet.com.br"; // Seu endereço de host SMTP
- $mail->SMTPAuth = true; // Define que será utilizada a autenticação -  Mantenha o valor "true"
- $mail->Port = 587; // Porta de comunicação SMTP - Mantenha o valor "587"
- //$mail->SMTPSecure = true; // Define se é utilizado SSL/TLS - Mantenha o valor "false"
- //$mail->SMTPAutoTLS = true; // Define se, por padrão, será utilizado TLS - Mantenha o valor "false"
- $mail->Username = 'calculadoratego@medcorpnet.com.br'; // Conta de email existente e ativa em seu domínio
- $mail->Password = 'Cal@njjj'; // Senha da sua conta de email
- // DADOS DO REMETENTE
- $mail->Sender = "calculadoratego@medcorpnet.com.br"; // Conta de email existente e ativa em seu domínio
- $mail->From = "calculadoratego@medcorpnet.com.br"; // Sua conta de email que será remetente da mensagem
- $mail->FromName = "medcorpnet.com.br"; // Nome da conta de email
- // DADOS DO DESTINATÁRIO
- $mail->AddAddress('calculadoratego@medcorpnet.com.br', 'Comparativo - site'); // Define qual conta de email receberá a mensagem
- //$mail->AddAddress('recebe2@dominio.com.br'); // Define qual conta de email receberá a mensagem
- //$mail->AddCC('copia@dominio.net'); // Define qual conta de email receberá uma cópia
- //$mail->AddBCC('copiaoculta@dominio.info'); // Define qual conta de email receberá uma cópia oculta
- // Definição de HTML/codificação
- $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
- $mail->CharSet = 'utf-8'; // Charset da mensagem (opcional)
- 
- // DEFINIÇÃO DA MENSAGEM
-
- $mail->Subject = "Calculadora - site"; // Assunto da mensagem
- //$mail->Body .= "Nome: ".$_POST['nome'].""; // Texto da mensagem
- //$mail->Body .= "E-mail: ".$_POST['email'].""; // Texto da mensagem
- //$mail->Body .= "Assunto: ".$_POST['assunto'].""; // Texto da mensagem
- //$mail->Body .= "Mensagem: ".nl2br($_POST['mensagem']).""; // Texto da mensagem
-
+$mail->SetFrom('calculadoratego@medcorpnet.com.br', 'FromEmail');
+$mail->addAddress('calculadoratego@medcorpnet.com.br', 'ToEmail');
+//$mail->SMTPDebug  = 3;
+//$mail->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";}; //$mail->Debugoutput = 'echo';
+$mail->IsHTML(true);
+$mail->CharSet = 'utf-8'; // Charset da mensagem (opcional)
+$mail->Subject = "Calculadora - site"; // Assunto da mensagem
 
 $codigo_html = '
 <!doctype html>
@@ -290,14 +277,14 @@ td{padding:5px;}
       <tr>
         <td style="text-align:center; width:50%;">
            
-            CONECTOR/ TAMPA <br>
-            <span class="head">R$</span> <b>'.$conectorTampa.'</b>
+        CONECTORES INFUSÃO - UNIDADE <br>
+            <span class="head">R$</span> <b>'.$conectorInfusaoUnidade.'</b>
             <br><br>
-            HEPARINA - FRASCO <br>
-            <span class="head">R$</span> <b>'.$heparina.'</b>
+            SOLUÇÕES DE LOCK <br>
+            <span class="head">R$</span> <b>'.$solucoesDeLock.'</b>
             <br><br>
-            LUVA - PAR <br>
-            <span class="head">R$</span> <b>'.$luva.'</b>
+            KIT MATERIAIS DESCARTÁVEIS <br>
+            <span class="head">R$</span> <b>'.$kitMateriaisDescartaveis.'</b>
                  
         </td>
         <td style="text-align:center; width:50%;">
@@ -308,8 +295,8 @@ td{padding:5px;}
             HEPARINA<br>
             <span class="head">R$</span> ZERO
             <br><br>
-            LUVA - PAR<br>
-            <span class="head">R$</span> <b>'.$luvaMedCorp.'</b>
+            KIT MATERIAIS DESCARTÁVEIS <br>
+            <span class="head">R$</span> <b>'.$kitMateriaisDescartaveisMedCorp.'</b>
 
         </td>
     </tr>
@@ -350,20 +337,20 @@ td{padding:5px;}
     <table>
         <tr>
             <td style="text-align:center; width:25%;"> 
-            <span colspan="1">R$ </span> <b>'.$SomaTotalSemanalGrafico.'</b>
+            <span colspan="1">R$ </span> <b>'.$somaTotalSemanal.'</b>
             </td>
 
             <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$SomaTotalMensalGrafico.'</b>
+            <span>R$ </span> <b>'.$somaTotalMensal.'</b>
 
             </td> 
 
             <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$somaTotalPacientesSemanalMedCorp.'</b>
+            <span>R$ </span> <b>'.$somaTotalPacientesSemanal.'</b>
             </td>
 
             <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
+            <span>R$ </span> <b>'.$somaTotalPacientesMensal.'</b>
             </td>
         </tr>
     </table>
@@ -378,7 +365,7 @@ td{padding:5px;}
         <tr class="diferenca-txt"> 
 
             <td class="diferenca-num" style="text-align:center; width:33%;">
-                <span style="font-size:20px;">CONECTOR/TAMPA</span> <br>
+                <span style="font-size:20px;">CONECTORES DE INFUSÃO UNIDADE</span> <br>
                 <span class="head">R$</span> <b>'.$somaTotalPacientesSemanalMedCorp .'</b>
             </td> 
 

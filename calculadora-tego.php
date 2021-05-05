@@ -1432,15 +1432,29 @@
                                             id="solucoesDeLockMedCorpFormEmail">
                                         <input type="hidden" name="kitMateriaisDescartaveisMedCorpFormEmail"
                                             id="kitMateriaisDescartaveisMedCorpFormEmail">
-                                        <input type="hidden" name="SomaTotalSemanalGrafico"
-                                            id="SomaTotalSemanalGrafico">
-                                        <input type="hidden" name="SomaTotalMensalGrafico" id="SomaTotalMensalGrafico">
-                                        <input type="hidden" name="somaTotalPacientesSemanalMedCorp"
-                                            id="somaTotalPacientesSemanalMedCorp">
-                                        <input type="hidden" name="somaTotalPacientesMensalMedCorp"
-                                            id="somaTotalPacientesMensalMedCorp">
-                                        <input type="hidden" name="economiaMensal" id="economiaMensal">
-                                        <input type="hidden" name="economiaAnual" id="economiaAnual">
+                                                                                   
+                                        <input type="hidden" name="somaTotalSemanalFormEmail"
+                                            id="somaTotalSemanalFormEmail">
+                                        <input type="hidden" name="somaTotalMensalFormEmail" 
+                                        id="somaTotalMensalFormEmail">
+                                        
+                                        <input type="hidden" name="somaTotalSemanalMedCorpFormEmail"
+                                            id="somaTotalSemanalMedCorpFormEmail">
+                                        <input type="hidden" name="SomaTotalMensalMedCorpFormEmail" 
+                                        id="somaTotalMensalMedCorpFormEmail">
+                                                                              
+                                        <input type="hidden" name="somaTotalPacientesSemanalFormEmail"
+                                            id="somaTotalPacientesSemanalFormEmail">
+                                        <input type="hidden" name="somaTotalPacientesMensalFormEmail"
+                                            id="somaTotalPacientesMensalFormEmail">
+
+                                        <input type="hidden" name="somaTotalPacientesSemanalMedCorpFormEmail"
+                                            id="somaTotalPacientesSemanalMedCorpFormEmail">
+                                        <input type="hidden" name="somaTotalPacientesMensalMedCorpFormEmail"
+                                            id="somaTotalPacientesMensalMedCorpFormEmail">
+      
+                                        <input type="hidden" name="economiaMensalFormEmail" id="economiaMensalFormEmail">
+                                        <input type="hidden" name="economiaAnualFormEmail" id="economiaAnualFormEmail">
                                         <input type="hidden" name="qtdSessoesMensaisTegoFormEmail"
                                             id="qtdSessoesMensaisTegoFormEmail">
                                         <input type="hidden" name="qtdSessoesMensaisFormEmail"

@@ -242,26 +242,26 @@ td{padding:5px;}
       <tr>
         <td style="text-align:center; width:50%;">
            
-            CONECTOR/ TAMPA <br>
-            <span class="head">R$</span> <b>'.$conectorTampa.'</b>
+            CONECTORES DE INFUSÃO UNIDADE <br>
+            <span class="head">R$</span> <b>'.$conectorInfusaoUnidade.'</b>
             <br><br>
-            HEPARINA - FRASCO <br>
-            <span class="head">R$</span> <b>'.$heparina.'</b>
+            SOLUÇÕES DE LOCK <br>
+            <span class="head">R$</span> <b>'.$solucoesDeLock.'</b>
             <br><br>
-            LUVA - PAR <br>
-            <span class="head">R$</span> <b>'.$luva.'</b>
+            KIT MATERIAIS DESCARTÁVEIS <br>
+            <span class="head">R$</span> <b>'.$kitMateriaisDescartaveis.'</b>
                  
         </td>
         <td style="text-align:center; width:50%;">
            
-            TEGO - UNIDADE<br>
+            CONECTOR TEGO UNIDADE<br>
             <span class="head">R$</span> <b>'.$tegoUnidade.'</b>
             <br><br>
-            HEPARINA<br>
+            SOLUÇÕES DE LOCK<br>
             <span class="head">R$</span> ZERO
             <br><br>
-            LUVA - PAR<br>
-            <span class="head">R$</span> <b>'.$luvaMedCorp.'</b>
+            KIT MATERIAIS DESCARTÁVEIS<br>
+            <span class="head">R$</span> <b>'.$kitMateriaisDescartaveisMedCorp.'</b>
 
         </td>
     </tr>
@@ -302,20 +302,20 @@ td{padding:5px;}
     <table>
         <tr>
             <td style="text-align:center; width:25%;"> 
-            <span colspan="1">R$ </span> <b>'.$SomaTotalSemanalGrafico.'</b>
+            <span colspan="1">R$ </span> <b>'.$somaTotalSemanal.'</b>
             </td>
 
             <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$SomaTotalMensalGrafico.'</b>
+            <span>R$ </span> <b>'.$somaTotalMensal.'</b>
 
             </td> 
 
             <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$somaTotalPacientesSemanalMedCorp.'</b>
+            <span>R$ </span> <b>'.$somaTotalPacientesSemanal.'</b>
             </td>
 
             <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
+            <span>R$ </span> <b>'.$somaTotalPacientesMensal.'</b>
             </td>
         </tr>
     </table>
@@ -330,7 +330,7 @@ td{padding:5px;}
         <tr class="diferenca-txt"> 
 
             <td class="diferenca-num" style="text-align:center; width:33%;">
-                <span style="font-size:20px;">CONECTOR/TAMPA</span> <br>
+                <span style="font-size:20px;">CONECTORES DE INFUSÃO UNIDADE</span> <br>
                 <span class="head">R$</span> <b>'.$somaTotalPacientesSemanalMedCorp .'</b>
             </td> 
 

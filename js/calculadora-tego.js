@@ -16,15 +16,6 @@ $(document).ready(function () {
     let solucoesDeLockMedCorp = 0;
     let kitMateriaisDescartaveisMedCorp = $("#kitMateriaisDescartaveisMedCorp");
 
-    //kit medico
-    let seringa = $("#seringa");
-    let gaseEsteril = $("#gaseEsteril");
-    let luvaEsteril = $("#luvaEsteril");
-    let campoEsteril = $("#campoEsteril");
-    let luvaDeProcedimento = $("#luvaDeProcedimento");
-    let tampasEOclusores = $("#tampasEOclusores");
-    let agulhas = $("#agulhas");
-    let outros = $("#outros");
 
 
     document.getElementById("calcula").addEventListener("click", calcula);
@@ -333,6 +324,10 @@ $(document).ready(function () {
         document.getElementById("cellTotalSemanal").innerHTML = rsomaTotalSemanal;
         document.getElementById("cellTotalMensal").innerHTML = rsomaTotalMensal;
 
+        document.getElementById("somaTotalSemanalFormEmail").innerHTML = somaTotalSemanal;
+        document.getElementById("somaTotalMensalFormEmail").innerHTML = somaTotalMensal;
+        
+
         var s = [somaTotalDiario, somaTotalSemanal, somaTotalMensal];
 
         return s;
@@ -374,8 +369,12 @@ $(document).ready(function () {
         document.getElementById("cellTotalDiarioMedCorp").innerHTML = rsomaTotalDiario;
         document.getElementById("cellTotalSemanalMedCorp").innerHTML = rsomaTotalSemanal;
         document.getElementById("cellTotalMensalMedCorp").innerHTML = rsomaTotalMensal;
+ 
 
+        $("#somaTotalSemanalMedCorpFormEmail").val(somaTotalSemanal);
+        $("#somaTotalMensalMedCorpFormEmail").val(somaTotalMensal);
 
+        
         var s = [somaTotalDiario, somaTotalSemanal, somaTotalMensal];
 
         return s;
@@ -397,19 +396,24 @@ $(document).ready(function () {
         let rsomaTotalMensal = somaTotalMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
 
-        let rsomaTotalPacientesDiario = somaTotalDiario * numeroPacientes * qtdSessoesMensais;
-        let rsomaTotalPacientesSemanal = somaTotalSemanal * numeroPacientes * qtdSessoesMensais;
-        let rsomaTotalPacientesMensal = somaTotalMensal * numeroPacientes * qtdSessoesMensais;
+        let somaTotalPacientesDiario = somaTotalDiario * numeroPacientes * qtdSessoesMensais;
+        let somaTotalPacientesSemanal = somaTotalSemanal * numeroPacientes * qtdSessoesMensais;
+        let somaTotalPacientesMensal = somaTotalMensal * numeroPacientes * qtdSessoesMensais;
 
 
-        rsomaTotalPacientesDiario = rsomaTotalPacientesDiario.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        rsomaTotalPacientesSemanal = rsomaTotalPacientesSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        rsomaTotalPacientesMensal = rsomaTotalPacientesMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        rsomaTotalPacientesDiario = somaTotalPacientesDiario.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        rsomaTotalPacientesSemanal = somaTotalPacientesSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        rsomaTotalPacientesMensal = somaTotalPacientesMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
         document.getElementById("cellSomaTotalPacientesDiario").innerHTML = rsomaTotalPacientesDiario;
         document.getElementById("cellSomaTotalPacientesSemanal").innerHTML = rsomaTotalPacientesSemanal;
         document.getElementById("cellSomaTotalPacientesMensal").innerHTML = rsomaTotalPacientesMensal;
         document.getElementById("CellDiferencaCustoConector").innerHTML = rsomaTotalPacientesMensal;
+
+
+        $("#somaTotalPacientesSemanalFormEmail").val(somaTotalPacientesSemanal);
+        $("#somaTotalPacientesMensalFormEmail").val(somaTotalPacientesMensal);
+
 
         var s = [somaTotalDiario, somaTotalSemanal, somaTotalMensal];
 
@@ -458,8 +462,6 @@ $(document).ready(function () {
         let cellEconomiaMensal = res[1].replace('.', '');
         cellEconomiaMensal = cellEconomiaMensal.replace(',', '.');
 
-        let SomaTotalMensalGrafico = cellEconomiaMensal;
-
         let economiaMensal = parseFloat(cellEconomiaMensal - somaTotalPacientesMensalMedCorp);
 
         let reconomiaMensal = economiaMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
@@ -485,10 +487,12 @@ $(document).ready(function () {
         $("#kitMateriaisDescartaveisMedCorpFormEmail").val($("#kitMateriaisDescartaveisMedCorp").val());
         $("#qtdSessoesMensaisTegoFormEmail").val($("#qtdSessoesMensaisTego").val());
         $("#qtdSessoesMensaisFormEmail").val($("#qtdSessoesMensais").val());
-
-
-        $("#economiaMensal").val(economiaMensal);
-        $("#economiaAnual").val(economiaAnual);
+        $("#somaTotalSemanalFormEmail").val(somaTotalSemanal);
+        $("#somaTotalMensalFormEmail").val(somaTotalMensal); 
+        $("#somaTotalPacientesSemanalMedCorpFormEmail").val(somaTotalPacientesSemanalMedCorp);
+        $("#somaTotalPacientesMensalMedCorpFormEmail").val(somaTotalPacientesMensalMedCorp);
+        $("#economiaMensalFormEmail").val(economiaMensal);
+        $("#economiaAnualFormEmail").val(economiaAnual);
 
 
         var s = [somaTotalDiario, somaTotalSemanal, somaTotalMensal];
@@ -560,7 +564,7 @@ $(document).ready(function () {
         let luvaEsteril         = document.getElementById("luvaEsteril").value;
         let campoEsteril        = document.getElementById("campoEsteril").value;
         let luvaDeProcedimento  = document.getElementById("luvaDeProcedimento").value;
-        let tampasEOclusores  = document.getElementById("tampasEOclusores").value;
+        let tampasEOclusores    = document.getElementById("tampasEOclusores").value;
         let agulhas             = document.getElementById("agulhas").value;
         let outros              = document.getElementById("outros").value;
 

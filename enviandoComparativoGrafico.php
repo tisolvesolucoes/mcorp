@@ -44,7 +44,7 @@ $mail->Port       = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth   = true;
 $mail->Username = 'calculadoratego@medcorpnet.com.br';
-$mail->Password = 'Cal@abb321@#$#$#';
+$mail->Password = 'Cal@bcc321@#$2021@';
 
 $mail->SetFrom('calculadoratego@medcorpnet.com.br', 'FromEmail');
 $mail->addAddress('calculadoratego@medcorpnet.com.br', 'ToEmail');
@@ -235,7 +235,7 @@ td{padding:5px;}
             </td> 
         </tr>
         <tr>
-            <td class="coluna-head" colspan="4" style="padding:0;" ><h3 style="text-align:center;">PACIENTES EM USO DE CATÉTER - '.$numeroPacientes.'</h3></td>
+            <td class="coluna-head" colspan="4" style="padding:0;" ><h3 style="text-align:center;">PACIENTES EM USO DE CATETER - '.$numeroPacientes.'</h3></td>
         </tr>
     </table>
     <table>
@@ -277,7 +277,7 @@ td{padding:5px;}
       <tr>
         <td style="text-align:center; width:50%;">
            
-        CONECTORES INFUSÃO - UNIDADE <br>
+        CONECTORES DE INFUSÃO - UNIDADE <br>
             <span class="head">R$</span> <b>'.$conectorInfusaoUnidade.'</b>
             <br><br>
             SOLUÇÕES DE LOCK <br>
@@ -304,12 +304,12 @@ td{padding:5px;}
     <table>
         <tr> 
             <td class="coluna-head" style="text-align:center; width:50%;">
-                CUSTO POR PACIENTE COM CATÉTER 
+                CUSTO POR PACIENTE COM CATETER 
             </td> 
                 
                     
             <td class="coluna-head" style="text-align:center; width:50%;">
-            CUSTO POR PACIENTE COM CATÉTER 
+            CUSTO POR PACIENTE COM CATETER 
             </td>
          </tr>
     </table>
@@ -317,19 +317,19 @@ td{padding:5px;}
         <tr class="result-paciente"> 
             
             <td colspan="1" style="text-align:center; width:25%;">
-                TOTAL SEMANAL
+                SEMANAL
             </td> 
 
             <td colspan="1" style="text-align:center; width:25%;"> 
-                TOTAL MENSAL
+                MENSAL
             </td>
                 
            <td colspan="1" style="text-align:center; width:25%;">
-                TOTAL SEMANAL
+                SEMANAL
             </td> 
 
             <td colspan="1" style="text-align:center; width:25%;"> 
-                TOTAL MENSAL
+                MENSAL
             </td>
 
         </tr> 
@@ -337,20 +337,20 @@ td{padding:5px;}
     <table>
         <tr>
             <td style="text-align:center; width:25%;"> 
-            <span colspan="1">R$ </span> <b>'.$somaTotalSemanal.'</b>
-            </td>
-
-            <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$somaTotalMensal.'</b>
-
-            </td> 
-
-            <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$somaTotalPacientesSemanal.'</b>
+            <span colspan="1">R$ </span> <b>'.$somaTotalPacientesSemanal.'</b>
             </td>
 
             <td style="text-align:center; width:25%;"> 
             <span>R$ </span> <b>'.$somaTotalPacientesMensal.'</b>
+
+            </td> 
+
+            <td style="text-align:center; width:25%;"> 
+            <span>R$ </span> <b>'.$somaTotalPacientesSemanalMedCorp.'</b>
+            </td>
+
+            <td style="text-align:center; width:25%;"> 
+            <span>R$ </span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
             </td>
         </tr>
     </table>
@@ -365,8 +365,8 @@ td{padding:5px;}
         <tr class="diferenca-txt"> 
 
             <td class="diferenca-num" style="text-align:center; width:33%;">
-                <span style="font-size:20px;">CONECTORES DE INFUSÃO UNIDADE</span> <br>
-                <span class="head">R$</span> <b>'.$somaTotalPacientesSemanalMedCorp .'</b>
+                <span style="font-size:20px;">ATUAL</span> <br>
+                <span class="head">R$</span> <b>'.$somaTotalPacientesMensal .'</b>
             </td> 
 
             <td style="text-align:center; width:33%;"> 
@@ -450,7 +450,7 @@ td{padding:5px;}
 			
 		  </table>';
 
-  $mail->Body .= $codigo_html;
+$mail->Body .= $codigo_html;
 
  // ENVIO DO EMAIL
  $enviado = $mail->Send();

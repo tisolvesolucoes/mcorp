@@ -23,7 +23,6 @@ $(document).ready(function () {
 
 
     function calcula(chart) {
-        
         //validar os dados
         // encher os campos com calculos
         // montar o grafico
@@ -40,30 +39,26 @@ $(document).ready(function () {
 
 
                 somaTotalPacientesMedCorp[0] = parseFloat(somaTotalPacientesMedCorp[0]);
-                somaTotalPacientesMedCorp[0] = parseFloat(somaTotalPacientesMedCorp[0]);                
-                somaTotalPacientesMedCorp[0] = parseFloat(somaTotalPacientesMedCorp[0]);
-                somaTotalPacientesMedCorp[0] = parseFloat(somaTotalPacientesMedCorp[0]);
+                somaTotalPacientesMedCorp[0] = parseFloat(somaTotalPacientesMedCorp[1]);                
+                somaTotalPacientesMedCorp[0] = parseFloat(somaTotalPacientesMedCorp[2]);
                 
                 
 
-        /*        
+
                     add_data(chart,
-                        somaTotalPacientes[0], 
+                        somaTotalPacientes[0],
                         somaTotalPacientes[1],
                         somaTotalPacientes[2],
                         //somaTotalPacientes[3],
-                        somaTotalPacientesMedCorp[0],
+                        somaTotalPacientesMedCorp[1],
                         somaTotalPacientesMedCorp[1],
                         somaTotalPacientesMedCorp[2]
                     );
-        */
-            
 
     }
 
-        /*
-            var ctxL = document.getElementById("Grafico").getContext('2d');
-        
+
+    var ctxL = document.getElementById("Grafico").getContext('2d');
 
     var myLineChart = new Chart(ctxL, {
         type: 'bar',
@@ -99,9 +94,9 @@ $(document).ready(function () {
         },
 
         options: {
-            legend: { display: false },
+            legend: { display: true },
             title: {
-                display: false,
+                display: true,
                 text: 'Calculadora Tego'
             },
             responsive: true,
@@ -124,30 +119,28 @@ $(document).ready(function () {
                     }
                 }]
             }
-            
+
         },
-        
+
     });
 
 
-    
-    
     function add_data(chart, cDiario, cSemanal, cMensal, cDiarioMedCorp,cSemanalMedCorp, cMensalMedCorp) {
-       
-        setInterval(function(){
+        console.log(chart, cDiario, cSemanal, cMensal, cDiarioMedCorp,cSemanalMedCorp, cMensalMedCorp);
         myLineChart.data.datasets[0].data.push(cDiario);
         myLineChart.data.datasets[0].data.push(cSemanal);
         myLineChart.data.datasets[0].data.push(cMensal);
         myLineChart.data.datasets[0].data.push(cDiarioMedCorp);
         myLineChart.data.datasets[0].data.push(cSemanalMedCorp);
         myLineChart.data.datasets[0].data.push(cMensalMedCorp);
-            
-        myLineChart.update();
-        }, 1000);
-        
-    };
+
+         myLineChart.update();
+    }
     
-*/
+    
+    
+
+
     function validacao() {
         var formulario = document.contactForm;
         var nome = formulario.nome;
@@ -195,6 +188,7 @@ $(document).ready(function () {
         document.getElementById("cellConectorInfusaoUnidadeSemanal").innerHTML = rSemanal;
         document.getElementById("cellConectorInfusaoUnidadeMensal").innerHTML = rMensal;
 
+        //calculaTotalMensal(chart, 1);
     }
 
 
@@ -217,6 +211,8 @@ $(document).ready(function () {
         document.getElementById("cellsolucoesDeLock").innerHTML = r;
         document.getElementById("cellsolucoesDeLockSemanal").innerHTML = rSemanal;
         document.getElementById("cellsolucoesDeLockMensal").innerHTML = rMensal;
+
+        //calculaTotalMensal(chart, 1);
     }
 
     function calculakitMateriaisDescartaveis() {
@@ -255,6 +251,7 @@ $(document).ready(function () {
         valorkitMateriaisDescartaveisInput = valorkitMateriaisDescartaveisInput.replace('.', ',');
         document.getElementById("kitMateriaisDescartaveisMedCorp").value = valorkitMateriaisDescartaveisInput;
 
+        //calculaTotalMensal(chart, 1);
     }
 
     function calculaTegoUnidade() {
@@ -275,6 +272,8 @@ $(document).ready(function () {
         document.getElementById("cellTegoUnidadeSemanal").innerHTML = rSemanal;
         document.getElementById("cellTegoUnidadeMensal").innerHTML = rMensal;
 
+
+        //calculaTotalMensal(chart, 1);
     }
 
     function somaTotal() {
@@ -331,6 +330,8 @@ $(document).ready(function () {
         return s;
 
     }
+
+
 
 
     function somaTotalMedCorp() {
@@ -563,76 +564,66 @@ $(document).ready(function () {
         let tampasEOclusores    = document.getElementById("tampasEOclusores").value;
         let agulhas             = document.getElementById("agulhas").value;
         let outros              = document.getElementById("outros").value;
-        
-        
-        if
-        (seringa == "" || (seringa.length < 1)){
+
+        if(seringa == ""){
             seringa = 0;
-        }
-        else{
-            seringa = seringa.replace(',', '.');
-            seringa = parseFloat(seringa);
         }
        
 
-        if(gaseEsteril == "" || (gaseEsteril.length < 1)){
+        if(gaseEsteril == ""){
             gaseEsteril = 0;
         }
-        else{
-            gaseEsteril = gaseEsteril.replace(',', '.');
-            gaseEsteril = parseFloat(gaseEsteril);    
-        }
+    
 
-        if(luvaEsteril == "" || (luvaEsteril.length < 1)){
+        if(luvaEsteril == ""){
             luvaEsteril = 0;
         }
-        else{
-            luvaEsteril = luvaEsteril.replace(',', '.');
-            luvaEsteril = parseFloat(luvaEsteril);    
-        }  
+            
 
-        if(campoEsteril == "" || (campoEsteril.length < 1)){
+        if(campoEsteril == ""){
             campoEsteril = 0;
         }
-        else{
-            campoEsteril = campoEsteril.replace(',', '.');
-            campoEsteril = parseFloat(campoEsteril);            
-        }  
-
            
-        if(luvaDeProcedimento == "" || (luvaDeProcedimento.length < 1)){
+        if(luvaDeProcedimento == ""){
            luvaDeProcedimento  = 0;
         }
-        else{
-        luvaDeProcedimento = luvaDeProcedimento.replace(',', '.');
-        luvaDeProcedimento  = parseFloat(luvaDeProcedimento);
-        }  
 
-        if(tampasEOclusores == "" || (tampasEOclusores.length < 1)){
+        if(tampasEOclusores == ""){
             tampasEOclusores  = 0;
         }
-        else{
-            tampasEOclusores = tampasEOclusores.replace(',', '.');
-            tampasEOclusores  = parseFloat(tampasEOclusores);   
-        }  
 
-        if(agulhas == "" || (agulhas.length < 1)){
+        if(agulhas == ""){
             agulhas = 0;
         }
-        else{
-            agulhas= agulhas.replace(',', '.');
-            agulhas = parseFloat(agulhas);   
-        }  
         
-        if(outros == "" || (outros.length < 1)){
+        if(outros == ""){
             outros = 0;
-        }
-        else{
-        outros= outros.replace(',', '.');
-        outros = parseFloat(outros);   
-        }
-
+        }       
         
+        seringa = seringa.replace(',', '.');
+        seringa = parseFloat(seringa);
+
+        gaseEsteril = gaseEsteril.replace(',', '.');
+        gaseEsteril = parseFloat(gaseEsteril);
+
+        luvaEsteril = luvaEsteril.replace(',', '.');
+        luvaEsteril = parseFloat(luvaEsteril);
+
+        campoEsteril = campoEsteril.replace(',', '.');
+        campoEsteril = parseFloat(campoEsteril);
+
+        luvaDeProcedimento = luvaDeProcedimento.replace(',', '.');
+        luvaDeProcedimento  = parseFloat(luvaDeProcedimento);
+
+        tampasEOclusores = tampasEOclusores.replace(',', '.');
+        tampasEOclusores  = parseFloat(tampasEOclusores);
+
+        agulhas= agulhas.replace(',', '.');
+        agulhas = parseFloat(agulhas);
+
+        outros= outros.replace(',', '.');
+        outros = parseFloat(outros);
+
         v = document.getElementById("kitMateriaisDescartaveis").value;
 
         let t = seringa + gaseEsteril + luvaEsteril + campoEsteril + luvaDeProcedimento + tampasEOclusores + agulhas + outros;
@@ -643,6 +634,7 @@ $(document).ready(function () {
 
         document.getElementById("kitMateriaisDescartaveis").value = t;
         document.getElementById("kitMateriaisDescartaveisMedCorp").value = "R$ " + t;
+        //return a;
     }
 
 
@@ -664,6 +656,9 @@ $(document).ready(function () {
 
         valorkitMateriaisDescartaveisInput = valorkitMateriaisDescartaveisInput.replace('.', ',');
         document.getElementById("kitMateriaisDescartaveisMedCorp").value = valorkitMateriaisDescartaveisInput;
+
+
+
 
     });
 

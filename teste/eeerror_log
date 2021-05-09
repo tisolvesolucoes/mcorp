@@ -1,0 +1,44 @@
+[05-May-2021 22:37:04 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1727
+[05-May-2021 22:37:04 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1736
+[06-May-2021 01:27:12 America/Fortaleza] PHP Fatal error:  Uncaught phpmailerException: SMTP Error: Could not authenticate. in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php:1692
+Stack trace:
+#0 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1540): PHPMailer->smtpConnect(Array)
+#1 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1335): PHPMailer->smtpSend('Date: Thu, 6 Ma...', '<table width="5...')
+#2 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1213): PHPMailer->postSend()
+#3 /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php(456): PHPMailer->send()
+#4 {main}
+  thrown in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php on line 1692
+[06-May-2021 01:27:32 America/Fortaleza] PHP Fatal error:  Uncaught phpmailerException: SMTP Error: Could not authenticate. in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php:1692
+Stack trace:
+#0 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1540): PHPMailer->smtpConnect(Array)
+#1 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1335): PHPMailer->smtpSend('Date: Thu, 6 Ma...', '<table width="5...')
+#2 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1213): PHPMailer->postSend()
+#3 /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php(456): PHPMailer->send()
+#4 {main}
+  thrown in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php on line 1692
+[06-May-2021 01:29:42 America/Fortaleza] PHP Fatal error:  Uncaught phpmailerException: SMTP Error: Could not authenticate. in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php:1692
+Stack trace:
+#0 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1540): PHPMailer->smtpConnect(Array)
+#1 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1335): PHPMailer->smtpSend('Date: Thu, 6 Ma...', '<table width="5...')
+#2 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1213): PHPMailer->postSend()
+#3 /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php(456): PHPMailer->send()
+#4 {main}
+  thrown in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php on line 1692
+[06-May-2021 01:31:16 America/Fortaleza] PHP Fatal error:  Uncaught phpmailerException: SMTP Error: Could not authenticate. in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php:1692
+Stack trace:
+#0 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1540): PHPMailer->smtpConnect(Array)
+#1 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1335): PHPMailer->smtpSend('Date: Thu, 6 Ma...', '<table width="5...')
+#2 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1213): PHPMailer->postSend()
+#3 /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php(456): PHPMailer->send()
+#4 {main}
+  thrown in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php on line 1692
+[06-May-2021 01:34:34 America/Fortaleza] PHP Fatal error:  Uncaught phpmailerException: SMTP Error: Could not authenticate. in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php:1692
+Stack trace:
+#0 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1540): PHPMailer->smtpConnect(Array)
+#1 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1335): PHPMailer->smtpSend('Date: Thu, 6 Ma...', '<table width="5...')
+#2 /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php(1213): PHPMailer->postSend()
+#3 /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php(456): PHPMailer->send()
+#4 {main}
+  thrown in /home1/medcorpnetcom/public_html/enviaEmail/class.phpmailer.php on line 1692
+[06-May-2021 08:08:46 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1727
+[06-May-2021 08:08:46 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1736

@@ -302,20 +302,20 @@ td{padding:5px;}
     <table>
         <tr>
             <td style="text-align:center; width:25%;"> 
-            <span colspan="1">R$ </span> <b>'.$somaTotalSemanal.'</b>
-            </td>
-
-            <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$somaTotalMensal.'</b>
-
-            </td> 
-
-            <td style="text-align:center; width:25%;"> 
-            <span>R$ </span> <b>'.$somaTotalPacientesSemanal.'</b>
+            <span colspan="1">R$ </span> <b>'.$somaTotalPacientesSemanal.'</b>
             </td>
 
             <td style="text-align:center; width:25%;"> 
             <span>R$ </span> <b>'.$somaTotalPacientesMensal.'</b>
+
+            </td> 
+
+            <td style="text-align:center; width:25%;"> 
+            <span>R$ </span> <b>'.$somaTotalPacientesSemanalMedCorp.'</b>
+            </td>
+
+            <td style="text-align:center; width:25%;"> 
+            <span>R$ </span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
             </td>
         </tr>
     </table>
@@ -330,8 +330,8 @@ td{padding:5px;}
         <tr class="diferenca-txt"> 
 
             <td class="diferenca-num" style="text-align:center; width:33%;">
-                <span style="font-size:20px;">CONECTORES DE INFUSÃO UNIDADE</span> <br>
-                <span class="head">R$</span> <b>'.$somaTotalPacientesSemanalMedCorp .'</b>
+                <span style="font-size:20px;">OUTROS</span> <br>
+                <span class="head">R$</span> <b>'.$somaTotalPacientesMensal .'</b>
             </td> 
 
             <td style="text-align:center; width:33%;"> 

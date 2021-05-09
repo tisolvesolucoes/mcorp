@@ -133,6 +133,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src='js/menu.js'></script>
 </head>
 
@@ -754,7 +755,7 @@
                     <li style="padding:5px;border-bottom:1px solid #fff"><a href="eletrocirurgia.php?post=20">0118A</a>
                     </li>
                     <li style="padding:5px;border-bottom:1px solid #fff"><a href="eletrocirurgia.php?post=21">0119A</a>
-                    </li>
+                    </li>outros
                     <li style="padding:5px;border-bottom:1px solid #fff"><a href="eletrocirurgia.php?post=22">0120</a>
                     </li>
                     <li style="padding:5px;border-bottom:1px solid #fff"><a href="eletrocirurgia.php?post=23">ACE12A</a>
@@ -838,7 +839,7 @@
 
                             <div class="col-md-12">
                                 <div class="box-pacientes">
-                                    <h3>PACIENTES EM USO DE CATÉTER</h3>
+                                    <h3>PACIENTES EM USO DE CATETER</h3>
                                     <div class="form-group">
                                         <input tabindex="1" type="text" value="1" maxlength="5" class="form-control"
                                             placeholder="Digite a quantidade" id="numeroPacientes">
@@ -855,6 +856,7 @@
 
                                 <div class="col-md-12 box-pacientes-qtd-sessoes-mensais">
                                     <div>
+                                        ATUAL<br>
                                         QUANTIDADE DE SESSÕES MENSAIS
                                     </div>
                                     <input tabindex="2" value="1" type="text" maxlength="3" class="form-control"
@@ -870,7 +872,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        CONECTORES INFUSÃO - UNIDADE
+                                        CONECTORES DE INFUSÃO - UNIDADE
                                     </div>
                                     <input tabindex="2" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -888,9 +890,10 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
+                                        
+                                        KIT MATERIAIS DESCARTÁVEIS<br>
                                         <button class="btn btn-success btn-sm" data-toggle="modal"
-                                            data-target="#myModal">Calcular</button><br>
-                                        KIT MATERIAIS DESCARTÁVEIS
+                                        data-target="#myModal">Somar</button>
                                         <!--<span style="cursor:pointer;"  data-toggle="modal" data-target="#myModal"><svg width="15" height="15" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-question-circle fa-w-16 fa-2x"><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z" class=""></path></svg></span>-->
                                     </div>
                                     <input tabindex="4" type="text" maxlength="10"
@@ -1016,7 +1019,7 @@
                                     <div class="col-md-1"></div>
 
                                     <div class="col-md-12 coluna-head arrumaTextoCentro">
-                                        CUSTO POR PACIENTE COM CATÉTER
+                                        CUSTO POR PACIENTE COM CATETER
                                     </div>
 
                                 </div>
@@ -1059,6 +1062,7 @@
 
                                 <div class="col-md-12 box-pacientes-qtd-sessoes-mensais">
                                     <div class="">
+                                        MEDCORP<br>
                                         QUANTIDADE DE SESSÕES MENSAIS
                                     </div>
                                     <input tabindex="2" value="1" type="text" maxlength="3" class="form-control"
@@ -1209,7 +1213,7 @@
                                     <div class="col-md-1"></div>
 
                                     <div class="col-md-12 coluna-head arrumaTextoCentro">
-                                        CUSTO POR PACIENTE COM CATÉTER
+                                        CUSTO POR PACIENTE COM CATETER
                                     </div>
 
                                 </div>
@@ -1260,9 +1264,9 @@
 
                         <div class="hide-calcula">
                             <!-- inicio estrutura grafico -->
-                            <div class="col-md-8 col-md-offset-2 coluna-grafico coluna-grafico">
+                            <!--<div class="col-md-8 col-md-offset-2 coluna-grafico coluna-grafico">
                                 <canvas id="Grafico"></canvas>
-                            </div>
+                            </div>-->
                             <!-- fim estrutura grafico -->
 
 
@@ -1271,7 +1275,7 @@
                             </div>
 
                             <div class="col-md-4 diferenca-txt">
-                                OUTROS
+                                ATUAL
                                 <div class="col-md-12 diferenca-num diferenca-num-red" id="CellDiferencaCustoConector">
                                     R$0,00
                                 </div>
@@ -1318,8 +1322,7 @@
 
 
                         <!--FIM  DIV CONTAINER-->
-
-
+                      
                         <div class="hide-calcula">
                             <div class="col-md-12">
                                 <!--1 linha -->
@@ -1330,7 +1333,7 @@
                                     <!--<img src="img/pdf.png" width="30px">-->
                                     <form onsubmit="return validacao();" class="shake" data-toggle="validator"
                                         id="contactForm344" name="contactForm" method="post" role="form"
-                                        action="enviandoComparativoGrafico.php">
+                                        action="enviandoComparativoGrafico.php" target="_blank">
                                         <div class="col-md-12">
 
                                             <div class="col-md-6">
@@ -1413,12 +1416,16 @@
                                         </div>
                                         <div class="col-md-12" style="text-align:center;">
                                             <input type="submit" class="btn btn-success btn-lg" id="submit"
-                                                value="Enviar">
+                                                value="Enviar" class="g-recaptcha" 
+        data-sitekey="reCAPTCHA_site_key" 
+        data-callback='onSubmit' 
+        data-action='submit'>
                                             <div class="h3 text-center hidden" id="msgSubmit">
                                             </div>
                                             <div class="clearfix"></div>
 
                                         </div>
+                                        
                                         <input type="hidden" name="numeroPacientesFormEmail"
                                             id="numeroPacientesFormEmail">
                                         <input type="hidden" name="conectorInfusaoUnidadeFormEmail"
@@ -1460,7 +1467,11 @@
                                         <input type="hidden" name="qtdSessoesMensaisFormEmail"
                                             id="qtdSessoesMensaisFormEmail">
                                     </form>
+                                    
                                     <br>
+                                      <div class="col-md-12" style="text-align:right;">
+                            <a href="/calculadora-tego.php" class="btn btn-success btn-lg">Novo cálculo</a>
+                        </div>
                                 </div>
                             </div>
                         </div>
@@ -1566,7 +1577,11 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
-
+             <script>
+               function onSubmit(token) {
+                 document.getElementById("contactForm344").submit();
+               }
+             </script>
             <script src="js/calculadora-tego.js"></script>
 
             <div class="container">
@@ -1598,7 +1613,7 @@
 
                                     <div class="col-md-3 col-xs-6">
                                         <span
-                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">SERINGA:</span>
+                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">SERINGA</span>
                                         <input tabindex="3" type="text" maxlength="10"
                                             onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                             placeholder="R$:" id="seringa">
@@ -1606,32 +1621,34 @@
 
                                     <div class="col-md-3 col-xs-6">
                                         <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">GASE
-                                            ESTÉRIL:</span>
+                                            ESTÉRIL</span>
                                         <input tabindex="3" type="text" maxlength="10"
                                             onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                             placeholder="R$:" id="gaseEsteril">
                                     </div>
 
                                     <div class="col-md-3 col-xs-6">
+                                        <span
+                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">CAMPO
+                                            ESTÉRIL</span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="campoEsteril">
+                                    </div>
+                                    
+                                    <div class="col-md-3 col-xs-6">
                                         <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">LUVA
-                                            ESTÉRIL:</span>
+                                            ESTÉRIL</span>
                                         <input tabindex="3" type="text" maxlength="10"
                                             onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                             placeholder="R$:" id="luvaEsteril">
                                     </div>
 
-                                    <div class="col-md-3 col-xs-6">
-                                        <span
-                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">CAMPO
-                                            ESTÉRIL:</span>
-                                        <input tabindex="3" type="text" maxlength="10"
-                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
-                                            placeholder="R$:" id="campoEsteril">
-                                    </div>
+                                   
 
                                     <div class="col-md-3 col-xs-6">
                                         <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">LUVA
-                                            DE PROCEDIMENTO:</span>
+                                            DE PROCEDIMENTO</span>
                                         <input tabindex="3" type="text" maxlength="10"
                                             onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                             placeholder="R$:" id="luvaDeProcedimento">
@@ -1639,7 +1656,7 @@
 
                                     <div class="col-md-3 col-xs-6">
                                         <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">
-                                            TAMPAS E OCLUSORES:
+                                            TAMPAS E OCLUSORES
                                         </span>
                                         <input tabindex="3" type="text" maxlength="10"
                                             onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -1648,7 +1665,7 @@
                                     
                                     <div class="col-md-3 col-xs-6">
                                         <span
-                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">AGULHAS:</span>
+                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">AGULHAS</span>
                                         <input tabindex="3" type="text" maxlength="10"
                                             onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                             placeholder="R$:" id="agulhas">
@@ -1656,7 +1673,7 @@
 
                                     <div class="col-md-3 col-xs-6">
                                         <span
-                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">OUTROS:</span>
+                                            style="color:#FFF; display:block; padding:10px 0; text-align:center;">OUTROS</span>
                                         <input tabindex="3" type="text" maxlength="10"
                                             onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
                                             placeholder="R$:" id="outros">

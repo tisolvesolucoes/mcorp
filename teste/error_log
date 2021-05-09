@@ -1,0 +1,35 @@
+[06-May-2021 15:14:58 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1727
+[06-May-2021 15:14:58 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1736
+[06-May-2021 22:49:02 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 20
+[06-May-2021 22:49:02 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 21
+[06-May-2021 22:49:02 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 22
+[06-May-2021 22:49:02 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 24
+[06-May-2021 22:49:02 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 25
+[06-May-2021 22:49:02 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 26
+[06-May-2021 22:49:02 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 27
+[06-May-2021 22:49:02 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 28
+[06-May-2021 22:49:02 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 29
+[06-May-2021 22:52:34 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 20
+[06-May-2021 22:52:34 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 21
+[06-May-2021 22:52:34 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 22
+[06-May-2021 22:52:34 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 24
+[06-May-2021 22:52:34 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 25
+[06-May-2021 22:52:34 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 26
+[06-May-2021 22:52:34 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 27
+[06-May-2021 22:52:34 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 28
+[06-May-2021 22:52:34 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 29
+[06-May-2021 22:55:39 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 20
+[06-May-2021 22:55:39 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 21
+[06-May-2021 22:55:39 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 22
+[06-May-2021 22:55:39 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 24
+[06-May-2021 22:55:39 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 25
+[06-May-2021 22:55:39 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 26
+[06-May-2021 22:55:39 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 27
+[06-May-2021 22:55:39 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 28
+[06-May-2021 22:55:39 America/Fortaleza] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home1/medcorpnetcom/public_html/enviandoComparativoGrafico.php on line 29
+[07-May-2021 09:22:14 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1727
+[07-May-2021 09:22:14 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1736
+[08-May-2021 21:25:20 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1727
+[08-May-2021 21:25:20 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1736
+[09-May-2021 00:52:08 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1727
+[09-May-2021 00:52:08 America/Fortaleza] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in /home1/medcorpnetcom/public_html/config/mail/class.phpmailer.php on line 1736

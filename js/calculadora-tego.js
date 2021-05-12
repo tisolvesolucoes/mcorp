@@ -183,9 +183,9 @@ $(document).ready(function () {
         let valorConectorInfusaoUnidade = conectorInfusaoUnidade.val();
         valorConectorInfusaoUnidade = limpaPonto(valorConectorInfusaoUnidade);
 
-        let resultado = valorConectorInfusaoUnidade * 6;
-        let resultadoSemanal = resultado;
-        let resultadoMensal = resultadoSemanal * 4;
+        let resultado = valorConectorInfusaoUnidade * 2;
+        let resultadoSemanal = resultado * 6;
+        let resultadoMensal = resultadoSemanal * 24;
 
         var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
         var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
@@ -291,9 +291,9 @@ $(document).ready(function () {
         valorkitMateriaisDescartaveis = limpaPonto(valorkitMateriaisDescartaveis);
 
 
-        let resultadoDiarioValorConectorInfusaoUnidade = valorConectorInfusaoUnidade * 6;
-        let resultadoSemanalValorConectorInfusaoUnidade = resultadoDiarioValorConectorInfusaoUnidade;
-        let resultadoMensalConectorInfusaoUnidade = resultadoSemanalValorConectorInfusaoUnidade * 4;
+        let resultadoDiarioValorConectorInfusaoUnidade = valorConectorInfusaoUnidade * 2;
+        let resultadoSemanalValorConectorInfusaoUnidade = resultadoDiarioValorConectorInfusaoUnidade * 6;
+        let resultadoMensalConectorInfusaoUnidade = resultadoSemanalValorConectorInfusaoUnidade * 24;
 
         let resultadoDiarioValorsolucoesDeLock = 0;
 

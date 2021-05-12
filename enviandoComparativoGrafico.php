@@ -277,10 +277,10 @@ td{padding:5px;}
       <tr>
         <td style="text-align:center; width:50%;">
            
-        CONECTORES DE INFUSÃO - UNIDADE <br>
+        TAMPAS E OCLUSORES <br>
             <span class="head">R$</span> <b>'.$conectorInfusaoUnidade.'</b>
             <br><br>
-            SOLUÇÕES DE LOCK <br>
+            SOLUÇÃO DE LOCK / FRASCO <br>
             <span class="head">R$</span> <b>'.$solucoesDeLock.'</b>
             <br><br>
             KIT MATERIAIS DESCARTÁVEIS <br>

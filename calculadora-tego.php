@@ -6,7 +6,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <!-- FAVICON <link rel='shortcut icon' href='images/favicon.png' type='image/x-icon'>-->
     <link rel='shortcut icon' href='img/favicon.ico' />
+     <script async src='https://www.googletagmanager.com/gtag/js?id=G-D5SF92WRBY'></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      gtag('config', 'G-D5SF92WRBY');
+    </script>
     <!-- METAS GENERICAS -->
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
     <meta http-equiv='content-language' content='pt-br'>
@@ -872,7 +879,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                    TAMPAS E OCLUSORES
+                                        TAMPAS E OCLUSORES
                                     </div>
                                     <input tabindex="2" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -881,7 +888,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                    FRASCO
+                                        SOLUÇÃO DE LOCK / FRASCO
                                     </div>
                                     <input tabindex="3" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -931,7 +938,7 @@
                                 <div class="row line-calculo-bg">
 
                                     <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    TAMPAS E OCLUSORES
+                                        TAMPAS E OCLUSORES
                                     </div>
 
                                     <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidade">
@@ -953,7 +960,7 @@
                                 <div class="row">
 
                                     <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    FRASCO
+                                        SOLUÇÃO DE LOCK / FRASCO
                                     </div>
 
                                     <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLock">
@@ -1087,7 +1094,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                    FRASCO
+                                        SOLUÇÃO DE LOCK / FRASCO
                                     </div>
                                     <input type="text" class="form-control" readonly value="ZERO"
                                         id="solucoesDeLockMedCorp">
@@ -1150,7 +1157,7 @@
                                 <div class="row">
 
                                     <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                    FRASCO
+                                        SOLUÇÃO DE LOCK / FRASCO
                                     </div>
                                     <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMedCorp">
                                         ZERO
@@ -1551,6 +1558,12 @@
 
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-11">
+
+                            <p>© 2021 MEDCORP.Todos os direitos reservados. <a href="/politica-de-privacidade.php" style="text-decoration:underline">Política de Privacidade</a> | <a href="/termos-de-uso.php" style="text-decoration:underline">Termos de Uso</a>.</p>
+                        </div>
+                    </div>
                 </div>
             </footer>
 
@@ -1654,6 +1667,15 @@
                                             placeholder="R$:" id="luvaDeProcedimento">
                                     </div>
 
+                                    <!--<div class="col-md-3 col-xs-6">
+                                        <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">
+                                            TAMPAS E OCLUSORES
+                                        </span>
+                                        <input tabindex="3" type="text" maxlength="10"
+                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
+                                            placeholder="R$:" id="tampasEOclusores">
+                                    </div>-->
+                                    
                                     <div class="col-md-3 col-xs-6">
                                         <span
                                             style="color:#FFF; display:block; padding:10px 0; text-align:center;">AGULHAS</span>
@@ -1674,6 +1696,7 @@
                             </div>
 
 
+
                         </div>
 
 
@@ -1685,6 +1708,9 @@
 
                         </div>
                     </div>
+
+
+
 
                 </div>
             </div>

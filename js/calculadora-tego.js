@@ -183,7 +183,7 @@ $(document).ready(function () {
         let valorConectorInfusaoUnidade = conectorInfusaoUnidade.val();
         valorConectorInfusaoUnidade = limpaPonto(valorConectorInfusaoUnidade);
 
-        let resultado = valorConectorInfusaoUnidade * 2;
+        let resultado = valorConectorInfusaoUnidade * 6;
         let resultadoSemanal = resultado;
         let resultadoMensal = resultadoSemanal * 4;
 
@@ -291,7 +291,7 @@ $(document).ready(function () {
         valorkitMateriaisDescartaveis = limpaPonto(valorkitMateriaisDescartaveis);
 
 
-        let resultadoDiarioValorConectorInfusaoUnidade = valorConectorInfusaoUnidade * 2;
+        let resultadoDiarioValorConectorInfusaoUnidade = valorConectorInfusaoUnidade * 6;
         let resultadoSemanalValorConectorInfusaoUnidade = resultadoDiarioValorConectorInfusaoUnidade;
         let resultadoMensalConectorInfusaoUnidade = resultadoSemanalValorConectorInfusaoUnidade * 4;
 
@@ -560,7 +560,7 @@ $(document).ready(function () {
         let luvaEsteril         = document.getElementById("luvaEsteril").value;
         let campoEsteril        = document.getElementById("campoEsteril").value;
         let luvaDeProcedimento  = document.getElementById("luvaDeProcedimento").value;
-        let tampasEOclusores    = document.getElementById("tampasEOclusores").value;
+        //let tampasEOclusores    = document.getElementById("tampasEOclusores").value;
         let agulhas             = document.getElementById("agulhas").value;
         let outros              = document.getElementById("outros").value;
         
@@ -606,15 +606,7 @@ $(document).ready(function () {
         else{
         luvaDeProcedimento = luvaDeProcedimento.replace(',', '.');
         luvaDeProcedimento  = parseFloat(luvaDeProcedimento);
-        }  
-
-        if(tampasEOclusores == "" || (tampasEOclusores.length < 1)){
-            tampasEOclusores  = 0;
         }
-        else{
-            tampasEOclusores = tampasEOclusores.replace(',', '.');
-            tampasEOclusores  = parseFloat(tampasEOclusores);   
-        }  
 
         if(agulhas == "" || (agulhas.length < 1)){
             agulhas = 0;
@@ -635,7 +627,7 @@ $(document).ready(function () {
         
         v = document.getElementById("kitMateriaisDescartaveis").value;
 
-        let t = seringa + gaseEsteril + luvaEsteril + campoEsteril + luvaDeProcedimento + tampasEOclusores + agulhas + outros;
+        let t = seringa + gaseEsteril + luvaEsteril + campoEsteril + luvaDeProcedimento + agulhas + outros;
 
         t = t.toFixed(2)
         t = t.toString();

@@ -43,11 +43,11 @@ $mail->Host = 'smtp.office365.com';
 $mail->Port       = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth   = true;
-$mail->Username = 'calculadoratego@medcorpnet.com.br';
-$mail->Password = 'Cal@bcc321@#$2021@';
+$mail->Username = 'tego@medcorpnet.com.br';
+$mail->Password = 'KUB!T$CH3k#@#';
 
-$mail->SetFrom('calculadoratego@medcorpnet.com.br', 'FromEmail');
-$mail->addAddress('calculadoratego@medcorpnet.com.br', 'ToEmail');
+$mail->SetFrom('tego@medcorpnet.com.br', 'FromEmail');
+$mail->addAddress('tego@medcorpnet.com.br', 'ToEmail');
 //$mail->SMTPDebug  = 3;
 //$mail->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";}; //$mail->Debugoutput = 'echo';
 $mail->IsHTML(true);
@@ -241,11 +241,11 @@ td{padding:5px;}
     <table>
         <tr>
             <td class="coluna-head" style="text-align:center; width:50%;">
-            ATUAL
+            Protocolo Atual
             </td> 
 
             <td class="coluna-head" style="text-align:center;  width:50%;">
-            MEDCORP
+            Protocolo Tego
             </td>
         </tr>
     </table>
@@ -365,7 +365,7 @@ td{padding:5px;}
         <tr class="diferenca-txt"> 
 
             <td class="diferenca-num" style="text-align:center; width:33%;">
-                <span style="font-size:20px;">ATUAL</span> <br>
+                <span style="font-size:20px;">Protocolo Atual</span> <br>
                 <span class="head">R$</span> <b>'.$somaTotalPacientesMensal .'</b>
             </td> 
 
@@ -373,7 +373,7 @@ td{padding:5px;}
                 <span>X</span>
             </td>
                 <td class="diferenca-num" style="text-align:center; width:33%;">
-                <span style="font-size:20px;">MEDCORP</span><br>
+                <span style="font-size:20px;">Protocolo Tego</span><br>
                 <span class="head">R$</span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
             </td> 
 

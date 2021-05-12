@@ -194,23 +194,19 @@ td{padding:5px;}
             Fone/Fax: +55 11-3849-8992</td>
        
         </tr>
+        
         <tr>
-            <td class="titulo" colspan="4">
-                <h1> Calculadora Tego</h1>
-            </td> 
-        </tr>
-        <tr>
-            <td class="coluna-head" colspan="4" style="padding:0;" ><h3 style="text-align:center;">PACIENTES EM USO DE CATÉTER - '.$numeroPacientes.'</h3></td>
+            <td class="coluna-head" colspan="4" style="padding:0;" ><h3 style="text-align:center;">PACIENTES EM USO DE CATETER - '.$numeroPacientes.'</h3></td>
         </tr>
     </table>
     <table>
         <tr>
             <td class="coluna-head" style="text-align:center; width:50%;">
-            ATUAL
+            Protocolo Atual
             </td> 
 
             <td class="coluna-head" style="text-align:center;  width:50%;">
-            MEDCORP
+            Protocolo Tego
             </td>
         </tr>
     </table>
@@ -269,12 +265,12 @@ td{padding:5px;}
     <table>
         <tr> 
             <td class="coluna-head" style="text-align:center; width:50%;">
-                CUSTO POR PACIENTE COM CATÉTER 
+                CUSTO POR PACIENTE COM CATETER 
             </td> 
                 
                     
             <td class="coluna-head" style="text-align:center; width:50%;">
-            CUSTO POR PACIENTE COM CATÉTER 
+            CUSTO POR PACIENTE COM CATETER 
             </td>
          </tr>
     </table>
@@ -330,7 +326,7 @@ td{padding:5px;}
         <tr class="diferenca-txt"> 
 
             <td class="diferenca-num" style="text-align:center; width:33%;">
-                <span style="font-size:20px;">OUTROS</span> <br>
+                <span style="font-size:20px;">Protocolo Atual</span> <br>
                 <span class="head">R$</span> <b>'.$somaTotalPacientesMensal .'</b>
             </td> 
 
@@ -338,7 +334,7 @@ td{padding:5px;}
                 <span>X</span>
             </td>
                 <td class="diferenca-num" style="text-align:center; width:33%;">
-                <span style="font-size:20px;">MEDCORP</span><br>
+                <span style="font-size:20px;">Protocolo Tego</span><br>
                 <span class="head">R$</span> <b>'.$somaTotalPacientesMensalMedCorp.'</b>
             </td> 
 

@@ -133,7 +133,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    
     <script src='js/menu.js'></script>
 </head>
 
@@ -856,7 +856,7 @@
 
                                 <div class="col-md-12 box-pacientes-qtd-sessoes-mensais">
                                     <div>
-                                        ATUAL<br>
+                                        Protocolo Atual<br>
                                         QUANTIDADE DE SESSÕES MENSAIS
                                     </div>
                                     <input tabindex="2" value="1" type="text" maxlength="3" class="form-control"
@@ -872,7 +872,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        CONECTORES DE INFUSÃO - UNIDADE
+                                    TAMPAS E OCLUSORES
                                     </div>
                                     <input tabindex="2" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -881,7 +881,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        SOLUÇÕES DE LOCK
+                                    FRASCO
                                     </div>
                                     <input tabindex="3" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
@@ -931,7 +931,7 @@
                                 <div class="row line-calculo-bg">
 
                                     <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                        CONECTORES DE INFUSÃO - UNIDADE
+                                    TAMPAS E OCLUSORES
                                     </div>
 
                                     <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidade">
@@ -953,7 +953,7 @@
                                 <div class="row">
 
                                     <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                        SOLUÇÕES DE LOCK
+                                    FRASCO
                                     </div>
 
                                     <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLock">
@@ -1062,7 +1062,7 @@
 
                                 <div class="col-md-12 box-pacientes-qtd-sessoes-mensais">
                                     <div class="">
-                                        MEDCORP<br>
+                                        Protocolo Tego<br>
                                         QUANTIDADE DE SESSÕES MENSAIS
                                     </div>
                                     <input tabindex="2" value="1" type="text" maxlength="3" class="form-control"
@@ -1087,7 +1087,7 @@
 
                                 <div class="col-md-4">
                                     <div class="title-calculo">
-                                        SOLUÇÕES DE LOCK
+                                    FRASCO
                                     </div>
                                     <input type="text" class="form-control" readonly value="ZERO"
                                         id="solucoesDeLockMedCorp">
@@ -1150,7 +1150,7 @@
                                 <div class="row">
 
                                     <div class="col-md-3" style="font-size:11px; line-height:15px;">
-                                        SOLUÇÕES DE LOCK
+                                    FRASCO
                                     </div>
                                     <div class="col-md-3 arrumaAlinhamento" id="cellsolucoesDeLockMedCorp">
                                         ZERO
@@ -1275,7 +1275,7 @@
                             </div>
 
                             <div class="col-md-4 diferenca-txt">
-                                ATUAL
+                                Protocolo Atual
                                 <div class="col-md-12 diferenca-num diferenca-num-red" id="CellDiferencaCustoConector">
                                     R$0,00
                                 </div>
@@ -1284,7 +1284,7 @@
                             <div class="col-md-4 x-custo"> X </div>
 
                             <div class="col-md-4 diferenca-txt">
-                                MEDCORP
+                                Protocolo Tego
                                 <div class="col-md-12 diferenca-num diferenca-num-green" id="CellDiferencaCustoMedCorp">
                                     R$0,00
                                 </div>
@@ -1417,9 +1417,9 @@
                                         <div class="col-md-12" style="text-align:center;">
                                             <input type="submit" class="btn btn-success btn-lg" id="submit"
                                                 value="Enviar" class="g-recaptcha" 
-        data-sitekey="reCAPTCHA_site_key" 
-        data-callback='onSubmit' 
-        data-action='submit'>
+                                                data-sitekey="6LdvfNAaAAAAAOK1BcmzK7OkHhwfSBJsY0BW56J7" 
+                                                data-callback='onSubmit' 
+                                                data-action='submit'>
                                             <div class="h3 text-center hidden" id="msgSubmit">
                                             </div>
                                             <div class="clearfix"></div>
@@ -1655,15 +1655,6 @@
                                     </div>
 
                                     <div class="col-md-3 col-xs-6">
-                                        <span style="color:#FFF; display:block; padding:10px 0; text-align:center;">
-                                            TAMPAS E OCLUSORES
-                                        </span>
-                                        <input tabindex="3" type="text" maxlength="10"
-                                            onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
-                                            placeholder="R$:" id="tampasEOclusores">
-                                    </div>
-                                    
-                                    <div class="col-md-3 col-xs-6">
                                         <span
                                             style="color:#FFF; display:block; padding:10px 0; text-align:center;">AGULHAS</span>
                                         <input tabindex="3" type="text" maxlength="10"
@@ -1683,7 +1674,6 @@
                             </div>
 
 
-
                         </div>
 
 
@@ -1695,9 +1685,6 @@
 
                         </div>
                     </div>
-
-
-
 
                 </div>
             </div>

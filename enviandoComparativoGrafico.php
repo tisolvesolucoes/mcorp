@@ -9,7 +9,7 @@
 
     
     $numeroPacientes                    = $_REQUEST['numeroPacientesFormEmail'];
-    $conectorInfusaoUnidade             = $_REQUEST['conectorInfusaoUnidadeFormEmail'];
+    $tampasEOclusores                   = $_REQUEST['tampasEOclusoresFormEmail'];
     $solucoesDeLock                     = $_REQUEST['solucoesDeLockFormEmail'];
     $kitMateriaisDescartaveis           = $_REQUEST['kitMateriaisDescartaveisFormEmail'];
     $tegoUnidade                        = $_REQUEST['tegoUnidadeFormEmail'];
@@ -278,7 +278,7 @@ td{padding:5px;}
         <td style="text-align:center; width:50%;">
            
         TAMPAS E OCLUSORES <br>
-            <span class="head">R$</span> <b>'.$conectorInfusaoUnidade.'</b>
+            <span class="head">R$</span> <b>'.$tampasEOclusores.'</b>
             <br><br>
             SOLUÇÃO DE LOCK / FRASCO <br>
             <span class="head">R$</span> <b>'.$solucoesDeLock.'</b>

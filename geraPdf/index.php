@@ -239,7 +239,7 @@ td{padding:5px;}
         <td style="text-align:center; width:50%;">
            
             CONECTORES DE INFUSÃO UNIDADE <br>
-            <span class="head">R$</span> <b>'.$conectorInfusaoUnidade.'</b>
+            <span class="head">R$</span> <b>'.$tampasEOclusores.'</b>
             <br><br>
             SOLUÇÕES DE LOCK <br>
             <span class="head">R$</span> <b>'.$solucoesDeLock.'</b>

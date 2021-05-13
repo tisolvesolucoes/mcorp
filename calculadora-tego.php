@@ -883,7 +883,7 @@
                                     </div>
                                     <input tabindex="2" type="text" maxlength="10"
                                         onkeypress="$(this).mask('#.##0,00', {reverse: true});" class="form-control"
-                                        placeholder="R$:" id="conectorInfusaoUnidade">
+                                        placeholder="R$:" id="tampasEOclusores">
                                 </div>
 
                                 <div class="col-md-4">
@@ -941,15 +941,15 @@
                                         TAMPAS E OCLUSORES
                                     </div>
 
-                                    <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidade">
+                                    <div class="col-md-3 arrumaAlinhamento" id="celltampasEOclusores">
                                         R$ 0,00
                                     </div>
 
-                                    <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidadeSemanal">
+                                    <div class="col-md-3 arrumaAlinhamento" id="celltampasEOclusoresSemanal">
                                         R$ 0,00
                                     </div>
 
-                                    <div class="col-md-3 arrumaAlinhamento" id="cellConectorInfusaoUnidadeMensal">
+                                    <div class="col-md-3 arrumaAlinhamento" id="celltampasEOclusoresMensal">
                                         R$ 0,00
                                     </div>
 
@@ -1435,8 +1435,8 @@
                                         
                                         <input type="hidden" name="numeroPacientesFormEmail"
                                             id="numeroPacientesFormEmail">
-                                        <input type="hidden" name="conectorInfusaoUnidadeFormEmail"
-                                            id="conectorInfusaoUnidadeFormEmail">
+                                        <input type="hidden" name="tampasEOclusoresFormEmail"
+                                            id="tampasEOclusoresFormEmail">
                                         <input type="hidden" name="solucoesDeLockFormEmail"
                                             id="solucoesDeLockFormEmail">
                                         <input type="hidden" name="kitMateriaisDescartaveisFormEmail"

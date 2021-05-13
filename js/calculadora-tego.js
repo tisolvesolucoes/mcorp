@@ -9,7 +9,7 @@ $(document).ready(function () {
     let qtdSessoesMensais = $("#qtdSessoesMensais");
     let qtdSessoesMensaisTego = $("#qtdSessoesMensaisTego");
 
-    let conectorInfusaoUnidade = $("#conectorInfusaoUnidade");
+    let tampasEOclusores = $("#tampasEOclusores");
     let solucoesDeLock = $("#solucoesDeLock");
     let kitMateriaisDescartaveis = $("#kitMateriaisDescartaveis");
     let tegoUnidade = $("#tegoUnidade");
@@ -169,7 +169,7 @@ $(document).ready(function () {
 
     function encheCampo() {
 
-        calculaConectorInfusaoUnidade();
+        calculatampasEOclusores();
         calculaSolucoesDeLock();
         calculakitMateriaisDescartaveis();
         calculaTegoUnidade();
@@ -178,22 +178,22 @@ $(document).ready(function () {
 
 
 
-    function calculaConectorInfusaoUnidade() {
+    function calculatampasEOclusores() {
 
-        let valorConectorInfusaoUnidade = conectorInfusaoUnidade.val();
-        valorConectorInfusaoUnidade = limpaPonto(valorConectorInfusaoUnidade);
+        let valortampasEOclusores = tampasEOclusores.val();
+        valortampasEOclusores = limpaPonto(valortampasEOclusores);
 
-        let resultado = valorConectorInfusaoUnidade * 2;
-        let resultadoSemanal = resultado * 6;
-        let resultadoMensal = resultadoSemanal * 24;
+        let resultado = valortampasEOclusores * 2;
+        let resultadoSemanal = valortampasEOclusores * 6;
+        let resultadoMensal = valortampasEOclusores * 24;
 
         var r = resultado.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
         var rSemanal = resultadoSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
         var rMensal = resultadoMensal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
-        document.getElementById("cellConectorInfusaoUnidade").innerHTML = r;
-        document.getElementById("cellConectorInfusaoUnidadeSemanal").innerHTML = rSemanal;
-        document.getElementById("cellConectorInfusaoUnidadeMensal").innerHTML = rMensal;
+        document.getElementById("celltampasEOclusores").innerHTML = r;
+        document.getElementById("celltampasEOclusoresSemanal").innerHTML = rSemanal;
+        document.getElementById("celltampasEOclusoresMensal").innerHTML = rMensal;
 
     }
 
@@ -279,21 +279,21 @@ $(document).ready(function () {
 
     function somaTotal() {
 
-        let valorConectorInfusaoUnidade = conectorInfusaoUnidade.val();
+        let valortampasEOclusores = tampasEOclusores.val();
         let valorsolucoesDeLock = solucoesDeLock.val();
         let vkitMateriaisDescartaveis = kitMateriaisDescartaveis.val();
         let valorTegoUnidade = tegoUnidade.val();
         let valorkitMateriaisDescartaveis = vkitMateriaisDescartaveis;
 
 
-        valorConectorInfusaoUnidade = limpaPonto(valorConectorInfusaoUnidade);
+        valortampasEOclusores = limpaPonto(valortampasEOclusores);
         valorsolucoesDeLock = limpaPonto(valorsolucoesDeLock);
         valorkitMateriaisDescartaveis = limpaPonto(valorkitMateriaisDescartaveis);
 
 
-        let resultadoDiarioValorConectorInfusaoUnidade = valorConectorInfusaoUnidade * 2;
-        let resultadoSemanalValorConectorInfusaoUnidade = resultadoDiarioValorConectorInfusaoUnidade * 6;
-        let resultadoMensalConectorInfusaoUnidade = resultadoSemanalValorConectorInfusaoUnidade * 24;
+        let resultadoDiarioValortampasEOclusores = valortampasEOclusores * 2;
+        let resultadoSemanalValortampasEOclusores = valortampasEOclusores * 6;
+        let resultadoMensaltampasEOclusores = valortampasEOclusores * 24;
 
         let resultadoDiarioValorsolucoesDeLock = 0;
 
@@ -310,9 +310,9 @@ $(document).ready(function () {
         let resultadoMensalkitMateriaisDescartaveis = resultadoSemanalkitMateriaisDescartaveis * 4;
 
 
-        let somaTotalDiario = resultadoDiarioValorConectorInfusaoUnidade + resultadoDiarioValorsolucoesDeLock + resultadoDiariokitMateriaisDescartaveis;
-        let somaTotalSemanal = resultadoSemanalValorConectorInfusaoUnidade + resultadoSemanalValorsolucoesDeLock + resultadoSemanalkitMateriaisDescartaveis;
-        let somaTotalMensal = resultadoMensalConectorInfusaoUnidade + resultadoMensalValorsolucoesDeLock + resultadoMensalkitMateriaisDescartaveis;
+        let somaTotalDiario = resultadoDiarioValortampasEOclusores + resultadoDiarioValorsolucoesDeLock + resultadoDiariokitMateriaisDescartaveis;
+        let somaTotalSemanal = resultadoSemanalValortampasEOclusores + resultadoSemanalValorsolucoesDeLock + resultadoSemanalkitMateriaisDescartaveis;
+        let somaTotalMensal = resultadoMensaltampasEOclusores + resultadoMensalValorsolucoesDeLock + resultadoMensalkitMateriaisDescartaveis;
 
         let rsomaTotalDiario = somaTotalDiario.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
         let rsomaTotalSemanal = somaTotalSemanal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
@@ -475,7 +475,7 @@ $(document).ready(function () {
 
 
         $("#numeroPacientesFormEmail").val($("#numeroPacientes").val());
-        $("#conectorInfusaoUnidadeFormEmail").val($("#conectorInfusaoUnidade").val());
+        $("#tampasEOclusoresFormEmail").val($("#tampasEOclusores").val());
         $("#solucoesDeLockFormEmail").val($("#solucoesDeLock").val());
         $("#kitMateriaisDescartaveisFormEmail").val($("#kitMateriaisDescartaveis").val());
         $("#tegoUnidadeFormEmail").val($("#tegoUnidade").val());
@@ -504,7 +504,7 @@ $(document).ready(function () {
 
         if (numeroPacientes.val() == "" || (numeroPacientes.val().length < 1)) {
             alert("Coloque o numero de pacientes, para o calculo. ");
-            document.getElementById("conectorInfusaoUnidade").value = "";
+            document.getElementById("tampasEOclusores").value = "";
             numeroPacientes.focus();
             b = false;
         }
@@ -521,10 +521,10 @@ $(document).ready(function () {
             qtdSessoesMensaisTego.focus();
             b = false;
         }
-        if (conectorInfusaoUnidade.val() == "" || (conectorInfusaoUnidade.val().length < 1)) {
+        if (tampasEOclusores.val() == "" || (tampasEOclusores.val().length < 1)) {
             alert("Coloque CONECTORES DE INFUSÃO UNIDADE, para o calculo. ");
-            document.getElementById("conectorInfusaoUnidade").value = "";
-            conectorInfusaoUnidade.focus();
+            document.getElementById("tampasEOclusores").value = "";
+            tampasEOclusores.focus();
             b = false;
         }
 
@@ -560,7 +560,6 @@ $(document).ready(function () {
         let luvaEsteril         = document.getElementById("luvaEsteril").value;
         let campoEsteril        = document.getElementById("campoEsteril").value;
         let luvaDeProcedimento  = document.getElementById("luvaDeProcedimento").value;
-        //let tampasEOclusores    = document.getElementById("tampasEOclusores").value;
         let agulhas             = document.getElementById("agulhas").value;
         let outros              = document.getElementById("outros").value;
         
